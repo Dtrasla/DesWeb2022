@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Users.User.Domain;
 
 import com.webdev.productsystem.Users.User.Domain.Entities.UserAddress;
+import com.webdev.productsystem.Users.User.Domain.Entities.UserData;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
 
@@ -15,7 +16,6 @@ public class User {
 
     private UserId userId;
     private UserEmail userEmail;
-
     private UserPassword password;
     private UserData userData;
     private Phone userPhone;
