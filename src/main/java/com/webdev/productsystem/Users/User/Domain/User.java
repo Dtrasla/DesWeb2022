@@ -1,6 +1,6 @@
 package com.webdev.productsystem.Users.User.Domain;
 
-import com.webdev.productsystem.Users.User.Domain.Entities.UserAddress;
+import com.webdev.productsystem.Users.User.Domain.Entities.*;
 import com.webdev.productsystem.Users.User.Domain.Entities.UserData;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
@@ -20,20 +20,21 @@ public class User {
     private UserData userData;
     private Phone userPhone;
 
-    public User(UserId userId,  UserEmail userEmail, UserPassword password, Phone userPhone, UserData userData) {
+    public User(UserId userId, UserEmail userEmail, Phone userPhone, UserData userData, UserPassword password, Optional<Object> empty) {
         this.userId = userId;
         this.userEmail = userEmail;
         this.password = password;
         this.userPhone = userPhone;
         this.userData = userData;
+
     }
 
-    public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userdata, Phone userPhone) {
+
+
+    public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userData, Phone userPhone) {
         User user = new User(userId,
                             userEmail,
-                            userPhone,
-                            userData,
-                            password, Optional.empty());
+                            password);
         return user;
     }
 
