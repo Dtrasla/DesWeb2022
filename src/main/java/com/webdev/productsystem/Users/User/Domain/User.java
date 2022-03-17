@@ -28,7 +28,7 @@ public class User {
         this.userData = userData;
     }
 
-    public static User create(UserId userId,  UserEmail userEmail, UserPassword password) {
+    public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userdata, Phone userPhone) {
         User user = new User(userId,
                             userEmail,
                             userPhone,
