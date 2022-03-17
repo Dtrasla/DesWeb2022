@@ -1,0 +1,15 @@
+package com.webdev.productsystem.Tours.Tickets.Domain.ValueObjects;
+
+import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidUserEmail;
+
+public class TicketId
+{
+
+
+    private TicketId() {
+
+    }
+
+
+}
+
