@@ -17,17 +17,22 @@ public class Ticket {
     public TicketSeat ticketSeat;
     public TicketDate ticketDate;
     public UserId userId;
+    public City originCity;
+    public City destinyCity;
 
-    public Ticket(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, UserId userId) {
+
+    public Ticket(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, UserId userId, City originCity, City destinyCity) {
         this.ticketId = ticketId;
         this.ticketGate = ticketGate;
         this.ticketSeat = ticketSeat;
         this.ticketDate = ticketDate;
+        this.originCity = originCity;
+        this.destinyCity = destinyCity;
         this.userId = userId;
     }
 
-    public static Ticket create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, UserId userId){
-        Ticket ticket = new Ticket(ticketId, ticketGate, ticketSeat, ticketDate, userId);
+    public static Ticket create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, UserId userId, City originCity, City destinyCity){
+        Ticket ticket = new Ticket(ticketId, ticketGate, ticketSeat, ticketDate, userId, originCity, destinyCity);
         return ticket;
     }
 
