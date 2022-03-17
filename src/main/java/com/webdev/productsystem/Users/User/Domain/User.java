@@ -20,7 +20,7 @@ public class User {
     private UserData userData;
     private Phone userPhone;
 
-    public User(UserId userId, UserEmail userEmail, Phone userPhone, UserData userData, UserPassword password, Optional<Object> empty) {
+    public User(UserId userId, UserEmail userEmail, UserPassword password, Phone userPhone, UserData userData) {
         this.userId = userId;
         this.userEmail = userEmail;
         this.password = password;
@@ -29,12 +29,8 @@ public class User {
 
     }
 
-
-
     public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userData, Phone userPhone) {
-        User user = new User(userId,
-                            userEmail,
-                            password);
+        User user = new User(userId, userEmail, password, userPhone, userData);
         return user;
     }
 
