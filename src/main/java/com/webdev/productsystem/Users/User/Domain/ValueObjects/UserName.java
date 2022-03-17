@@ -18,9 +18,8 @@ public class UserName extends StringValueObject {
     }
 
     private void lengthValue(String value) {
-        if (value.length() < 5 || value.length() > 30) {
+        if (value.length() < 5 || value.length() > 30)
             throw new LenghtInvalid("Longitud Invalida");
-        }
     }
 
     private void notAllowedCharacters(String value) {}
