@@ -11,10 +11,10 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource("classpath:dependencies.xml")
-public class ProductSystemApplication {
+public class TourSystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductSystemApplication.class, args);
+        SpringApplication.run(TourSystemApplication.class, args);
     }
 
     @Bean

@@ -16,9 +16,8 @@ public class UserCreator {
         this.repository = repository;
     }
 
-    public void execute(String userId, String userName, String userEmail, String password) {
-        User user = User.create(new UserId(userId), new UserName(userName),
-                                new UserEmail(userEmail), new UserPassword(password));
+    public void execute(String userId,  String userEmail, String password) {
+        User user = User.create(new UserId(userId), new UserEmail(userEmail), new UserPassword(password));
         repository.save(user);
     }
 }
