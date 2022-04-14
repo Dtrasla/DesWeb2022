@@ -14,7 +14,7 @@ public class UserData{
   private String userGender;
   private UserId userId;
 
-  public UserData(String userName,  String userLastname, String UserGender, String userBirthday, UserId userId) {
+  public UserData(String userName,  String userLastname, String userGender, String userBirthday, UserId userId) {
       this.userName = userName;
       this.userLastname = userLastname;
       this.userBirthday = userBirthday;

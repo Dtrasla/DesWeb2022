@@ -29,8 +29,14 @@ public class User {
 
     }
 
-    public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userData, Phone userPhone) {
-        User user = new User(userId, userEmail, password, userPhone, userData);
+    public User(UserId userId, UserEmail userEmail, UserPassword password) {
+        this.userId = userId;
+        this.userEmail = userEmail;
+        this.password = password;
+    }
+
+    public static User create(UserId userId, UserEmail userEmail, UserPassword password) {
+        User user = new User(userId, userEmail, password);
         return user;
     }
 
