@@ -1,5 +1,7 @@
 package com.webdev.productsystem.Tours.City.Domain;
 
+import java.util.HashMap;
+
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
@@ -25,6 +27,12 @@ public class City {
         return city;
     }
 
-        
+    public HashMap<String, Object> data(){
+        return new HashMap<>(){{
+            put("cityId",cityId.value());
+            put("cityName",cityName.value());
+            put("cityCountry",cityCountry.value());
+        }};
+    }
 
 }
