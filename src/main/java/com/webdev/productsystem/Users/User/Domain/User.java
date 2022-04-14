@@ -12,25 +12,41 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/*TODO
+ * Agregar Phone al creador
+ * Modificar el UserCreateController para agregar el phone
+ * */
+
 public class User {
 
     private UserId userId;
     private UserEmail userEmail;
+    private UserName userName
     private UserPassword password;
-    private UserData userData;
     private Phone userPhone;
 
-    public User(UserId userId, UserEmail userEmail, UserPassword password, Phone userPhone, UserData userData) {
+    public User(UserId userId, UserName userName,UserEmail userEmail, Phone userPhone, UserPassword password, Optional<Object> empty) {
         this.userId = userId;
         this.userEmail = userEmail;
         this.password = password;
         this.userPhone = userPhone;
-        this.userData = userData;
 
     }
 
-    public static User create(UserId userId,  UserEmail userEmail, UserPassword password, UserData userData, Phone userPhone) {
-        User user = new User(userId, userEmail, password, userPhone, userData);
+    public User(UserId userId, UserName userName,UserEmail userEmail,  UserPassword password, Optional<Object> empty) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.password = password;
+
+    }
+
+
+    public static User create(UserId userId, UserName userName ,UserEmail userEmail, UserPassword password) {
+        User user = new User(userId,
+                userName,
+                userEmail,
+                password);
         return user;
     }
 
