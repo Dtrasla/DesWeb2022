@@ -41,12 +41,19 @@ public class User {
 
     }
 
+    public User(UserId userId, UserName userName, UserEmail userEmail, UserPassword password) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.password = password;
+    }
+
 
     public static User create(UserId userId, UserName userName ,UserEmail userEmail, UserPassword password) {
         User user = new User(userId,
                 userName,
                 userEmail,
-                password);
+                password,);
         return user;
     }
 
@@ -60,7 +67,8 @@ public class User {
         HashMap<String, Object> data = new HashMap<>() {{
             put("id", userId.value());
             put("email", userEmail.value());
-//          put("");
+            put("name", userName.value());
+//     FaltaUSerPhone     put("");
         }};
         return data;
     }
