@@ -21,8 +21,13 @@ public class User {
 
     private UserId userId;
     private UserEmail userEmail;
-    private UserName userName
+    private UserName userName;
     private UserPassword password;
+    private UserBirthday userBirthday;
+    private UserLastName userLastName;
+    private UserGender userGender;
+
+
     private Phone userPhone;
 
     public User(UserId userId, UserName userName,UserEmail userEmail, Phone userPhone, UserPassword password, Optional<Object> empty) {
@@ -48,12 +53,28 @@ public class User {
         this.password = password;
     }
 
+    public User(UserId userId, UserName userName, UserEmail userEmail, UserPassword password, UserLastName userLastName,  UserGender userGender, UserBirthday userBirthday) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.password = password;
+        this.userLastName = userLastName;
+        this.userBirthday = userBirthday;
+        this.userGender = userGender;
 
-    public static User create(UserId userId, UserName userName ,UserEmail userEmail, UserPassword password) {
+    }
+
+
+    public static User create(UserId userId, UserName userName ,UserEmail userEmail, UserPassword password, UserLastName userLastName, UserGender userGender, UserBirthday userBirthday) {
         User user = new User(userId,
                 userName,
                 userEmail,
-                password,);
+                password,
+                userLastName,
+                userGender,
+                userBirthday
+                )
+                ;
         return user;
     }
 
