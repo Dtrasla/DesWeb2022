@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Address.Domain.Entitties;
+package com.webdev.productsystem.Tours.Address.Domain.Entities;
 
 import java.util.HashMap;
 

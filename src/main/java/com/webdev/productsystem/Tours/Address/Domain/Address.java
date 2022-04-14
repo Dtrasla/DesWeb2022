@@ -1,7 +1,7 @@
 package com.webdev.productsystem.Tours.Address.Domain;
 
 
-import com.webdev.productsystem.Tours.Address.Domain.Entitties.AddressCity;
+import com.webdev.productsystem.Tours.Address.Domain.Entities.AddressCity;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressData;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressId;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressZipCode;
