@@ -1,98 +1,50 @@
 package com.webdev.productsystem.Users.User.Domain;
 
 import com.webdev.productsystem.Users.User.Domain.Entities.*;
-import com.webdev.productsystem.Users.User.Domain.Entities.UserData;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
 
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-/*TODO
- * Agregar Phone al creador
- * Modificar el UserCreateController para agregar el phone
- * */
 
 public class User {
-
-    private UserId userId;
-    private UserEmail userEmail;
-    private UserName userName;
+    private UserId id;
+    private UserEmail email;
     private UserPassword password;
-    private UserBirthday userBirthday;
-    private UserLastName userLastName;
-    private UserGender userGender;
+    private UserName name;
+    private UserLastName lastName;
+    private UserBirthday birthday;
+    private UserGender gender;
+    private UserPhone phone;
 
-
-    private Phone userPhone;
-
-    public User(UserId userId, UserName userName,UserEmail userEmail, Phone userPhone, UserPassword password, Optional<Object> empty) {
-        this.userId = userId;
-        this.userEmail = userEmail;
+    public User(UserId id, UserEmail email, UserPassword password, UserName name,
+                UserLastName lastName, UserBirthday birthday, UserGender gender, UserPhone phone) {
+        this.id = id;
+        this.email = email;
         this.password = password;
-        this.userPhone = userPhone;
-
+        this.name = name;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phone = phone;
     }
 
-    public User(UserId userId, UserName userName,UserEmail userEmail,  UserPassword password, Optional<Object> empty) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.password = password;
+    private HashMap<String, Object> createPhone() { return phone.data(); }
 
-    }
-
-    public User(UserId userId, UserName userName, UserEmail userEmail, UserPassword password) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.password = password;
-    }
-
-    public User(UserId userId, UserName userName, UserEmail userEmail, UserPassword password, UserLastName userLastName,  UserGender userGender, UserBirthday userBirthday) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.password = password;
-        this.userLastName = userLastName;
-        this.userBirthday = userBirthday;
-        this.userGender = userGender;
-
-    }
-
-
-    public static User create(UserId userId, UserName userName ,UserEmail userEmail, UserPassword password, UserLastName userLastName, UserGender userGender, UserBirthday userBirthday) {
-        User user = new User(userId,
-                userName,
-                userEmail,
-                password,
-                userLastName,
-                userGender,
-                userBirthday
-                )
-                ;
-        return user;
-    }
-
-    public void authenticateUser(UserEmail userEmail, UserPassword password) {
-        if (!(this.password.equals(password) && this.userEmail.equals(userEmail))) {
-            throw new AuthenticateFailed("Credenciales inválidas");
-        }
+    public User create(UserId id, UserEmail email, UserPassword password, UserName name,
+                       UserLastName lastName, UserBirthday birthday, UserGender gender, UserPhone phone) {
+        return new User(id, email, password, name, lastName, birthday, gender, phone);
     }
 
     public HashMap<String, Object> data() {
-        HashMap<String, Object> data = new HashMap<>() {{
-            put("id", userId.value());
-            put("email", userEmail.value());
-            put("name", userName.value());
-//     FaltaUSerPhone     put("");
+        return new HashMap<>() {{
+            put("id", id.value());
+            put("email", email.value());
+            put("password", password.value());
+            put("name", name.value());
+            put("lastName", lastName.value());
+            put("birthday", birthday.value());
+            put("gender", gender.value());
+            put("phone", createPhone());
         }};
-        return data;
     }
-
-
 }
