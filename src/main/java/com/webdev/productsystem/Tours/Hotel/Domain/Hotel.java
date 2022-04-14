@@ -16,7 +16,7 @@ public class Hotel {
         this.name = name;
         this.address = address;
     }
-    
+
     public static Hotel create(HotelId id, HotelName name, HotelAddress address) {
         return new Hotel(id, name, address);
     }
