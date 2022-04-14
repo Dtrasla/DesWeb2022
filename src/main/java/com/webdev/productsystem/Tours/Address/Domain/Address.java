@@ -1,23 +1,38 @@
 package com.webdev.productsystem.Tours.Address.Domain;
 
 
+import com.webdev.productsystem.Tours.Address.Domain.Entities.AddressCity;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressData;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressId;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressZipCode;
 
-public class Address {
-    public AddressId addressId;
-    public AddressData addressData;
-    public AddressZipCode addressZipCode;
+import java.util.HashMap;
 
-    public Address(AddressId addressId, AddressData addressData, AddressZipCode addressZipCode) {
-        this.addressId = addressId;
-        this.addressData = addressData;
-        this.addressZipCode = addressZipCode;
+public class Address {
+    private AddressId id;
+    private AddressData data;
+    private AddressZipCode zipCode;
+    private AddressCity city;
+
+    public Address(AddressId id, AddressData data, AddressZipCode zipCode, AddressCity city) {
+        this.id = id;
+        this.data = data;
+        this.zipCode = zipCode;
+        this.city = city;
     }
 
-    public static Address create(AddressId addressId, AddressData addressData, AddressZipCode addressZipCode) {
-        Address address = new Address(addressId, addressData, addressZipCode);
-        return address;
+    public static Address create(AddressId id, AddressData data, AddressZipCode zipCode, AddressCity city) {
+        return new Address(id, data, zipCode, city);
+    }
+
+    private HashMap<String, Object> createCity() { return city.data(); }
+
+    public HashMap<String, Object> data() {
+        return new HashMap<>() {{
+            put("id", id.value());
+            put("data", data.value());
+            put("zipCode", zipCode.value());
+            put("city", createCity());
+        }};
     }
 }
