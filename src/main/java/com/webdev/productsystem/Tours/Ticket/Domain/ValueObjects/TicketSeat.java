@@ -16,7 +16,7 @@ public class TicketSeat extends IntegerValueObject {
     public void validate(int seat){
 
         if(seat<0 || seat>capacidadAvion){
-            throw new InvalidSeat("Asiento invalido, no puede ser un asiento menor o igual a cero. Tampoco puede exceder la" +"capacidad del avion");
+            throw new InvalidSeat("Asiento invalido, no puede ser un asiento menor o igual a cero. Tampoco puede exceder la capacidad del avion");
         }
 
     }

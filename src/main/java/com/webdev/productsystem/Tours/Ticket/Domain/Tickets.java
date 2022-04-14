@@ -23,6 +23,7 @@ public class Tickets {
     public City destinationCity;
 
     public Tickets(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, City originCity, City destinationCity, UserId userId) {
+
         this.ticketId = ticketId;
         this.ticketGate = ticketGate;
         this.ticketSeat = ticketSeat;
@@ -33,7 +34,7 @@ public class Tickets {
     }
 
     public static Tickets create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, City originCity, City destinationCity,  UserId userId){
-         Tickets ticket = new Tickets(ticketId,ticketGate, ticketSeat, ticketDate, originCity, destinationCity, userId);
+        Tickets ticket = new Tickets(ticketId,ticketGate, ticketSeat, ticketDate, originCity, destinationCity, userId);
         return ticket;
     }
 
