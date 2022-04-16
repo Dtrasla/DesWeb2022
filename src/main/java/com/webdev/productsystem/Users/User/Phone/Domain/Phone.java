@@ -1,13 +1,8 @@
-package com.webdev.productsystem.Users.User.Domain.Entities;
+package com.webdev.productsystem.Users.User.Phone.Domain;
 
-import com.webdev.productsystem.Tours.City.Domain.City;
-import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
-import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
-import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
-import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidString;
-import com.webdev.productsystem.Users.User.Domain.Phone.Domain.ValueObjects.PhoneCountryCode;
-import com.webdev.productsystem.Users.User.Domain.Phone.Domain.ValueObjects.PhoneId;
-import com.webdev.productsystem.Users.User.Domain.Phone.Domain.ValueObjects.PhoneNumber;
+import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneCountryCode;
+import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneId;
+import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneNumber;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
 
 import java.util.HashMap;
@@ -35,6 +30,7 @@ public class Phone{
             put("phoneId", phoneId.value());
             put("phoneCountryCode", phoneCountryCode.value());
             put("phoneNumber", phoneNumber.value());
+            put("userId", userId.value());
         }};
     }
   

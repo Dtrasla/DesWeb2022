@@ -1,16 +1,12 @@
 package com.webdev.productsystem.Users.User.Domain;
 
-import com.webdev.productsystem.Users.User.Domain.Entities.*;
 import com.webdev.productsystem.Users.User.Domain.Entities.UserData;
+import com.webdev.productsystem.Users.User.Domain.Entities.UserPhone;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
+import com.webdev.productsystem.Users.User.Phone.Domain.Phone;
 
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class User {
 
@@ -18,9 +14,9 @@ public class User {
     private UserEmail userEmail;
     private UserPassword password;
     private UserData userData;
-    private Phone userPhone;
+    private UserPhone userPhone;
 
-    public User(UserId userId, UserEmail userEmail, UserPassword password, Phone userPhone, UserData userData) {
+    public User(UserId userId, UserEmail userEmail, UserPassword password, UserPhone userPhone, UserData userData) {
         this.userId = userId;
         this.userEmail = userEmail;
         this.password = password;

@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Users.User.Domain.Phone.Domain.ValueObjects;
+package com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
 
