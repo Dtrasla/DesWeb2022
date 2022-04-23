@@ -30,9 +30,9 @@ public class User {
 
     private HashMap<String, Object> createPhone() { return phone.data(); }
 
-    public User create(UserId id, UserEmail email, UserPassword password, UserName name,
-                       UserLastName lastName, UserBirthday birthday, UserGender gender, UserPhone phone) {
-        return new User(id, email, password, name, lastName, birthday, gender, phone);
+    public static User create(UserId id, UserEmail email, UserPassword password, UserName name,
+                       UserLastName lastName, UserBirthday birthday, UserGender gender) {
+        return new User(id, email, password, name, lastName, birthday, gender, null);
     }
 
     public HashMap<String, Object> data() {
