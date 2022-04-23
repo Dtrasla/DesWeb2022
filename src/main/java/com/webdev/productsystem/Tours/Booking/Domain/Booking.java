@@ -1,26 +1,25 @@
 package com.webdev.productsystem.Tours.Booking.Domain;
-import com.webdev.productsystem.Tours.Hotel;
-import com.webdev.productsystem.Tours.Tour;
-import com.webdev.productsystem.Tours.Ticket;
+import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingId;
+import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
+import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
 
-import com.webdev.productsystem.Tours;
+import com.webdev.productsystem.Tours.Tour.Domain.Tour;
 
 public class Booking {
 
     public BookingId bookingId;
     public Hotel hotel;
-    public Ticket ticket;
+    public Tickets ticket;
     public Tour tour;
 
-    public Booking(BookingId bookingId, Hotel hotel, Ticket ticket, Tour tour) {
+    public Booking(BookingId bookingId, Hotel hotel, Tickets ticket, Tour tour) {
         this.bookingId = bookingId;
-        this.Hotel = hotel;
-        this.Ticket =ticket;
-        this.Tour = tour;
+        this.hotel = hotel;
+        this.ticket =ticket;
+        this.tour = tour;
     }
 
-    public static Booking create(BookingId bookingId,Hotel hotel, Ticket ticket, Tour tour){
-        Booking booking = new Booking(bookingId, hotel, ticket, tour);
-        return booking;
+    public static Booking create(BookingId bookingId,Hotel hotel, Tickets ticket, Tour tour){
+        return new Booking(bookingId, hotel, ticket, tour);
     }
 }

@@ -1,7 +1,9 @@
 package com.webdev.productsystem.Tours.Booking.Domain.ValueObjects;
 
 
-    public class BookingId extends CustomUUID {
+import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
+
+public class BookingId extends CustomUUID {
         private BookingId(){}
     
         public BookingId(String BookingId) {

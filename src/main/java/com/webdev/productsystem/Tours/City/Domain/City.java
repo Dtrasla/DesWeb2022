@@ -5,10 +5,6 @@ import java.util.HashMap;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourBookingId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
 
 public class City {
     

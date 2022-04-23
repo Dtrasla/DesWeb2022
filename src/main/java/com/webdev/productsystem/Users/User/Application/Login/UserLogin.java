@@ -22,6 +22,5 @@ public class UserLogin {
             throw new AuthenticateFailed("Usuario no registrado.");
         }
         User user = optionalUser.get();
-        user.authenticateUser(new UserEmail(email), new UserPassword(password));
     }
 }

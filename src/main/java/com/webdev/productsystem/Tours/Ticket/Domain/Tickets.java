@@ -6,11 +6,6 @@ import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourBookingId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
 
 public class Tickets {
 
