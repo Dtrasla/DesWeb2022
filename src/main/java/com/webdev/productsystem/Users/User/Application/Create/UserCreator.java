@@ -3,7 +3,13 @@ package com.webdev.productsystem.Users.User.Application.Create;
 import com.webdev.productsystem.Users.User.Domain.Ports.UserRepository;
 import com.webdev.productsystem.Users.User.Domain.Ports.UserSenderEmail;
 import com.webdev.productsystem.Users.User.Domain.User;
+<<<<<<< HEAD
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
+=======
+import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserEmail;
+import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
+import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserPassword;
+>>>>>>> main
 
 public class UserCreator {
 

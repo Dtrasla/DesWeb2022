@@ -1,5 +1,6 @@
 package com.webdev.productsystem.Users.User.Domain.Entities;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 
 public class UserPhone {
@@ -20,4 +21,11 @@ public class UserPhone {
             put("number", number);
         }};
     }
+=======
+import com.webdev.productsystem.Users.User.Phone.Domain.Phone;
+
+public class UserPhone {
+    private Phone userPhone;
+
+>>>>>>> main
 }
