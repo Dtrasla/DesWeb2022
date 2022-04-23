@@ -5,7 +5,6 @@ import com.webdev.productsystem.Users.User.Domain.Ports.UserSenderEmail;
 import com.webdev.productsystem.Users.User.Domain.User;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserEmail;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserName;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserPassword;
 
 public class UserCreator {
