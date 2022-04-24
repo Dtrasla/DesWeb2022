@@ -1,14 +1,12 @@
 package com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects;
 
+import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
 
-public class HotelId extends StringValueObject {
+public class HotelId extends CustomUUID {
     private HotelId() {}
 
     public HotelId(String value) {
-        validate(value);
-        this.value = value;
+        super(value);
     }
-
-    private void validate(String value) {}
 }
