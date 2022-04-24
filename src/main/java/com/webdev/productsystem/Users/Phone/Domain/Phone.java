@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Users.User.Phone.Domain;
+package com.webdev.productsystem.Users.Phone.Domain;
 
 import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneCountryCode;
 import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneId;

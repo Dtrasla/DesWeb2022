@@ -1,6 +1,5 @@
 package com.webdev.productsystem.Users.User.Domain;
 
-import com.webdev.productsystem.Users.User.Domain.Entities.UserData;
 import com.webdev.productsystem.Users.User.Domain.Entities.UserPhone;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
 
