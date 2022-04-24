@@ -48,6 +48,7 @@ public class HibernateUserRepository extends HibernateRepository<User> implement
         List<User> users = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
         if(!users.isEmpty()) {
             user = users.get(0);
+
         }
         return Optional.ofNullable(user);
     }
