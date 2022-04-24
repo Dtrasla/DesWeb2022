@@ -54,7 +54,7 @@ public class HibernatePhoneRepository extends HibernateRepository<Phone> impleme
     }
 
     @Override
-    public void delete(Phone phone) {
+    public void delete(Optional<Phone> phone) {
         super.deleteEntity(phone);
     }
 }

@@ -33,5 +33,27 @@ public class Phone{
             put("userId", userId.value());
         }};
     }
-  
+    public PhoneId getPhoneId() {
+        return phoneId;
+    }
+    public UserId getUserId() {
+        return userId;
+    }
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+    public PhoneCountryCode getPhoneCountryCode() {
+        return phoneCountryCode;
+    }
+    public void updatePhoneNumber(PhoneNumber phoneNumber){
+      this.phoneNumber = phoneNumber;
+    }
+    public void updatePhoneId(PhoneId phoneId){
+        this.phoneId = phoneId;
+    }
+    public void updatePhoneCountryCode(PhoneCountryCode phoneCountryCode){
+        this.phoneCountryCode = phoneCountryCode;
+    }
+
+
 }
