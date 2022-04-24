@@ -1,9 +1,6 @@
-package com.webdev.productsystem.Users.User.Phone.Domain.Ports;
+package com.webdev.productsystem.Users.Phone.Domain.Ports;
 
-import com.webdev.productsystem.Users.User.Domain.User;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserEmail;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
-import com.webdev.productsystem.Users.User.Phone.Domain.Phone;
+import com.webdev.productsystem.Users.Phone.Domain.Phone;
 import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneId;
 import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneNumber;
 
