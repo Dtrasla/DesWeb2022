@@ -1,8 +1,10 @@
-package com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects;
+package com.webdev.productsystem.Users.Phone.Domain.ValueObjects;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
-import com.webdev.productsystem.Users.User.Phone.Domain.Exceptions.InvalidString;
-import com.webdev.productsystem.Users.User.Phone.Domain.Exceptions.LenghtInvalid;
+
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidString;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.LenghtInvalid;
+
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
