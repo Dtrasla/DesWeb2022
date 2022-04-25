@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Ticket.Domain.Infrastructure.Hibernate;
+package com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate;
 
 import com.webdev.productsystem.Shared.Infrastruture.Hibernate.HibernateRepository;
 import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
