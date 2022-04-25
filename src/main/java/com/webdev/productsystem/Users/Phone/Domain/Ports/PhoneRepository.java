@@ -1,8 +1,8 @@
 package com.webdev.productsystem.Users.Phone.Domain.Ports;
 
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
-import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneId;
-import com.webdev.productsystem.Users.User.Phone.Domain.ValueObjects.PhoneNumber;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
 
 import java.util.List;
 import java.util.Optional;
