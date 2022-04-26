@@ -7,14 +7,18 @@ import com.webdev.productsystem.Tours.Tour.Domain.Ports.TourRepository;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Ports.TicketRepository;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+@Transactional
 public class HibernateTourRepository extends HibernateRepository<Tour> implements TourRepository {
 
-    public HibernateTourRepository(SessionFactory sessionFactory, Class<Tour> aggregateClass) {
-        super(sessionFactory, aggregateClass);
+    public HibernateTourRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
+        super(sessionFactory, Tour.class);
     }
 
     @Override

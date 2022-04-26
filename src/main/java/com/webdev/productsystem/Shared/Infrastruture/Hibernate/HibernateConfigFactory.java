@@ -30,9 +30,10 @@ public class HibernateConfigFactory {
         //FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/webdev/productsystem/Users/User/Infrastructure/Hibernate/User.hbm.xml");
         FileSystemResource hotelResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Hotel/Infrastructure/Hibernate/Hotel.hbm.xml");
         FileSystemResource ticketResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Ticket/Infrastructure/Hibernate/Ticket.hbm.xml");
+        FileSystemResource tourResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Tour/Infrastructure/Hibernate/Tour.hbm.xml");
 
 
-        sessionFactory.setMappingLocations(hotelResource, ticketResource);
+        sessionFactory.setMappingLocations(hotelResource, ticketResource,tourResource);
         return sessionFactory;
     }
 
