@@ -5,33 +5,32 @@
 
 <hibernate-mapping>
     <class name="com.webdev.productsystem.Tours.Ticket.Domain.Tickets" table="tickets">
-        <composite-id name="ticketId" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId" access="field">
+        <composite-id name="id" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
 
-        <component name="ticketDate" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate" access="field">
+        <component name="date" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate" access="field">
             <property name="value" column="date" access="field" type="string"/>
         </component>
 
-        <component name="ticketGate" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate" access="field">
+        <component name="gate" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate" access="field">
             <property name="value" column="gate" access="field" type="integer"/>
         </component>
 
-        <component name="ticketSeat" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat" access="field">
+        <component name="seat" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat" access="field">
             <property name="value" column="seat" access="field" type="integer"/>
         </component>
 
-        <component name="originCity" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId" access="field">
-            <property name="value" column="origin" access="field" type="string"/>
+        <component name="userId" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.UserId" access="field">
+            <property name="value" column="user_id" access="field" type="string" />
         </component>
 
-        <component name="destinationCity" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId" access="field">
-            <property name="value" column="destination" access="field" type="string"/>
+        <component name="originCityId" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.OriginCityId" access="field">
+            <property name="value" column="origin_city_id" access="field" type="string"/>
         </component>
 
-        <component name="userId" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId" access="field">
-            <property name="value" column="user_id" access="field" type="string"/>
+        <component name="destinationCityId" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.DestinationCityId" access="field">
+            <property name="value" column="destination_city_id" access="field" type="string"/>
         </component>
-
     </class>
 </hibernate-mapping>

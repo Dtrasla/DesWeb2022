@@ -22,18 +22,25 @@
 
     <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
 
-    <bean id="HotelExists" class="com.webdev.productsystem.Tours.Hotel.Domain.Services.HotelExists" />
+    <bean id="CityRepository" class="com.webdev.productsystem.Tours.City.Infrastructure.Hibernate.HibernateCityRepository" />
 
     <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
         <constructor-arg ref="HotelRepository"/>
     </bean>
 
+    <bean id="HotelNameUpdater" class="com.webdev.productsystem.Tours.Hotel.Application.Update.HotelNameUpdater" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
     <bean id="HotelRemover" class="com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover" >
         <constructor-arg ref="HotelRepository"/>
-        <constructor-arg ref="HotelExists" />
     </bean>
 
     <bean id="HotelFindAll" class="com.webdev.productsystem.Tours.Hotel.Application.All.HotelFindAll" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelByIdFinder" class="com.webdev.productsystem.Tours.Hotel.Application.Find.HotelByIdFinder" >
         <constructor-arg ref="HotelRepository"/>
     </bean>
 
@@ -62,6 +69,24 @@
     <bean id="TicketFindAll" class="com.webdev.productsystem.Tours.Ticket.Application.Find.TicketFindAll" >
         <constructor-arg ref="TicketRepository"/>
     </bean>
+    <bean id="CreateCity" class='com.webdev.productsystem.Tours.City.Application.Create.CreateCity' >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
 
+    <bean id="DeleteCity" class="com.webdev.productsystem.Tours.City.Application.Delete.DeleteCity" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="FindCityById" class="com.webdev.productsystem.Tours.City.Application.Find.FindCityById" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="UpdateCityCountry" class="com.webdev.productsystem.Tours.City.Application.Update.UpdateCityCountry" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="UpdateCityName" class="com.webdev.productsystem.Tours.City.Application.Update.UpdateCityName" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
 
 </beans>

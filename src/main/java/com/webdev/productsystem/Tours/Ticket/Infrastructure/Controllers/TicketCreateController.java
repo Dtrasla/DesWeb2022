@@ -17,7 +17,7 @@ public class TicketCreateController {
 
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody TicketCreatorRequest request) {
-        creator.execute(request.getId(), request.getDate(), request.getGate(), request.getSeat(), request.getOriginCity(), request.getDestinationCity(), request.getUserId());
+        creator.execute(request.getId(), request.getDate(), request.getGate(), request.getSeat(), request.getOriginCityId(), request.getDestinationCityId(), request.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -67,10 +67,9 @@ public class TicketCreateController {
         private String date;
         private int seat ;
         private int gate;
-        private String originCity;
-        private String destinationCity;
+        private String originCityId;
+        private String destinationCityId;
         private String userId;
-
 
         public String getId() {
             return id;
@@ -78,14 +77,6 @@ public class TicketCreateController {
 
         public void setId(String id) {
             this.id = id;
-        }
-
-        public String getUserId() {
-            return userId;
-        }
-
-        public void setUserId(String userId) {
-            this.userId = userId;
         }
 
         public String getDate() {
@@ -112,20 +103,28 @@ public class TicketCreateController {
             this.gate = gate;
         }
 
-        public String getOriginCity() {
-            return originCity;
+        public String getOriginCityId() {
+            return originCityId;
         }
 
-        public void setOriginCity(String originCity) {
-            this.originCity = originCity;
+        public void setOriginCityId(String originCityId) {
+            this.originCityId = originCityId;
         }
 
-        public String getDestinationCity() {
-            return destinationCity;
+        public String getDestinationCityId() {
+            return destinationCityId;
         }
 
-        public void setDestinationCity(String destinationCity) {
-            this.destinationCity = destinationCity;
+        public void setDestinationCityId(String destinationCityId) {
+            this.destinationCityId = destinationCityId;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
         }
     }
 }
