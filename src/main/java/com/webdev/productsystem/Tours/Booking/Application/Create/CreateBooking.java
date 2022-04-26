@@ -1,8 +1,10 @@
 package com.webdev.productsystem.Tours.Booking.Application.Create;
 import com.webdev.productsystem.Tours.City.Domain.City;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
+import com.webdev.productsystem.Tours.Booking.Domain.Booking;
 import com.webdev.productsystem.Tours.Booking.Domain.Exceptions.BookingAlreadyExists;
 import com.webdev.productsystem.Tours.Booking.Domain.Ports.BookingRepository;
+import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Users.User.Domain.User;
@@ -19,9 +21,9 @@ public class CreateBooking {
     public CreateBooking(BookingRepository repository) {
         this.repository = repository;
     }
-    public void execute(String id, Int Hotel, int Tour, int TicketId, String userId){
+    public void execute(String id){
         validate(id);
-        this.repository.save(Booking.create(new BookingId(id), new HotelId(Hotel), new TourId(Tour), new TicketId(TicketId), new UserId(userId)));
+        this.repository.save(Booking.create(new BookingId(id)));
         
     }
 
