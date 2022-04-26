@@ -1,8 +1,10 @@
 package com.webdev.productsystem.Users.Phone.Domain.ValueObjects;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidString;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.LenghtInvalid;
+
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberString;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberLenght;
+
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +18,7 @@ public class PhoneNumber extends StringValueObject {
     }
     private void lengthValue(String value) {
         if (value.length() < 7 || value.length() > 10) {
-            throw new LenghtInvalid("Longitud Invalida");
+            throw new InvalidNumberLenght("Number invalid lenght");
         }
     }
     private void validate(String value) {
@@ -28,7 +30,7 @@ public class PhoneNumber extends StringValueObject {
         Matcher mat = pat.matcher(value);
         if (mat.matches()) {
         } else {
-            throw new InvalidString("No válido");
+            throw new InvalidNumberString("The number value is not valid");
         }
     }
 
