@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Tours.City.Infrastructure.Controllers;
 
 import com.webdev.productsystem.Tours.City.Application.Create.CreateCity;
+import com.webdev.productsystem.Tours.City.Domain.City;
 import com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator;
 import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelAlreadyExists;
 import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNameInvalidLength;
@@ -19,7 +20,7 @@ public class CityCreateController {
     private CreateCity creator;
 
     @PostMapping(value = "/create")
-    public ResponseEntity execute(@RequestBody CityCreatorRequest request) {
+    public ResponseEntity<City> execute(@RequestBody CityCreatorRequest request) {
         creator.execute(request.getId(), request.getName(), request.getCountry());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
