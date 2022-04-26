@@ -8,6 +8,8 @@ import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat;
 
+import java.util.HashMap;
+
 public class Tickets {
 
     public TicketGate ticketGate;
@@ -32,6 +34,18 @@ public class Tickets {
     public static Tickets create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, CityId originCity, CityId destinationCity,  UserId userId){
         Tickets ticket = new Tickets(ticketId,ticketGate, ticketSeat, ticketDate, originCity, destinationCity, userId);
         return ticket;
+    }
+
+    public HashMap<String, Object> data() {
+        return new HashMap<>() {{
+            put("ticketId", ticketId.value());
+            put("ticketGate", ticketGate.value());
+            put("ticketSeat", ticketSeat.value());
+            put("ticketDate", ticketDate.value());
+            put("originCity", originCity.value());
+            put("destinationCity", destinationCity.value());
+            put("userId", userId.value());
+        }};
     }
 
     public void updateticketGate(TicketGate gate){

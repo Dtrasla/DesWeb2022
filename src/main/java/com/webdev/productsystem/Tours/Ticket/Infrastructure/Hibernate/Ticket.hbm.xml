@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.webdev.productsystem.Tours.Ticket.Domain.Tickets" table="tickets">
+        <composite-id name="ticketId" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId" access="field">
+            <key-property name="value" column="ticketId" access="field" length="36"/>
+        </composite-id>
+
+        <component name="ticketDate" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate" access="field">
+            <property name="value" column="ticketDate" access="field" type="string"/>
+        </component>
+
+        <component name="ticketGate" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate" access="field">
+            <property name="value" column="ticketGate" access="field" type="integer"/>
+        </component>
+
+
+        <component name="ticketSeat" class="com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat" access="field">
+            <property name="value" column="ticketSeat" access="field" type="integer"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

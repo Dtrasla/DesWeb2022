@@ -1,18 +1,20 @@
 package com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate;
 
 import com.webdev.productsystem.Shared.Infrastruture.Hibernate.HibernateRepository;
+import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Ports.TicketRepository;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 import java.util.Optional;
 
 public class HibernateTicketRepository extends HibernateRepository<Tickets> implements TicketRepository {
 
-    public HibernateTicketRepository(SessionFactory sessionFactory, Class<Tickets> aggregateClass) {
-        super(sessionFactory, aggregateClass);
+    public HibernateTicketRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
+        super(sessionFactory, Tickets.class);
     }
 
     @Override

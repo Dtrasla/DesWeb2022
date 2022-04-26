@@ -37,4 +37,34 @@
         <constructor-arg ref="HotelRepository"/>
     </bean>
 
+    <bean id="TicketRepository" class="com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate.HibernateTicketRepository" />
+
+    <bean id="CreateTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Create.CreateTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketDate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketDate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketSeat" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketSeat" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketGate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketGate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="TicketFindAll" class="com.webdev.productsystem.Tours.Ticket.Application.Find.TicketFindAll" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+
+
+
+
 </beans>
