@@ -12,8 +12,6 @@ public class City {
     public CityName cityName;
     public CityCountry cityCountry;
 
-    public City(){}
-
     public City(CityId cityId, CityName cityName, CityCountry cityCountry) {
         this.cityId = cityId;
         this.cityName = cityName;
@@ -31,14 +29,6 @@ public class City {
             put("cityName",cityName.value());
             put("cityCountry",cityCountry.value());
         }};
-    }
-
-    public void updateCityName(CityName name){
-        this.cityName = name;
-    }
-
-    public void updateCityCountry(CityCountry country){
-        this.cityCountry = country;
     }
 
 }
