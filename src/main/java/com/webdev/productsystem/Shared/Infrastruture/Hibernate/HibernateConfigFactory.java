@@ -32,8 +32,8 @@ public class HibernateConfigFactory {
         FileSystemResource ticketResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Ticket/Infrastructure/Hibernate/Ticket.hbm.xml");
 
 
-        sessionFactory.setMappingLocations(hotelResource);
-        sessionFactory.setMappingLocations(ticketResource);
+        sessionFactory.setMappingLocations(hotelResource, ticketResource);
+        //sessionFactory.setMappingLocations(ticketResource);
         return sessionFactory;
     }
 
