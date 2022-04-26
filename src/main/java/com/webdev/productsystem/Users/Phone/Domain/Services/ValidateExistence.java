@@ -4,7 +4,6 @@ import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneNotFound;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
 import com.webdev.productsystem.Users.Phone.Domain.Ports.PhoneRepository;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
-import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
 
 import java.util.Optional;
 

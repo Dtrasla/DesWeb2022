@@ -1,6 +1,5 @@
 package com.webdev.productsystem.Users.Phone.Application.All;
 
-import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
 
 import java.util.HashMap;
