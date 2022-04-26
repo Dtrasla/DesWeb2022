@@ -7,8 +7,7 @@ public class ErrorSchema {
     @Schema(description = "Description of the presented error", example = "Invalid UUID")
     private String error;
 
-    public ErrorSchema() {
-    }
+    public ErrorSchema() {}
 
     public String getError() {
         return error;
