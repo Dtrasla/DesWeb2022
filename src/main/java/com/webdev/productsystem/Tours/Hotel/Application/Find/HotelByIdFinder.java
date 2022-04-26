@@ -1,20 +1,17 @@
-package com.webdev.productsystem.Tours.Hotel.Application.Delete;
+package com.webdev.productsystem.Tours.Hotel.Application.Find;
 
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelAlreadyExists;
 import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
+import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Tours.Hotel.Domain.Ports.HotelRepository;
 import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelId;
 
-public class HotelRemover {
+public class HotelByIdFinder {
     private HotelRepository repository;
 
-    public HotelRemover(HotelRepository repository) {
-        this.repository = repository;
-    }
+    public HotelByIdFinder(HotelRepository repository) { this.repository = repository; }
 
-    public void execute(String id) {
-        validate(id);
-        repository.delete(repository.findById(new HotelId(id)).get());
+    public Hotel execute(String id) {
+        return repository.findById(new HotelId(id)).get();
     }
 
     private void validate(String id) {
@@ -25,4 +22,5 @@ public class HotelRemover {
         if(!repository.findById(new HotelId(id)).isPresent())
             throw new HotelNotExists("A hotel with that Id doesn't exist");
     }
+
 }

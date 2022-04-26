@@ -8,9 +8,11 @@ import com.webdev.productsystem.Tours.Ticket.Domain.Ports.TicketRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class HibernateTicketRepository extends HibernateRepository<Tickets> implements TicketRepository {
 
     public HibernateTicketRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
@@ -19,7 +21,8 @@ public class HibernateTicketRepository extends HibernateRepository<Tickets> impl
 
     @Override
     public void save(Tickets ticket) {
-
+        System.out.println(ticket.data());
+        persist(ticket);
     }
 
     @Override
@@ -39,6 +42,6 @@ public class HibernateTicketRepository extends HibernateRepository<Tickets> impl
 
     @Override
     public Optional<List<Tickets>> all() {
-        return Optional.empty();
+        return getAll();
     }
 }
