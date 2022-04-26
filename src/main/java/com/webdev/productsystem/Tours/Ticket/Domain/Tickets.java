@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Tours.Ticket.Domain;
 
 import com.webdev.productsystem.Tours.City.Domain.City;
+import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
@@ -14,10 +15,10 @@ public class Tickets {
     public TicketDate ticketDate;
     public TicketId ticketId;
     public UserId userId;
-    public City originCity;
-    public City destinationCity;
+    public CityId originCity;
+    public CityId destinationCity;
 
-    public Tickets(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, City originCity, City destinationCity, UserId userId) {
+    public Tickets(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, CityId originCity, CityId destinationCity, UserId userId) {
 
         this.ticketId = ticketId;
         this.ticketGate = ticketGate;
@@ -28,10 +29,28 @@ public class Tickets {
         this.userId = userId;
     }
 
-    public static Tickets create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, City originCity, City destinationCity,  UserId userId){
+    public static Tickets create(TicketId ticketId, TicketGate ticketGate, TicketSeat ticketSeat, TicketDate ticketDate, CityId originCity, CityId destinationCity,  UserId userId){
         Tickets ticket = new Tickets(ticketId,ticketGate, ticketSeat, ticketDate, originCity, destinationCity, userId);
         return ticket;
     }
+
+    public void updateticketGate(TicketGate gate){
+        this.ticketGate = gate;
+    }
+
+    public void updateticketSeat(TicketSeat seat){
+        this.ticketSeat = seat;
+    }
+
+    public void updateticketDate(TicketDate date){
+        this.ticketDate = date;
+    }
+
+
+
+
+
+
 
 
 
