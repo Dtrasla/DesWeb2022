@@ -12,8 +12,7 @@ public class Hotel {
     private HotelName name;
     private Optional<HotelAddress> address;
 
-    public Hotel() {
-    }
+    public Hotel() {}
 
     public Hotel(HotelId id, HotelName name, Optional<HotelAddress> address) {
         this.id = id;

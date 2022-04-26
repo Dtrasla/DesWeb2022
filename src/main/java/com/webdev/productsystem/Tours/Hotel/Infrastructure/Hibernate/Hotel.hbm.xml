@@ -12,5 +12,9 @@
         <component name="name" class="com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelName" access="field">
             <property name="value" column="name" access="field" type="string"/>
         </component>
+
+        <property name="address" column="address" access="field">
+            <type name="com.webdev.productsystem.Tours.Hotel.Infrastructure.Hibernate.HotelAddressCustomTypes" />
+        </property>
     </class>
 </hibernate-mapping>
