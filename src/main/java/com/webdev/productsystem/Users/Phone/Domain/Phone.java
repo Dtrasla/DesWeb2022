@@ -1,8 +1,9 @@
 package com.webdev.productsystem.Users.Phone.Domain;
 
-
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
-import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.*;
 
 import java.util.HashMap;
 
@@ -32,5 +33,27 @@ public class Phone{
             put("userId", userId.value());
         }};
     }
-  
+    public PhoneId getPhoneId() {
+        return phoneId;
+    }
+    public UserId getUserId() {
+        return userId;
+    }
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+    public PhoneCountryCode getPhoneCountryCode() {
+        return phoneCountryCode;
+    }
+    public void updatePhoneNumber(PhoneNumber phoneNumber){
+      this.phoneNumber = phoneNumber;
+    }
+    public void updatePhoneId(PhoneId phoneId){
+        this.phoneId = phoneId;
+    }
+    public void updatePhoneCountryCode(PhoneCountryCode phoneCountryCode){
+        this.phoneCountryCode = phoneCountryCode;
+    }
+
+
 }

@@ -11,20 +11,20 @@ public class FindBookingById {
 
     private final BookingRepository repository;
 
-    public FindTicketById(BookingRepository repository) {
+    public FindBookingById(BookingRepository repository) {
         this.repository = repository;
     }
 
     public Booking execute(String BookingId) {
 
-        Optional<Booking> BookingOptional = repository.find(new BookingId(BookingId));
-        if (ticketOptional.isEmpty()) {
+        Optional<Booking> bookingOptional = repository.find(new BookingId(BookingId));
+        if (bookingOptional.isEmpty()) {
 
             throw new BookingNotFound("No pudimos encontrar un Booking con el numero" + BookingId + "por favor asegurese de ingresarlo correctamente");
 
         }else {
 
-            Booking Booking = BookingOptional.get();
+            Booking Booking = bookingOptional.get();
             return Booking;
         }
     }

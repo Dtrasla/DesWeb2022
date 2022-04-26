@@ -1,5 +1,11 @@
 package com.webdev.productsystem.Tours.Tour.Domain.ValueObjects;
 
-public class TourId {
-    
+import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
+
+public class TourId extends CustomUUID {
+    private TourId(){}
+
+    public TourId(String tourId) {
+        super(tourId);
+    }
 }
