@@ -6,13 +6,13 @@ public class HotelAddress {
     private String id;
     private String data;
     private String zipCode;
-    private String city;
+    private String cityId;
 
-    public HotelAddress(String id, String data, String zipCode, String city) {
+    public HotelAddress(String id, String data, String zipCode, String cityId) {
         this.id = id;
         this.data = data;
         this.zipCode = zipCode;
-        this.city = city;
+        this.cityId = cityId;
     }
 
     public HashMap<String, Object> data() {
@@ -20,7 +20,7 @@ public class HotelAddress {
             put("id", id);
             put("data", data);
             put("zipCode", zipCode);
-            put("city", city);
+            put("city", cityId);
         }};
     }
 }

@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Hotel.Application.Find;
+package com.webdev.productsystem.Tours.Hotel.Application.All;
 
 import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Tours.Hotel.Domain.Ports.HotelRepository;
@@ -15,7 +15,7 @@ public class HotelFindAll {
 
     public List<Hotel> execute() {
         List<Hotel> result = new ArrayList<Hotel>();
-        if(repository.all().isPresent())
+        if (repository.all().isPresent())
             result = repository.all().get();
         return result;
     }

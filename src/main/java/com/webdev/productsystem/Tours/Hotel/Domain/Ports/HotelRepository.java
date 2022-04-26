@@ -12,6 +12,5 @@ public interface HotelRepository {
     void update(Hotel hotel);
     void delete(Hotel hotel);
     Optional<Hotel> findById(HotelId id);
-    Optional<Hotel> findByName(HotelName name);
     Optional<List<Hotel>> all();
 }
