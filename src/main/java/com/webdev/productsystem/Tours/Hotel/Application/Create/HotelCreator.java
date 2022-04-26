@@ -6,24 +6,24 @@ import com.webdev.productsystem.Tours.Hotel.Domain.Ports.HotelRepository;
 import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelId;
 import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelName;
 
-public class HotelCreate {
+public class HotelCreator {
     private HotelRepository repository;
 
-    public HotelCreate(HotelRepository repository) {
+    public HotelCreator(HotelRepository repository) {
         this.repository = repository;
     }
 
     public void execute(String id, String name) {
-        validate(name);
+        validate(id);
         this.repository.save(Hotel.create(new HotelId(id), new HotelName(name)));
     }
 
-    private void validate(String name) {
-        alreadyExists(name);
+    private void validate(String id) {
+        checkIfAlreadyExists(id);
     }
 
-    private void alreadyExists(String name) {
-        if(repository.findByName(new HotelName(name)).isPresent())
-            throw new HotelAlreadyExists("Hotel with name " + name + " already exists");
+    private void checkIfAlreadyExists(String id) {
+        if(repository.findById(new HotelId(id)).isPresent())
+            throw new HotelAlreadyExists("A hotel with that Id already exists");
     }
 }

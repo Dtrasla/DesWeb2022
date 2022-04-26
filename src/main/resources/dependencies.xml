@@ -20,4 +20,14 @@
         <constructor-arg ref="UserRepository"/>
     </bean>
 
+    <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
+
+    <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelFindAll" class="com.webdev.productsystem.Tours.Hotel.Application.All.HotelFindAll" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
 </beans>

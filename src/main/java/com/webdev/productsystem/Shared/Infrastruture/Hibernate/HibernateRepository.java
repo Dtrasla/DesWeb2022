@@ -36,18 +36,6 @@ public abstract class HibernateRepository<T> {
         return Optional.ofNullable(sessionFactory.getCurrentSession().byId(aggregateClass).load(id));
     }
 
-    protected Optional<T> byName(String name) {
-        CriteriaBuilder criteriaBuilder = sessionFactory.getCriteriaBuilder();
-        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(aggregateClass);
-        Root<T> root = criteriaQuery.from(aggregateClass);
-        criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("name"), name));
-        List<T> result = sessionFactory
-                .getCurrentSession()
-                .createQuery(criteriaQuery)
-                .getResultList();
-        return Optional.ofNullable(result.get(0));
-    }
-
     protected void updateEntity(T entity) {
         sessionFactory.getCurrentSession().update(entity);
         sessionFactory.getCurrentSession().flush();
