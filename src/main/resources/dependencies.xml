@@ -93,4 +93,16 @@
     <bean id="AddressFindAll" class="com.webdev.productsystem.Tours.Address.Application.All.AddressFindAll">
         <constructor-arg ref="AddressRepository" />
     </bean>
+
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository" />
+
+    <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="DeleteBooking" class="com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+
 </beans>

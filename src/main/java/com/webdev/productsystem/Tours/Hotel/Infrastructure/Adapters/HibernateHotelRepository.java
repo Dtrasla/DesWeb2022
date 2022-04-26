@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @Transactional
 public class HibernateHotelRepository extends HibernateRepository<Hotel> implements HotelRepository {
+
     public HibernateHotelRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Hotel.class);
     }
