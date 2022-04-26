@@ -20,4 +20,51 @@
         <constructor-arg ref="UserRepository"/>
     </bean>
 
+    <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
+
+    <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelNameUpdater" class="com.webdev.productsystem.Tours.Hotel.Application.Update.HotelNameUpdater" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelRemover" class="com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelFindAll" class="com.webdev.productsystem.Tours.Hotel.Application.All.HotelFindAll" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelByIdFinder" class="com.webdev.productsystem.Tours.Hotel.Application.Find.HotelByIdFinder" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="TicketRepository" class="com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate.HibernateTicketRepository" />
+
+    <bean id="CreateTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Create.CreateTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketDate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketDate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketSeat" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketSeat" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketGate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketGate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="TicketFindAll" class="com.webdev.productsystem.Tours.Ticket.Application.Find.TicketFindAll" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
 </beans>
