@@ -30,7 +30,7 @@ public class HibernatePhoneRepository extends HibernateRepository<Phone> impleme
     }
 
     @Override
-    public Optional<Phone> find(PhoneId phoneId) {
+    public Optional<Phone> findById(PhoneId phoneId) {
         return super.byId(phoneId);
     }
 
@@ -54,7 +54,7 @@ public class HibernatePhoneRepository extends HibernateRepository<Phone> impleme
     }
 
     @Override
-    public void delete(Optional<Phone> phone) {
+    public void delete(Phone phone) {
         super.deleteEntity(phone);
     }
 }
