@@ -48,9 +48,6 @@ public class Phone{
     public void updatePhoneNumber(PhoneNumber phoneNumber){
       this.phoneNumber = phoneNumber;
     }
-    public void updatePhoneId(PhoneId phoneId){
-        this.phoneId = phoneId;
-    }
     public void updatePhoneCountryCode(PhoneCountryCode phoneCountryCode){
         this.phoneCountryCode = phoneCountryCode;
     }

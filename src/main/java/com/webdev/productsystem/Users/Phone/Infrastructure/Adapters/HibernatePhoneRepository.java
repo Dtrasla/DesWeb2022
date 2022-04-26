@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate;
+package com.webdev.productsystem.Users.Phone.Infrastructure.Adapters;
 
 import com.webdev.productsystem.Shared.Infrastruture.Hibernate.HibernateRepository;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;

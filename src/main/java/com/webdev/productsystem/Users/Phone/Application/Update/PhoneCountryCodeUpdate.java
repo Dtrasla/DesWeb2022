@@ -4,19 +4,23 @@ import com.webdev.productsystem.Users.Phone.Domain.Phone;
 import com.webdev.productsystem.Users.Phone.Domain.Ports.PhoneRepository;
 import com.webdev.productsystem.Users.Phone.Domain.Services.ValidateExistence;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode;
-import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
 
-public class UpdatePhoneId {
+public class PhoneCountryCodeUpdate {
     private final PhoneRepository repository ;
     private ValidateExistence validateExistence;
 
 
-    public UpdatePhoneId(PhoneRepository repository) {
+    public PhoneCountryCodeUpdate(PhoneRepository repository) {
         this.repository = repository;
     }
-    public void execute(String phoneNumber, String phoneId){
-        Phone phone = validateExistence.execute(phoneNumber);
-        phone.updatePhoneId(new PhoneId(phoneId));
+    public void execute(String id, String countryCode){
+        Phone phone = validateExistence.execute(id);
+        validateCountryCode(countryCode);
+        phone.updatePhoneCountryCode(new PhoneCountryCode(countryCode));
         repository.save(phone);
+    }
+    public void validateCountryCode(String countryCode){
+        PhoneCountryCode cc = new PhoneCountryCode(countryCode);
     }
 }
