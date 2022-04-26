@@ -24,11 +24,6 @@ public class HibernateBookingRepository extends HibernateRepository<Booking> imp
     }
 
     @Override
-    public void update(Booking booking) {
-        
-    }
-
-    @Override
     public void delete(Booking booking) {
         
     }
