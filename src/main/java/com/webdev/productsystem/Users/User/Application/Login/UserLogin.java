@@ -8,6 +8,9 @@ import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserPassword;
 
 import java.util.Optional;
 
+
+/*TODO
+*  hacer lo de token que esta en lo de los profesores*/
 public class UserLogin {
 
     private UserRepository repository;
@@ -16,11 +19,12 @@ public class UserLogin {
         this.repository = repository;
     }
 
-    public void execute(String email, String password) {
+    public UserLoginResponse execute(String email, String password) {
         Optional<User> optionalUser = repository.findByEmail(new UserEmail(email));
         if(optionalUser.isEmpty()) {
             throw new AuthenticateFailed("Usuario no registrado.");
         }
         User user = optionalUser.get();
+        return new UserLoginResponse(email, "1");
     }
 }
