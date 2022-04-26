@@ -68,7 +68,7 @@
         <constructor-arg ref="TicketRepository"/>
     </bean>
 
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository" />
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository" />
 
     <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
         <constructor-arg ref="BookingRepository"/>
@@ -77,12 +77,6 @@
     <bean id="DeleteBooking" class="com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking" >
         <constructor-arg ref="BookingRepository"/>
     </bean>
-
-    <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.Find.BookingFindAll" >
-        <constructor-arg ref="BookingRepository"/>
-    </bean>
-
-
 
 
 </beans>

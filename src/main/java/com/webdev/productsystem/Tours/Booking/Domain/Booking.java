@@ -15,6 +15,14 @@ public class Booking {
     public Optional<Tickets> ticket;
     public Optional<Tour> tour;
 
+    public BookingId getId() {
+        return bookingId;
+    }
+
+    public void setId(BookingId id) {
+        this.bookingId = id;
+    }
+
     public Booking(BookingId bookingId, Optional<Hotel> hotel, Optional<Tickets> ticket, Optional<Tour> tour) {
         this.bookingId = bookingId;
         this.hotel = hotel;
