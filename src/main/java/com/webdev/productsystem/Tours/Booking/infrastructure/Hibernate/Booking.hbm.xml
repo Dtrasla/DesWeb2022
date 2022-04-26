@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     <class name="com.webdev.productsystem.Tours.Booking.Domain.Booking" table="Booking">
-        <composite-id name="BookingId" class="com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingId" access="field">
+        <composite-id name="bookingId" class="com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingId" access="field">
             <key-property name="value" column="BookingId" access="field" length="36"/>
         </composite-id>
 

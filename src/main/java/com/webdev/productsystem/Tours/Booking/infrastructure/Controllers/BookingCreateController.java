@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Booking.Infrastructure.Controllers;
+package com.webdev.productsystem.Tours.Booking.infrastructure.Controllers;
 import com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking;
 import com.webdev.productsystem.Tours.Booking.Domain.Exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
