@@ -24,6 +24,8 @@
 
     <bean id="CityRepository" class="com.webdev.productsystem.Tours.City.Infrastructure.Hibernate.HibernateCityRepository" />
 
+    <bean id="HotelExists" class="com.webdev.productsystem.Tours.Hotel.Domain.Services.HotelExists" />
+
     <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
         <constructor-arg ref="HotelRepository"/>
     </bean>
