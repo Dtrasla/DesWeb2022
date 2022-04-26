@@ -22,8 +22,15 @@
 
     <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
 
+    <bean id="HotelExists" class="com.webdev.productsystem.Tours.Hotel.Domain.Services.HotelExists" />
+
     <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
         <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelRemover" class="com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover" >
+        <constructor-arg ref="HotelRepository"/>
+        <constructor-arg ref="HotelExists" />
     </bean>
 
     <bean id="HotelFindAll" class="com.webdev.productsystem.Tours.Hotel.Application.All.HotelFindAll" >
