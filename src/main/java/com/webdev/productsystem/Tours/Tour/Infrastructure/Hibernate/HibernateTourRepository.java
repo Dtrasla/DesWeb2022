@@ -34,7 +34,7 @@ public class HibernateTourRepository extends HibernateRepository<Tour> implement
 
     @Override
     public Optional<List<Tour>> all() {
-        return getAll();
+        return Optional.empty();
     }
 
     @Override
