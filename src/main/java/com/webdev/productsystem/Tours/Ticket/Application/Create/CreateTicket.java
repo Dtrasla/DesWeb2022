@@ -29,11 +29,13 @@ public class CreateTicket {
     }
 
     private void validate(String id){
+
         Optional<Tickets> ticket =  repository.find(new TicketId(id));
 
         if(ticket.isPresent()){
             throw new TicketAlreadyExists("El tiquete de viaje con id " + id + " ya existe");
         }
+
     }
 
 

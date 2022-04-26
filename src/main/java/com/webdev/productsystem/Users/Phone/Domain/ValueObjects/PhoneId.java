@@ -1,14 +1,13 @@
 package com.webdev.productsystem.Users.Phone.Domain.ValueObjects;
 
-import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
+import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
 
-public class PhoneId extends StringValueObject {
+public class PhoneId extends CustomUUID {
     private PhoneId() {}
 
     public PhoneId(String value) {
-        validate(value);
-        this.value = value;
+        super(value);
+
     }
 
-    private void validate(String value) {}
 }

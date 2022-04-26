@@ -12,6 +12,9 @@ public class Hotel {
     private HotelName name;
     private Optional<HotelAddress> address;
 
+    public Hotel() {
+    }
+
     public Hotel(HotelId id, HotelName name, Optional<HotelAddress> address) {
         this.id = id;
         this.name = name;
@@ -22,15 +25,23 @@ public class Hotel {
         return new Hotel(id, name, Optional.empty());
     }
 
-    public void updateName(HotelName name) { this.name = name; }
+    public void addAddress(HotelAddress address) {
+        this.address = Optional.ofNullable(address);
+    }
 
-    private HashMap<String, Object> createAddress() { return address.get().data(); }
+    public void updateName(HotelName name) {
+        this.name = name;
+    }
+
+    private HashMap<String, Object> createAddress() {
+        return address.get().data();
+    }
 
     public HashMap<String, Object> data() {
         return new HashMap<>() {{
             put("id", id.value());
             put("name", name.value());
-            put("address", createAddress());
+            // put("address", createAddress());
         }};
     }
 }
