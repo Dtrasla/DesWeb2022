@@ -12,6 +12,8 @@ public class City {
     public CityName cityName;
     public CityCountry cityCountry;
 
+    public City(){}
+
     public City(CityId cityId, CityName cityName, CityCountry cityCountry) {
         this.cityId = cityId;
         this.cityName = cityName;
