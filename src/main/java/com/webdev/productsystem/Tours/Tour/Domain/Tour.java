@@ -30,10 +30,10 @@ public class Tour {
 
     public HashMap <String, Object> data(){
         return new HashMap<>(){{
-            put("tourId", tourId);
-            put("tourName", tourName);
-            put("tourCity", tourCity);
-            put("tourBookingId", tourDate);
+            put("tourId", tourId.value());
+            put("tourName", tourName.value());
+            put("tourCity", tourCity.value());
+            put("tourBookingId", tourDate.value());
         }};
     }
 
