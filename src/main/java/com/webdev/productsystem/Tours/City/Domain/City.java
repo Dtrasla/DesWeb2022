@@ -31,4 +31,12 @@ public class City {
         }};
     }
 
+    public void updateCityName(CityName name){
+        this.cityName = name;
+    }
+
+    public void updateCityCountry(CityCountry country){
+        this.cityCountry = country;
+    }
+
 }
