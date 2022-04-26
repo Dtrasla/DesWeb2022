@@ -1,6 +1,5 @@
 package com.webdev.productsystem.Users.Phone.Domain.Services;
 
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneExistingValue;
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneNotFound;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
 import com.webdev.productsystem.Users.Phone.Domain.Ports.PhoneRepository;
@@ -16,10 +15,10 @@ public class ValidateExistence {
         this.repository = repository;
     }
 
-    public Phone execute(String phoneNumber){
-        Optional<Phone> estateOptional = repository.findByNumber(new PhoneNumber(phoneNumber));
-        if(estateOptional.isEmpty())
-            throw new PhoneNotFound("El inmueble con id " + phoneNumber + " no se encontró");
-        return estateOptional.get();
+    public Phone execute(String phoneId){
+        Optional<Phone> phoneOptional = repository.findById(new PhoneId(phoneId));
+        if(phoneOptional.isEmpty())
+            throw new PhoneNotFound("The phone with id " + phoneId + " did not find");
+        return phoneOptional.get();
     }
 }

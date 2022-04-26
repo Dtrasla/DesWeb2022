@@ -37,4 +37,24 @@
         <constructor-arg ref="HotelRepository"/>
     </bean>
 
+
+    <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Adapters.HibernatePhoneRepository" />
+    <bean id="ValidateExistence" class="com.webdev.productsystem.Users.Phone.Domain.Services.ValidateExistence" />
+    <bean id="PhoneFindAll" class="com.webdev.productsystem.Users.Phone.Application.All.PhoneFindAll">
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+    <bean id="PhoneDelete" class="com.webdev.productsystem.Users.Phone.Application.Delete.PhoneDelete" >
+        <constructor-arg ref="PhoneRepository"/>
+        <constructor-arg ref="ValidateExistence" />
+    </bean>
+    <bean id="PhoneCreate" class="com.webdev.productsystem.Users.Phone.Application.Create.PhoneCreate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+    <bean id="PhoneNumberUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneNumberUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+    <bean id="PhoneCountryCodeUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneCountryCodeUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
 </beans>
