@@ -33,7 +33,7 @@ public class HibernateConfigFactory {
         FileSystemResource CityResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/City/Infrastructure/Hibernate/City.hbm.xml");
 
 
-        sessionFactory.setMappingLocations(hotelResource, ticketResource);
+        sessionFactory.setMappingLocations(hotelResource, ticketResource, CityResource);
         return sessionFactory;
     }
 
