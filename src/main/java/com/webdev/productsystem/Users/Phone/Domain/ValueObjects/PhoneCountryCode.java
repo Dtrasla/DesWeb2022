@@ -2,7 +2,7 @@ package com.webdev.productsystem.Users.Phone.Domain.ValueObjects;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberString;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberLenght;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberLength;
 
 
 import java.util.regex.Matcher;
@@ -23,7 +23,7 @@ public class PhoneCountryCode extends StringValueObject {
 
     private void lengthValue(String value) {
         if (value.length() < 2 || value.length() > 4) {
-            throw new InvalidNumberLenght("Longitud Invalida");
+            throw new InvalidNumberLength("Longitud Invalida");
         }
     }
     private void notAllowedCharacters(String value) {
