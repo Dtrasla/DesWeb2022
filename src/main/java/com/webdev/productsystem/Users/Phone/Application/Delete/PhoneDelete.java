@@ -2,18 +2,14 @@ package com.webdev.productsystem.Users.Phone.Application.Delete;
 
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneNotFound;
 import com.webdev.productsystem.Users.Phone.Domain.Services.ValidateExistence;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneExistingValue;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
 import com.webdev.productsystem.Users.Phone.Domain.Ports.PhoneRepository;
-import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
 
-import java.util.Optional;
-
-public class DeletePhone {
+public class PhoneDelete {
     private final PhoneRepository repository ;
     private ValidateExistence validateExistence;
 
-    public DeletePhone(PhoneRepository repository) {
+    public PhoneDelete(PhoneRepository repository) {
         this.repository = repository;
     }
 
