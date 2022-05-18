@@ -48,6 +48,9 @@
         <constructor-arg ref="TicketRepository"/>
     </bean>
 
+
+
+
     <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
         <constructor-arg ref="TicketRepository"/>
     </bean>
@@ -67,6 +70,40 @@
     <bean id="TicketFindAll" class="com.webdev.productsystem.Tours.Ticket.Application.Find.TicketFindAll" >
         <constructor-arg ref="TicketRepository"/>
     </bean>
-   
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
+    <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="DeleteBooking" class="com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="FindBookingById" class="com.webdev.productsystem.Tours.Booking.Application.Find.FindBookingById" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="PhoneCreate" class="com.webdev.productsystem.Users.Phone.Application.Create.PhoneCreate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneDelete" class="com.webdev.productsystem.Users.Phone.Application.Delete.PhoneDelete" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneFindAll" class="com.webdev.productsystem.Users.Phone.Application.All.PhoneFindAll" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneCountryCodeUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneCountryCodeUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+
+    <bean id="PhoneNumberUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneNumberUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+    <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate.HibernatePhoneRepository"/>
+
 
 </beans>
