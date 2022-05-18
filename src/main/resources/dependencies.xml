@@ -75,17 +75,27 @@
     <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository" />
 
     <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
         <constructor-arg ref="TourRepository"/>
+    </bean>
+    <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
+        <constructor-arg ref="BookingRepository"/>
     </bean>
 
     <bean id="FindTourById" class="com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById" >
         <constructor-arg ref="TourRepository"/>
     </bean>
+    <bean id="DeleteBooking" class="com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
 
     <bean id="DeleteCity" class="com.webdev.productsystem.Tours.City.Application.Delete.DeleteCity" >
         <constructor-arg ref="CityRepository"/>
+    </bean>
+    <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.Find.BookingFindAll" >
+        <constructor-arg ref="BookingRepository"/>
     </bean>
 
     <bean id="CreateCity" class="com.webdev.productsystem.Tours.City.Application.Create.CreateCity" >
@@ -95,5 +105,8 @@
     <bean id="FindCityById" class="com.webdev.productsystem.Tours.City.Application.Find.FindCityById" >
         <constructor-arg ref="CityRepository"/>
     </bean>
+
+
+
 
 </beans>
