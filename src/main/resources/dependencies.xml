@@ -75,7 +75,7 @@
     <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
+    
     <bean id="AddressRepository" class="com.webdev.productsystem.Tours.Address.Infrastructure.Adapters.HibernateAddressRepository" />
 
     <bean id="AddressCreator" class="com.webdev.productsystem.Tours.Address.Application.Create.AddressCreator">
