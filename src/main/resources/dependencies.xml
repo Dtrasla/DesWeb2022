@@ -92,7 +92,7 @@
 
     <!-- BOOKING -->
 
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository"/>
 
     <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.All.BookingFindAll" >
         <constructor-arg ref="BookingRepository"/>

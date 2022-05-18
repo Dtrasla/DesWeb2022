@@ -1,5 +1,4 @@
-package com.webdev.productsystem.Tours.Booking.infrastructure.Controllers;
-import com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover;
+package com.webdev.productsystem.Tours.Booking.Infrastructure.Controllers;
 import com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking;
 import com.webdev.productsystem.Tours.Booking.Domain.Exceptions.BookingNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
