@@ -52,9 +52,6 @@
         <constructor-arg ref="TicketRepository"/>
     </bean>
 
-
-
-
     <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
         <constructor-arg ref="TicketRepository"/>
     </bean>
@@ -78,7 +75,34 @@
     <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
+
+    <bean id="AddressRepository" class="com.webdev.productsystem.Tours.Address.Infrastructure.Adapters.HibernateAddressRepository" />
+
+    <bean id="AddressCreator" class="com.webdev.productsystem.Tours.Address.Application.Create.AddressCreator">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressRemover" class="com.webdev.productsystem.Tours.Address.Application.Delete.AddressRemover">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressDataUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressDataUpdater">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressZipCodeUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressZipCodeUpdater">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressByIdFinder" class="com.webdev.productsystem.Tours.Address.Application.Find.AddressByIdFinder">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressFindAll" class="com.webdev.productsystem.Tours.Address.Application.All.AddressFindAll">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository" />
 
     <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
         <constructor-arg ref="BookingRepository"/>

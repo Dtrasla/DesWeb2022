@@ -39,14 +39,6 @@ public class HotelCreateController {
         }});
     }
 
-    @ExceptionHandler(HotelNotExists.class)
-    @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ResponseEntity<HashMap> handleNotExistingHotel(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new HashMap<>() {{
-            put("error", e.getMessage());
-        }});
-    }
-
     static class HotelCreatorRequest {
         private String id;
         private String name;

@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @Transactional
 public class HibernateTicketRepository extends HibernateRepository<Tickets> implements TicketRepository {
-
     public HibernateTicketRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Tickets.class);
     }
