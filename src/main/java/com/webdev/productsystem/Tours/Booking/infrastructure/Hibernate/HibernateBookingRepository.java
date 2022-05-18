@@ -8,15 +8,20 @@ import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Ports.TicketRepository;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+@Transactional
 public class HibernateBookingRepository extends HibernateRepository<Booking> implements BookingRepository {
 
-    public HibernateBookingRepository(SessionFactory sessionFactory, Class<Booking> aggregateClass) {
-        super(sessionFactory, aggregateClass);
+    public HibernateBookingRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
+        super(sessionFactory, Booking.class);
     }
+    
 
     @Override
     public void save(Booking booking) {
@@ -36,6 +41,11 @@ public class HibernateBookingRepository extends HibernateRepository<Booking> imp
     @Override
     public Optional<List<Booking>> all() {
         return Optional.empty();
+    }
+
+    @Override
+    public void update(Booking booking) {
+        
     }
 
     
