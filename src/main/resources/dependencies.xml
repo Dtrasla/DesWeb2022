@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- USER -->
+
     <bean id="InMemoryUserRepository" class="com.webdev.productsystem.Users.User.Infrastructure.Adapters.InMemoryUserRepository"
           scope="singleton"/>
 
@@ -20,11 +22,9 @@
         <constructor-arg ref="UserRepository"/>
     </bean>
 
+    <!-- HOTEL -->
+
     <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
-
-    <bean id="TourRepository" class="com.webdev.productsystem.Tours.Tour.Infrastructure.Hibernate.HibernateTourRepository" />
-
-    <bean id="CityRepository" class="com.webdev.productsystem.Tours.City.Infrastructure.Hibernate.HibernateCityRepository" />
 
     <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
         <constructor-arg ref="HotelRepository"/>
@@ -46,14 +46,13 @@
         <constructor-arg ref="HotelRepository"/>
     </bean>
 
+    <!-- TICKET -->
+
     <bean id="TicketRepository" class="com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate.HibernateTicketRepository" />
 
     <bean id="CreateTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Create.CreateTicket" >
         <constructor-arg ref="TicketRepository"/>
     </bean>
-
-
-
 
     <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
         <constructor-arg ref="TicketRepository"/>
@@ -75,10 +74,25 @@
         <constructor-arg ref="TicketRepository"/>
     </bean>
 
+    <!-- TOUR -->
+
+    <bean id="TourRepository" class="com.webdev.productsystem.Tours.Tour.Infrastructure.Hibernate.HibernateTourRepository" />
+
     <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
+
+    <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
+        <constructor-arg ref="TourRepository"/>
+    </bean>
+
+    <bean id="FindTourById" class="com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById" >
+        <constructor-arg ref="TourRepository"/>
+    </bean>
+
+    <!-- BOOKING -->
+
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository"/>
 
     <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.All.BookingFindAll" >
         <constructor-arg ref="BookingRepository"/>
@@ -96,13 +110,9 @@
         <constructor-arg ref="BookingRepository"/>
     </bean>
 
-    <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
-        <constructor-arg ref="TourRepository"/>
-    </bean>
+    <!-- CITY -->
 
-    <bean id="FindTourById" class="com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById" >
-        <constructor-arg ref="TourRepository"/>
-    </bean>
+    <bean id="CityRepository" class="com.webdev.productsystem.Tours.City.Infrastructure.Hibernate.HibernateCityRepository" />
 
     <bean id="DeleteCity" class="com.webdev.productsystem.Tours.City.Application.Delete.DeleteCity" >
         <constructor-arg ref="CityRepository"/>
