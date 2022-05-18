@@ -1,7 +1,7 @@
 package com.webdev.productsystem.Users.User.Infrastructure.Controllers;
 
 
-import com.webdev.productsystem.Shared.Infrastruture.Schema.ErrorSchema;
+import com.webdev.productsystem.Shared.Infrastruture.Schema.BookingErrorSchema;
 import com.webdev.productsystem.Users.User.Application.Login.UserLogin;
 import com.webdev.productsystem.Users.User.Application.Login.UserLoginResponse;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
@@ -28,7 +28,7 @@ public class UserLoginController {
     @Operation(summary = "Authenticated a User", description = "Authenticated a User in the system", tags = {"User"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Authenticated in the system"),
-            @ApiResponse(responseCode = "401", description = "Unauthorized user", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "401", description = "Unauthorized user", content = @Content(schema = @Schema(implementation = BookingErrorSchema.class))),
     })
     @PostMapping(value = "/login")
     public ResponseEntity<HashMap<String, Object>> execute(@RequestBody UserLoginRequest request) {
