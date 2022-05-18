@@ -3,7 +3,7 @@ package com.webdev.productsystem.Users.Phone.Domain;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.UserId;
 
 import java.util.HashMap;
 
@@ -14,6 +14,9 @@ public class Phone{
   private PhoneCountryCode phoneCountryCode;
   private PhoneNumber phoneNumber;
   private UserId userId;
+
+  public Phone() {
+  }
 
   public Phone(PhoneId phoneId,  PhoneCountryCode phoneCountryCode, PhoneNumber phoneNumber, UserId userId) {
       this.phoneId = phoneId;
@@ -47,9 +50,6 @@ public class Phone{
     }
     public void updatePhoneNumber(PhoneNumber phoneNumber){
       this.phoneNumber = phoneNumber;
-    }
-    public void updatePhoneId(PhoneId phoneId){
-        this.phoneId = phoneId;
     }
     public void updatePhoneCountryCode(PhoneCountryCode phoneCountryCode){
         this.phoneCountryCode = phoneCountryCode;

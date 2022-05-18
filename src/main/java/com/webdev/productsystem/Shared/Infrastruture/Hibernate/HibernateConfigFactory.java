@@ -29,12 +29,13 @@ public class HibernateConfigFactory {
         //TODO: Resources
         //FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/webdev/productsystem/Users/User/Infrastructure/Hibernate/User.hbm.xml");
         FileSystemResource hotelResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Hotel/Infrastructure/Hibernate/Hotel.hbm.xml");
-        FileSystemResource addressResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Address/Infrastructure/Hibernate/Address.hbm.xml");
         FileSystemResource ticketResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Ticket/Infrastructure/Hibernate/Ticket.hbm.xml");
-        FileSystemResource BookingResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Booking/Infrastructure/Hibernate/Booking.hbm.xml");
+        FileSystemResource bookingResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Booking/Infrastructure/Hibernate/Booking.hbm.xml");
+        FileSystemResource tourResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Tour/Infrastructure/Hibernate/Tour.hbm.xml");
+        FileSystemResource cityResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/City/Infrastructure/Hibernate/City.hbm.xml");
+        FileSystemResource phoneResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Users/Phone/Infrastructure/Hibernate/Phone.hbm.xml");
 
-
-        sessionFactory.setMappingLocations(hotelResource, addressResource, ticketResource, BookingResource);
+        sessionFactory.setMappingLocations(hotelResource, ticketResource,tourResource, cityResource, bookingResource, phoneResource);
         return sessionFactory;
     }
 
