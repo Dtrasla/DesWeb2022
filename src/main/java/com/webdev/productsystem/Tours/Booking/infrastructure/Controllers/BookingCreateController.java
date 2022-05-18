@@ -17,7 +17,7 @@ public class BookingCreateController {
 
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody BookingCreatorRequest request) {
-        creator.execute(request.getId(), request.getTicket(), request.getHotelsId(),request.getTourId());
+        creator.execute(request.getId(), request.getHotelsId(), request.getTicket(),request.getTourId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
