@@ -14,22 +14,20 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 @Transactional
 public class HibernateBookingRepository extends HibernateRepository<Booking> implements BookingRepository {
 
     public HibernateBookingRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Booking.class);
     }
+    
 
 
     @Override
     public void save(Booking booking) {
         
-    }
-
-    @Override
-    public void update(Booking booking) {
-
     }
 
     @Override
@@ -45,6 +43,11 @@ public class HibernateBookingRepository extends HibernateRepository<Booking> imp
     @Override
     public Optional<List<Booking>> all() {
         return Optional.empty();
+    }
+
+    @Override
+    public void update(Booking booking) {
+        
     }
 
     

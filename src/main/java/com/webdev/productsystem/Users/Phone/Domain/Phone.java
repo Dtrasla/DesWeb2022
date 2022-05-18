@@ -3,7 +3,7 @@ package com.webdev.productsystem.Users.Phone.Domain;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId;
 import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
+import com.webdev.productsystem.Users.Phone.Domain.ValueObjects.UserId;
 
 import java.util.HashMap;
 

@@ -9,5 +9,17 @@
             <key-property name="value" column="BookingId" access="field" length="36"/>
         </composite-id>
 
+        <component name="tour" class="com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingTour" access="field">
+            <property name="value" column="tour" access="field" type="string"/>
+        </component>
+
+        <component name="ticket" class="com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingTicket" access="field">
+            <property name="value" column="ticket" access="field" type="string"/>
+        </component>
+
+        <component name="hotel" class="com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingHotel" access="field">
+            <property name="value" column="hotel" access="field" type="string"/>
+        </component>
+
     </class>
 </hibernate-mapping>
