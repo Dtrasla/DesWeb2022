@@ -52,6 +52,9 @@
         <constructor-arg ref="TicketRepository"/>
     </bean>
 
+
+
+
     <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
         <constructor-arg ref="TicketRepository"/>
     </bean>

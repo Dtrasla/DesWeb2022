@@ -1,8 +1,9 @@
 package com.webdev.productsystem.Users.Phone.Domain.ValueObjects;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberString;
-import com.webdev.productsystem.Users.Phone.Domain.Exceptions.InvalidNumberLength;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidCountryCodeLength;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidNumberString;
+import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidNumberLength;
 
 
 import java.util.regex.Matcher;
@@ -23,7 +24,7 @@ public class PhoneCountryCode extends StringValueObject {
 
     private void lengthValue(String value) {
         if (value.length() < 2 || value.length() > 4) {
-            throw new InvalidNumberLength("Longitud Invalida");
+            throw new PhoneInvalidCountryCodeLength("Longitud Invalida");
         }
     }
     private void notAllowedCharacters(String value) {
@@ -31,7 +32,7 @@ public class PhoneCountryCode extends StringValueObject {
         Matcher mat = pat.matcher(value);
         if (mat.matches()) {
         } else {
-            throw new InvalidNumberString("No válido");
+            throw new PhoneInvalidNumberString("No válido");
         }}
 }
 

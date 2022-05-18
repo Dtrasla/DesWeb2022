@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.webdev.productsystem.Users.Phone.Domain.Phone" table="phones">
+        <composite-id name="id" class="com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="number" class="com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneNumber" access="field">
+            <property name="value" column="number" access="field" type="string"/>
+        </component>
+        <component name="countryCode" class="com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode" access="field">
+            <property name="value" column="countryCode" access="field" type="string"/>
+        </component>
+    </class>
+</hibernate-mapping>
