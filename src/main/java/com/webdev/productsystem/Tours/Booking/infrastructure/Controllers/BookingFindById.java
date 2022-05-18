@@ -12,15 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/Booking")
+@RequestMapping(value = "/booking")
 public class BookingFindById {
-    /*@Autowired
-    private BookingFindAll all;
 
-    @GetMapping(value = "/all")
-    public ResponseEntity<List<HashMap<String, Object>>> execute() {
-        return ResponseEntity.status(HttpStatus.OK).body(new BookingFindAllResponse(all.execute()).response());
-    }*/
     @Autowired
     private FindBookingById finder;
 

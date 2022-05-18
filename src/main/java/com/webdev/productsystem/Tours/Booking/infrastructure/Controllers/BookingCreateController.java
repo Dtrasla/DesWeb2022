@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/Booking")
+@RequestMapping(value = "/booking")
 public class BookingCreateController {
     @Autowired
     private CreateBooking creator;

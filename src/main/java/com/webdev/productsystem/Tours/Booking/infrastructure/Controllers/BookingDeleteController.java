@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping(value = "/Booking")
+@RequestMapping(value = "/booking")
 public class BookingDeleteController {
     @Autowired
     private DeleteBooking remover;
