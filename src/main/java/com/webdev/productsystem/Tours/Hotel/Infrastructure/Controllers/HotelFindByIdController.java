@@ -24,10 +24,10 @@ public class HotelFindByIdController {
     @Autowired
     private HotelByIdFinder finder;
 
-    @Operation(summary = "Delete a hotel", description = "Delete a hotel that already exits in the system", tags = {"Hotel"})
+    @Operation(summary = "Find a hotel by id", description = "Find and retrieves a hotel if it's id is found in the system", tags = {"Hotel"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Hotel found"),
-            @ApiResponse(responseCode = "404", description = "Hotel doesn't exist", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{hotelId}")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "hotelId") String id) {

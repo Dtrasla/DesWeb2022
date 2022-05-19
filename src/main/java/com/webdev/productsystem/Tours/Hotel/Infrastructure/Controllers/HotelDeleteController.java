@@ -26,7 +26,7 @@ public class HotelDeleteController {
     @Operation(summary = "Delete a hotel", description = "Delete a hotel that already exits in the system", tags = {"Hotel"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Hotel deleted"),
-            @ApiResponse(responseCode = "404", description = "Hotel doesn't exist", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @DeleteMapping(value = "/delete/{hotelId}")
     public ResponseEntity execute(@PathVariable(value = "hotelId") String id) {
