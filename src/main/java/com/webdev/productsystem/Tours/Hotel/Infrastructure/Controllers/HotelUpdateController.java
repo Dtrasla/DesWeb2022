@@ -43,6 +43,7 @@ public class HotelUpdateController {
     }
 
     static class HotelUpdaterRequest {
+        @Schema(description = "Hotel name, between 5 and 25 characters", example = "Marriott Bogotá")
         String name;
 
         public String getName() {
