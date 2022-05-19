@@ -54,7 +54,7 @@ public class HotelCreateController {
     }
 
     static class HotelCreatorRequest {
-        @Schema(description = "Hotel Id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
+        @Schema(description = "Hotel id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
         private String id;
 
         @Schema(description = "Hotel name, between 5 and 25 characters", example = "Marriott Bogotá")
