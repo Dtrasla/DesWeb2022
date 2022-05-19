@@ -27,7 +27,7 @@ public class HotelFindAllController {
     private HotelFindAll all;
 
     @Operation(summary = "Get all the hotels", description = "Find all the hotels stored in the system", tags = {"Hotel"})
-    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Hotel deleted") })
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Hotels found") })
     @GetMapping(value = "/all")
     public ResponseEntity<List<HashMap<String, Object>>> execute() {
         return ResponseEntity.status(HttpStatus.OK).body(new HotelFindAllResponse(all.execute()).response());
