@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/hotel")
-@Tag(name = "hotel", description = "Hotel REST API")
+@Tag(name = "Hotel", description = "Hotel REST API")
 public class HotelFindByIdController {
     @Autowired
     private HotelByIdFinder finder;

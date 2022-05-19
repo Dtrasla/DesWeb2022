@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/hotel")
-@Tag(name = "hotel", description = "Hotel REST API")
+@Tag(name = "Hotel", description = "Hotel REST API")
 public class HotelFindAllController {
     @Autowired
     private HotelFindAll all;
