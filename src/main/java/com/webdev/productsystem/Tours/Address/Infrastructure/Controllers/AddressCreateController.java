@@ -23,7 +23,7 @@ public class AddressCreateController {
     @Autowired
     private AddressCreator creator;
 
-    @Operation(summary = "Create a new address", description = "Add a new address to the system", tags = {"Hotel"})
+    @Operation(summary = "Create a new address", description = "Add a new address to the system", tags = {"Address"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Address created"),
             @ApiResponse(responseCode = "409", description = "Address already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
