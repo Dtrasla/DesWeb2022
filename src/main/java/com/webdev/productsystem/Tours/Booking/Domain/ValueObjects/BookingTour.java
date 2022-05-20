@@ -2,25 +2,22 @@ package com.webdev.productsystem.Tours.Booking.Domain.ValueObjects;
 
 import java.util.List;
 
+import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
 import com.webdev.productsystem.Shared.Domain.Aggregate.ListValueObject;
 import com.webdev.productsystem.Shared.Domain.Aggregate.StringValueObject;
 
-public class BookingTour extends StringValueObject{
+public class BookingTour extends CustomUUID {
     /*private String id;
     private String name;
     private String country;*/
     private BookingTour(){}
 
-    public BookingTour(String tour){
-        validate(tour);
-        this.value=tour;
+    public BookingTour(String value)
+    {
+        super(value);
     }
 
-    public void validate(String tour){
 
-        
-
-    }
 
     /*public HashMap<String, Object> data() {
         return new HashMap<>() {{

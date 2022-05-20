@@ -26,7 +26,7 @@ public class CreateBooking {
     public CreateBooking(BookingRepository repository) {
         this.repository = repository;
     }
-    public void execute(String id,List<String> hotelsId, String ticket,  String tour){
+    public void execute(String id,String hotelsId, String ticket,  String tour){
         validate(id);
         this.repository.save(Booking.create(
                                             new BookingId(id),
