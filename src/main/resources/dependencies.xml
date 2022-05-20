@@ -80,17 +80,10 @@
         <constructor-arg ref="TourRepository"/>
     </bean>
 
-    <bean id="FindTourById" class="com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById" >
-        <constructor-arg ref="TourRepository"/>
-    </bean>
 
     <!-- BOOKING -->
 
-    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository"/>
-
-    <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.All.BookingFindAll" >
-        <constructor-arg ref="BookingRepository"/>
-    </bean>
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.infrastructure.Hibernate.HibernateBookingRepository"/>
 
     <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
         <constructor-arg ref="BookingRepository"/>
