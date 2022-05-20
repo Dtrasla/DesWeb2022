@@ -1,5 +1,9 @@
+<<<<<<< HEAD:src/main/java/com/webdev/productsystem/Tours/Booking/infrastructure/Controllers/BookingCreateController.java
 package com.webdev.productsystem.Tours.Booking.infrastructure.Controllers;
 import com.webdev.productsystem.Shared.Infrastruture.Schema.BookingErrorSchema;
+=======
+package com.webdev.productsystem.Tours.Booking.Infrastructure.Controllers;
+>>>>>>> develop:src/main/java/com/webdev/productsystem/Tours/Booking/Infrastructure/Controllers/BookingCreateController.java
 import com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking;
 import com.webdev.productsystem.Tours.Booking.Domain.Exceptions.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,8 +21,12 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD:src/main/java/com/webdev/productsystem/Tours/Booking/infrastructure/Controllers/BookingCreateController.java
 @RequestMapping(value = "/Booking")
 @Tag (name= "Booking", description = "Booking REST API")
+=======
+@RequestMapping(value = "/booking")
+>>>>>>> develop:src/main/java/com/webdev/productsystem/Tours/Booking/Infrastructure/Controllers/BookingCreateController.java
 public class BookingCreateController {
     @Autowired
     private CreateBooking creator;
