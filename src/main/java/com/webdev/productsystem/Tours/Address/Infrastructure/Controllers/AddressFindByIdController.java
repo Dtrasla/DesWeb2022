@@ -1,9 +1,8 @@
-
-package com.webdev.productsystem.Tours.Hotel.Infrastructure.Controllers;
+package com.webdev.productsystem.Tours.Address.Infrastructure.Controllers;
 
 import com.webdev.productsystem.Shared.Infrastruture.Schema.ErrorSchema;
-import com.webdev.productsystem.Tours.Hotel.Application.Find.HotelByIdFinder;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
+import com.webdev.productsystem.Tours.Address.Application.Find.AddressByIdFinder;
+import com.webdev.productsystem.Tours.Address.Domain.Excpetions.AddressNotExists;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -18,23 +17,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping(value = "/hotel")
-@Tag(name = "Hotel", description = "Hotel REST API")
-public class HotelFindByIdController {
+@RequestMapping(value = "/address")
+@Tag(name = "Address", description = "Address REST API")
+public class AddressFindByIdController {
     @Autowired
-    private HotelByIdFinder finder;
+    private AddressByIdFinder finder;
 
-    @Operation(summary = "Find a hotel by id", description = "Find and retrieves a hotel if it's id is found in the system", tags = {"Hotel"})
+    @Operation(summary = "Find a address by id", description = "Find and retrieves a address if it's id is found in the system", tags = {"Address"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Hotel found"),
-            @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "200", description = "Address found"),
+            @ApiResponse(responseCode = "404", description = "Address not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
-    @GetMapping("/{hotelId}")
-    public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "hotelId") String id) {
+    @GetMapping("/{addressId}")
+    public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "addressId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }
 
-    @ExceptionHandler(HotelNotExists.class)
+    @ExceptionHandler(AddressNotExists.class)
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
     public ResponseEntity<HashMap> handleNotExistingHotel(RuntimeException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new HashMap<>() {{

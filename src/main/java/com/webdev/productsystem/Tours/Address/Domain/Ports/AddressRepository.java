@@ -10,6 +10,6 @@ public interface AddressRepository {
     void save(Address address);
     void update(Address address);
     void delete(Address address);
-    Optional<Address> find(AddressId id);
+    Optional<Address> findById(AddressId id);
     Optional<List<Address>> all();
 }

@@ -1,12 +1,9 @@
 package com.webdev.productsystem.Shared.Infrastruture.Hibernate;
 
 import com.webdev.productsystem.Shared.Domain.Aggregate.CustomUUID;
-import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import org.hibernate.SessionFactory;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 

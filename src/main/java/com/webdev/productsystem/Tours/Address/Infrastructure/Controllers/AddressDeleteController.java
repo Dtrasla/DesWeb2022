@@ -1,8 +1,8 @@
-package com.webdev.productsystem.Tours.Hotel.Infrastructure.Controllers;
+package com.webdev.productsystem.Tours.Address.Infrastructure.Controllers;
 
 import com.webdev.productsystem.Shared.Infrastruture.Schema.ErrorSchema;
-import com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
+import com.webdev.productsystem.Tours.Address.Application.Delete.AddressRemover;
+import com.webdev.productsystem.Tours.Address.Domain.Excpetions.AddressNotExists;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -17,24 +17,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping(value = "/hotel")
-@Tag(name = "Hotel", description = "Hotel REST API")
-public class HotelDeleteController {
+@RequestMapping(value = "/address")
+@Tag(name = "Address", description = "Address REST API")
+public class AddressDeleteController {
     @Autowired
-    private HotelRemover remover;
+    private AddressRemover remover;
 
-    @Operation(summary = "Delete a hotel", description = "Delete a hotel that already exits in the system", tags = {"Hotel"})
+    @Operation(summary = "Delete an address", description = "Delete an address that already exits in the system", tags = {"Address"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Hotel deleted"),
-            @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "200", description = "Address deleted"),
+            @ApiResponse(responseCode = "404", description = "Address not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
-    @DeleteMapping(value = "/delete/{hotelId}")
-    public ResponseEntity execute(@PathVariable(value = "hotelId") String id) {
+    @DeleteMapping(value = "/delete/{addressId}")
+    public ResponseEntity execute(@PathVariable(value = "addressId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
-    @ExceptionHandler(HotelNotExists.class)
+    @ExceptionHandler(AddressNotExists.class)
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
     public ResponseEntity<HashMap> handleNotExistingHotel(RuntimeException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new HashMap<>() {{
