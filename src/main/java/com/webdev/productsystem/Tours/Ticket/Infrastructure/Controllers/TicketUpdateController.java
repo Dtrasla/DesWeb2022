@@ -4,6 +4,7 @@ import com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketDate
 import com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketGate;
 import com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketSeat;
 import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketNotFound;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/ticket")
+@Tag(name = "Ticket", description = "Ticket rest API")
 public class TicketUpdateController {
 
     @Autowired
