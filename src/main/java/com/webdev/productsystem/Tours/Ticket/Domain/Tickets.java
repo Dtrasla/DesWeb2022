@@ -14,12 +14,7 @@ public class Tickets {
     private OriginCityId originCityId;
     private DestinationCityId destinationCityId;
 
-<<<<<<< HEAD
     public Tickets() {}
-=======
-    public Tickets() {
-    }
->>>>>>> develop
 
     public Tickets(TicketId id, TicketGate gate, TicketSeat seat, TicketDate date, UserId userId, OriginCityId originCityId, DestinationCityId destinationCityId) {
         this.id = id;
