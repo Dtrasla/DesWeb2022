@@ -4,7 +4,6 @@ import com.webdev.productsystem.Tours.Address.Domain.Address;
 import com.webdev.productsystem.Tours.Address.Domain.Excpetions.AddressNotExists;
 import com.webdev.productsystem.Tours.Address.Domain.Ports.AddressRepository;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressId;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
 
 public class AddressByIdFinder {
     private AddressRepository repository;

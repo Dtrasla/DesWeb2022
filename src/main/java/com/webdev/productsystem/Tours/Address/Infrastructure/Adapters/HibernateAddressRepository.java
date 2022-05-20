@@ -5,14 +5,16 @@ import com.webdev.productsystem.Tours.Address.Domain.Address;
 import com.webdev.productsystem.Tours.Address.Domain.Ports.AddressRepository;
 import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressId;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
+@Transactional("transactional-manager")
 public class HibernateAddressRepository extends HibernateRepository<Address> implements AddressRepository {
-    public HibernateAddressRepository(SessionFactory sessionFactory) {
+
+    public HibernateAddressRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Address.class);
     }
 

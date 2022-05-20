@@ -1,7 +1,6 @@
 package com.webdev.productsystem.Tours.Address.Application.All;
 
 import com.webdev.productsystem.Tours.Address.Domain.Address;
-import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +14,6 @@ public class AddressFindAllResponse {
     }
 
     public List<HashMap<String, Object>> response() {
-        return addresses.stream().map(hotel -> hotel.data()).collect(Collectors.toList());
+        return addresses.stream().map(address -> address.data()).collect(Collectors.toList());
     }
 }
