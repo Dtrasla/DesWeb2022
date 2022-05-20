@@ -7,6 +7,7 @@ import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidCountr
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidNumberLength;
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneInvalidNumberString;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/phone")
+@Tag(name = "Phone", description = "Phone rest API")
 public class PhoneUpdateController {
     @Autowired
     private PhoneCountryCodeUpdate countryCodeUpdate;
