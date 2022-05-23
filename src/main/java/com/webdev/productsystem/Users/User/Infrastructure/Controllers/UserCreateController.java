@@ -3,12 +3,11 @@ package com.webdev.productsystem.Users.User.Infrastructure.Controllers;
 
 import com.webdev.productsystem.Shared.Infrastruture.Schema.UserErrorSchema;
 import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.InvalidDate;
+import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketAlreadyExists;
 import com.webdev.productsystem.Tours.Ticket.Infrastructure.Controllers.TicketCreateController;
 import com.webdev.productsystem.Users.User.Application.Create.UserCreator;
-import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidPassword;
-import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidUserEmail;
-import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidUserName;
-import com.webdev.productsystem.Users.User.Domain.Exceptions.LenghtInvalid;
+import com.webdev.productsystem.Users.User.Domain.Exceptions.*;
+import com.webdev.productsystem.Users.User.Domain.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -77,6 +76,13 @@ public class UserCreateController {
     }
 
 
+    @ExceptionHandler(UserAlreadyExist.class)
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity<HashMap> handleUserAlreadyExists(RuntimeException e) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(new HashMap<>() {{
+            put("error", e.getMessage());
+        }});
+    }
 
 
 
@@ -87,14 +93,22 @@ public class UserCreateController {
 
     static class UserCreatorRequest {
 
-        @Schema(description = "User id", example= "6705a4cc-5e59-4f29-8cc5-9ec6e7434d0d")
+        @Schema(description = "User id", example= "5017a4bc-5e69-7d15-8cc5-5bd6f4206d0r")
         private String id;
 
+        @Schema(description = "User Email", example= "juancamilo@gmail.com)")
         private String email;
+
+        @Schema(description = "User Password", example= "123456ABcd")
         private String password;
+
+        @Schema(description = "User Name", example= "Juan Camilo")
         private String name;
+        @Schema(description = "User LastName", example= "Gonzalez")
         private String lastName;
+        @Schema(description = "User Birthday", example= "12/3/2000")
         private String birthday;
+        @Schema(description = "User Name", example= "Masculino")
         private String gender;
 
         public String getId() {
