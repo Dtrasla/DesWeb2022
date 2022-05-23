@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Users.User.Infrastructure.Controllers;
 
 
+import com.webdev.productsystem.Shared.Infrastruture.Schema.UserErrorSchema;
 import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.InvalidDate;
 import com.webdev.productsystem.Tours.Ticket.Infrastructure.Controllers.TicketCreateController;
 import com.webdev.productsystem.Users.User.Application.Create.UserCreator;
@@ -8,6 +9,11 @@ import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidPassword;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidUserEmail;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.InvalidUserName;
 import com.webdev.productsystem.Users.User.Domain.Exceptions.LenghtInvalid;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +26,17 @@ import java.util.HashMap;
 public class UserCreateController {
     @Autowired
     private UserCreator creator;
+
+
+    @Operation(summary = "Create a new Ticket", description = " Create a New Ticket in the System", tags ={"Ticket"})
+
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description= "User created"),
+            @ApiResponse(responseCode = "400", description= "Invalid User input", content= @Content(schema = @Schema(implementation = UserErrorSchema.class))),
+            @ApiResponse(responseCode = "409", description= "User already exists", content= @Content(schema = @Schema(implementation = UserErrorSchema.class))),
+
+    })
+
 
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody UserCreatorRequest request) {
@@ -70,7 +87,9 @@ public class UserCreateController {
 
     static class UserCreatorRequest {
 
+        @Schema(description = "User id", example= "6705a4cc-5e59-4f29-8cc5-9ec6e7434d0d")
         private String id;
+
         private String email;
         private String password;
         private String name;
