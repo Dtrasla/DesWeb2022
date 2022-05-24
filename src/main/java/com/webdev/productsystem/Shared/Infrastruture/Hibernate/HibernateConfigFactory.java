@@ -35,8 +35,9 @@ public class HibernateConfigFactory {
         FileSystemResource cityResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/City/Infrastructure/Hibernate/City.hbm.xml");
         FileSystemResource phoneResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Users/Phone/Infrastructure/Hibernate/Phone.hbm.xml");
         FileSystemResource addressResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/Address/Infrastructure/Hibernate/Address.hbm.xml");
+        FileSystemResource touristicLocationResource = new FileSystemResource("./src/main/java/com/webdev/productsystem/Tours/TouristicLocation/Infrastructure/Hibernate/TouristicLocation.hbm.xml");
 
-        sessionFactory.setMappingLocations(hotelResource, ticketResource,tourResource, cityResource, bookingResource, phoneResource, addressResource);
+        sessionFactory.setMappingLocations(hotelResource, ticketResource,tourResource, cityResource, bookingResource, phoneResource, addressResource, touristicLocationResource);
         return sessionFactory;
     }
 
