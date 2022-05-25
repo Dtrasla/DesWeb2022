@@ -167,4 +167,27 @@
         <constructor-arg ref="PhoneRepository"/>
     </bean>
 
+    <!-- TouristicLocation -->
+    <bean id="TouristicLocationRepository" class="com.webdev.productsystem.Tours.TouristicLocation.Infrastructure.Adapters.HibernateTouristicLocationRepository" />
+
+    <bean id="TouristicLocationCreator" class="com.webdev.productsystem.Tours.TouristicLocation.Application.Create.TouristicLocationCreator" >
+        <constructor-arg ref="TouristicLocationRepository"/>
+    </bean>
+
+    <bean id="TouristicLocationNameUpdater" class="com.webdev.productsystem.Tours.TouristicLocation.Application.Update.TouristicLocationNameUpdater" >
+        <constructor-arg ref="TouristicLocationRepository"/>
+    </bean>
+
+    <bean id="TouristicLocationRemover" class="com.webdev.productsystem.Tours.TouristicLocation.Application.Delete.TouristicLocationRemover" >
+        <constructor-arg ref="TouristicLocationRepository"/>
+    </bean>
+
+    <bean id="TouristicLocationFindAll" class="com.webdev.productsystem.Tours.TouristicLocation.Application.All.TouristicLocationFindAll" >
+        <constructor-arg ref="TouristicLocationRepository"/>
+    </bean>
+
+    <bean id="TouristicLocationByIdFinder" class="com.webdev.productsystem.Tours.TouristicLocation.Application.Find.TouristicLocationByIdFinder" >
+        <constructor-arg ref="TouristicLocationRepository"/>
+    </bean>
+
 </beans>
