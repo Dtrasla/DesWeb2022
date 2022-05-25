@@ -6,13 +6,13 @@ import java.util.Optional;
 import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingHotel;
 import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingId;
 import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingTicket;
-<<<<<<< Updated upstream
+
 import com.webdev.productsystem.Tours.Booking.Domain.ValueObjects.BookingTour;
 import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Tours.Ticket.Domain.Tickets;
-=======
+
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
->>>>>>> Stashed changes
+
 
 import com.webdev.productsystem.Tours.Tour.Domain.Tour;
 
