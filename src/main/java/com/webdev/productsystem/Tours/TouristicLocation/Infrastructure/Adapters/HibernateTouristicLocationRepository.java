@@ -7,10 +7,13 @@ import com.webdev.productsystem.Tours.TouristicLocation.Domain.TouristicLocation
 import com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TouristicLocationId;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional("transactional-manager")
 public class HibernateTouristicLocationRepository extends HibernateRepository<TouristicLocation> implements TouristicLocationRepository {
     public HibernateTouristicLocationRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, TouristicLocation.class);

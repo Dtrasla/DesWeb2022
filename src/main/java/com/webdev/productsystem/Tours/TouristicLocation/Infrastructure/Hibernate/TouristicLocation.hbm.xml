@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.webdev.productsystem.Tours.TouristicLocation.Domain.TouristicLocation" table="touristicLocations">
+    <class name="com.webdev.productsystem.Tours.TouristicLocation.Domain.TouristicLocation" table="touristic_locations">
         <composite-id name="id" class="com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TouristicLocationId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
