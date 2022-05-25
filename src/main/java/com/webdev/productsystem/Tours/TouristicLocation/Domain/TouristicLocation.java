@@ -16,6 +16,9 @@ public class TouristicLocation {
     private TouristicLocationName name;
     private Optional<TouristicLocationAddress> address;
 
+    public TouristicLocation(){
+
+    }
     public TouristicLocation(TouristicLocationId id, TouristicLocationName name,  Optional<TouristicLocationAddress> address) {
         this.id = id;
         this.name = name;
