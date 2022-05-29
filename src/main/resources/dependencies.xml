@@ -78,11 +78,11 @@
 
     <bean id="TourRepository" class="com.webdev.productsystem.Tours.Tour.Infrastructure.Adapters.HibernateTourRepository" />
 
-    <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
+    <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
 
-    <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
+    <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
         <constructor-arg ref="TourRepository"/>
     </bean>
 
@@ -105,6 +105,10 @@
 
     <bean id="FindBookingById" class="com.webdev.productsystem.Tours.Booking.Application.Find.FindBookingById" >
         <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="TourFindAll" class="com.webdev.productsystem.Tours.Tour.Application.All.TourFindAll">
+        <constructor-arg ref="TourRepository" />
     </bean>
 
     <!-- ADDRESS -->
