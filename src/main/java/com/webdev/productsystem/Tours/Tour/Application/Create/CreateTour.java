@@ -5,9 +5,7 @@ import com.webdev.productsystem.Tours.Tour.Domain.Ports.TourRepository;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TouristicLocationId;
 
-import java.util.List;
 import java.util.Optional;
 
 public class CreateTour {

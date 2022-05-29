@@ -44,7 +44,7 @@ public class Tour {
         this.name = name;
     }
 
-    public void updateTourBooking(TourDate date) {
+    public void updateTourDate(TourDate date) {
         this.date = date;
     }
 
