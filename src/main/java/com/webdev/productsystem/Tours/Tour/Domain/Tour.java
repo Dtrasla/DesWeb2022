@@ -1,52 +1,48 @@
 package com.webdev.productsystem.Tours.Tour.Domain;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
+import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TouristicLocationId;
 
 public class Tour {
     
-    public TourId tourId;
-    public TourName tourName;
-    public TourCity tourCity;
-    public TourDate tourDate;
+    private TourId id;
+    private TourName name;
+    private TourDate date;
+    private TouristicLocationId touristicLocationId;
 
-    public Tour(TourId tourId, TourName tourName, TourCity tourCity, TourDate tourDate) {
-        this.tourId = tourId;
-        this.tourName = tourName;
-        this.tourCity = tourCity;
-        this.tourDate = tourDate;
+    public Tour(TourId id, TourName name, TourDate date, TouristicLocationId touristicLocationId) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.touristicLocationId = touristicLocationId;
     }
 
-    public static Tour create(TourId tourId, TourName tourName, TourCity tourCity, TourDate tourDate){
-        Tour tour = new Tour(tourId, tourName, tourCity, tourDate);
+    public static Tour create(TourId id, TourName name, TourDate date, TouristicLocationId touristicLocationId){
+        Tour tour = new Tour(id, name, date, touristicLocationId);
         return tour;
     }
 
-    //private HashMap<String, Object> createTourCity() { return tourCity.data(); }
-
     public HashMap <String, Object> data(){
         return new HashMap<>(){{
-            put("tourId", tourId);
-            put("tourName", tourName);
-            put("tourCity", tourCity);
-            put("tourBookingId", tourDate);
+            put("id", id.value());
+            put("name", name.value());
+            put("date", date.value());
+            put("touristicLocationId", touristicLocationId.value());
         }};
     }
 
     public void updateTourName(TourName name){
-        this.tourName = name;
-    }
-
-    public void updateTourCity(TourCity city){
-        this.tourCity = city;
+        this.name = name;
     }
 
     public void updateTourBooking(TourDate booking){
-        this.tourDate = booking;
+        this.date = booking;
     }
 
 }

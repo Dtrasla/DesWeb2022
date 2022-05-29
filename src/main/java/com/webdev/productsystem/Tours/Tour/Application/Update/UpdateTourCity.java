@@ -1,14 +1,9 @@
 package com.webdev.productsystem.Tours.Tour.Application.Update;
 
-import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketNotFound;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Tours.Tour.Domain.Tour;
 import com.webdev.productsystem.Tours.Tour.Domain.Exceptions.TourCityInvalid;
 import com.webdev.productsystem.Tours.Tour.Domain.Ports.TourRepository;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,20 +1,11 @@
 package com.webdev.productsystem.Tours.Tour.Application.Create;
-import com.webdev.productsystem.Tours.City.Domain.City;
-import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
-import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketAlreadyExists;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat;
 import com.webdev.productsystem.Tours.Tour.Domain.Tour;
 import com.webdev.productsystem.Tours.Tour.Domain.Exceptions.TourAlreadyExists;
 import com.webdev.productsystem.Tours.Tour.Domain.Ports.TourRepository;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
-import com.webdev.productsystem.Users.User.Domain.User;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
+import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TouristicLocationId;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,9 +19,9 @@ public class CreateTour {
         this.repository = repository;
     }
 
-    public void execute(String id,  String name, List<String> citiesId, String tourBookingId){
+    public void execute(String id,  String name, String date, String touristicLocationId){
         validate(id);
-        this.repository.save(Tour.create(new TourId(id), new TourName(name), new TourCity(citiesId), new TourDate(tourBookingId)));
+        this.repository.save(Tour.create(new TourId(id), new TourName(name), new TourDate(date), new TouristicLocationId(touristicLocationId)));
 
     }
 
