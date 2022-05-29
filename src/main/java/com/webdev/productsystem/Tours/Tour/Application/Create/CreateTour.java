@@ -19,9 +19,9 @@ public class CreateTour {
         this.repository = repository;
     }
 
-    public void execute(String id,  String name, String date, String touristicLocationId){
+    public void execute(String id,  String name, String date){
         validate(id);
-        this.repository.save(Tour.create(new TourId(id), new TourName(name), new TourDate(date), new TouristicLocationId(touristicLocationId)));
+        this.repository.save(Tour.create(new TourId(id), new TourName(name), new TourDate(date)));
 
     }
 

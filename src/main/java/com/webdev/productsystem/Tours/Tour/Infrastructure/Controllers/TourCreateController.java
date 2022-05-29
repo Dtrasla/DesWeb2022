@@ -33,7 +33,7 @@ public class TourCreateController {
     })
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody TourCreatorRequest request) {
-        creator.execute(request.getId(), request.getName(), request.getDate(), request.getTouristicLocationId());
+        creator.execute(request.getId(), request.getName(), request.getDate());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -57,7 +57,6 @@ public class TourCreateController {
         private String id;
         private String name;
         private String date;
-        private String touristicLocationId;
 
         public String getId() {
             return id;
@@ -81,14 +80,6 @@ public class TourCreateController {
 
         public void setDate(String date) {
             this.date = date;
-        }
-
-        public String getTouristicLocationId() {
-            return touristicLocationId;
-        }
-
-        public void setTouristicLocationId(String touristicLocationId) {
-            this.touristicLocationId = touristicLocationId;
         }
     }
 }
