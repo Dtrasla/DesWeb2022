@@ -54,8 +54,13 @@ public class TourCreateController {
     }
 
     static class TourCreatorRequest {
+        @Schema(description = "Tour id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
         private String id;
+
+        @Schema(description = "Tour name", example = "Tour por Santa Marta")
         private String name;
+
+        @Schema(description = "Tour date", example = "01/01/2022")
         private String date;
 
         public String getId() {
