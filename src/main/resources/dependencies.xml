@@ -90,6 +90,17 @@
         <constructor-arg ref="TourRepository"/>
     </bean>
 
+    <bean id="TourFindAll" class="com.webdev.productsystem.Tours.Tour.Application.All.TourFindAll">
+        <constructor-arg ref="TourRepository" />
+    </bean>
+
+    <bean id="TourNameUpdater" class="com.webdev.productsystem.Tours.Tour.Application.Update.TourNameUpdater">
+        <constructor-arg ref="TourRepository" />
+    </bean>
+
+    <bean id="TourDateUpdater" class="com.webdev.productsystem.Tours.Tour.Application.Update.TourDateUpdater">
+        <constructor-arg ref="TourRepository" />
+    </bean>
 
     <!-- BOOKING -->
 
@@ -105,10 +116,6 @@
 
     <bean id="FindBookingById" class="com.webdev.productsystem.Tours.Booking.Application.Find.FindBookingById" >
         <constructor-arg ref="BookingRepository"/>
-    </bean>
-
-    <bean id="TourFindAll" class="com.webdev.productsystem.Tours.Tour.Application.All.TourFindAll">
-        <constructor-arg ref="TourRepository" />
     </bean>
 
     <!-- ADDRESS -->
