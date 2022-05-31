@@ -198,5 +198,12 @@
            <constructor-arg ref="RabbitMqPublisher"></constructor-arg>
     </bean>
 
+    <bean id="DomainEventsInformation" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.DomainEventsInformation"/>
+
+    <bean id="DomainEventDeserializer" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.Serializable.DomainEventJasonDeserializer">
+        <constructor-arg ref="DomainEventsInformation"></constructor-arg>
+    </bean>
+
+
 
 </beans>
