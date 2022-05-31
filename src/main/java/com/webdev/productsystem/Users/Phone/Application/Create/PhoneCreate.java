@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Users.Phone.Application.Create;
 
 
+import com.webdev.productsystem.Shared.Domain.Bus.Event.EventBus;
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneExistingNumberValue;
 import com.webdev.productsystem.Users.Phone.Domain.Exceptions.PhoneExistingIdValue;
 import com.webdev.productsystem.Users.Phone.Domain.Phone;
@@ -16,14 +17,18 @@ import java.util.Optional;
 public class PhoneCreate {
     private final PhoneRepository repository ;
     private ValidateExistence validateExistence;
+    private final EventBus eventBus;
 
-    public PhoneCreate(PhoneRepository repository) {
+    public PhoneCreate(PhoneRepository repository, EventBus eventBus) {
         this.repository = repository;
+        this.eventBus = eventBus;
     }
 
     public void execute(String id, String countryCode, String phoneNumber, String userId){
         validate(phoneNumber, id, countryCode);
-        this.repository.save(Phone.create(new PhoneId(id), new PhoneCountryCode(countryCode), new PhoneNumber(phoneNumber),new UserId(userId)));
+        Phone ph = Phone.create(new PhoneId(id), new PhoneCountryCode(countryCode), new PhoneNumber(phoneNumber),new UserId(userId));
+        this.repository.save(ph);
+        this.eventBus.publish(ph.pullDomainEvents());
 
     }
     private void validate(String phoneNumber, String id, String countryCode) {
