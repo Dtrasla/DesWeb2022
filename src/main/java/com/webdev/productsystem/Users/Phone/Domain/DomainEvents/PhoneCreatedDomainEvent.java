@@ -9,44 +9,44 @@ import java.util.Objects;
 
 public class PhoneCreatedDomainEvent extends DomainEvent {
 
-    private Integer id;
-    private Integer countryCode;
-    private Integer number;
+    private String id;
+    private String countryCode;
+    private String number;
 
     public PhoneCreatedDomainEvent() {
         super(null);
     }
 
-    public PhoneCreatedDomainEvent(String aggregateId, Integer id, Integer countryCode, Integer number) {
+    public PhoneCreatedDomainEvent(String aggregateId, String id, String countryCode, String number) {
         super(aggregateId);
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
     }
 
-    public PhoneCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, Integer id, Integer countryCode, Integer number) {
+    public PhoneCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String id, String countryCode, String number) {
         super(aggregateId, eventId, occurredOn);
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
     }
 
-    public PhoneCreatedDomainEvent(Integer id, Integer countryCode, Integer number) {
+    public PhoneCreatedDomainEvent(String id, String countryCode, String number) {
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
     }
 
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public Integer getCountryCode() {
+    public String getCountryCode() {
         return countryCode;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -67,7 +67,7 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
 
     @Override
     public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-        return new PhoneCreatedDomainEvent(aggregateId, eventId, occurredOn, (Integer)body.get("id"), (Integer)body.get("countryCode"), (Integer)body.get("number") );
+        return new PhoneCreatedDomainEvent(aggregateId, eventId, occurredOn, (String)body.get("id"), (String)body.get("countryCode"), (String)body.get("number") );
     }
 
     @Override

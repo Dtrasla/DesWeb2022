@@ -3,11 +3,11 @@ package com.webdev.productsystem.Users.User.Domain.Entities;
 import java.util.HashMap;
 
 public class UserPhone {
-    private Integer id;
-    private Integer countryCode;
-    private Integer number;
+    private String id;
+    private String countryCode;
+    private String number;
 
-    public UserPhone(Integer id, Integer countryCode, Integer number) {
+    public UserPhone(String id, String countryCode, String number) {
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
