@@ -12,29 +12,33 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
     private String id;
     private String countryCode;
     private String number;
+    private String userId;
 
     public PhoneCreatedDomainEvent() {
         super(null);
     }
 
-    public PhoneCreatedDomainEvent(String aggregateId, String id, String countryCode, String number) {
+    public PhoneCreatedDomainEvent(String aggregateId, String id, String countryCode, String number, String userId) {
         super(aggregateId);
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
+        this.userId = userId;
     }
 
-    public PhoneCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String id, String countryCode, String number) {
+    public PhoneCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String id, String countryCode, String number, String userId) {
         super(aggregateId, eventId, occurredOn);
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
+        this.userId = userId;
     }
 
-    public PhoneCreatedDomainEvent(String id, String countryCode, String number) {
+    public PhoneCreatedDomainEvent(String id, String countryCode, String number, String userId) {
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
+        this.userId = userId;
     }
 
 
@@ -50,6 +54,11 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
         return number;
     }
 
+
+    public String getUserId() {
+        return userId;
+    }
+
     @Override
     public String eventName(){
         return "add.phone";
@@ -61,13 +70,14 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
             put("id",id);
             put("countryCode",countryCode);
             put("number",number);
-
+            put("userId", userId);
         }};
     }
 
     @Override
     public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-        return new PhoneCreatedDomainEvent(aggregateId, eventId, occurredOn, (String)body.get("id"), (String)body.get("countryCode"), (String)body.get("number") );
+        return new PhoneCreatedDomainEvent(aggregateId, eventId, occurredOn, (String)body.get("id"), (String)body.get("countryCode"), (String)body.get("number"),
+                (String)body.get("userId") );
     }
 
     @Override

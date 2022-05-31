@@ -25,7 +25,7 @@ public class AddPhone {
         Optional<User> optionalUser = repository.find(new UserId(userId));
         if(optionalUser.isPresent()){
             User user = optionalUser.get();
-            user.addPhone(new UserPhone(phoneId, phoneCountryCode, phoneNumber));
+            user.addPhone(new UserPhone(phoneId, phoneCountryCode, phoneNumber, userId));
             this.repository.update(user);
 
         }
