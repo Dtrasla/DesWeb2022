@@ -200,10 +200,15 @@
 
     <bean id="DomainEventsInformation" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.DomainEventsInformation"/>
 
-    <bean id="DomainEventDeserializer" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.Serializable.DomainEventJasonDeserializer">
+    <bean id="DomainEventJsonDeserializer" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.Serializable.DomainEventJsonDeserializer">
         <constructor-arg ref="DomainEventsInformation"></constructor-arg>
     </bean>
 
+
+    <bean id="RabbitMqDomainEventsConsumer" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.RabbitMqDomainEventsConsumer">
+           <constructor-arg ref="DomainEventsInformation" />
+           <constructor-arg ref="DomainEventJsonDeserializer" />
+    </bean>
 
 
 </beans>

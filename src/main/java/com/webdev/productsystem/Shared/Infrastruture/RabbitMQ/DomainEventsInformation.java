@@ -13,7 +13,7 @@ public class DomainEventsInformation {
 
         public DomainEventsInformation(){
             indexedDomainEvent.put("add.phone", PhoneCreatedDomainEvent.class);
-            domainEventSubscriber.put("productSystem.users.phone.add.phone", "");
+            domainEventSubscriber.put("productSystem.users.phone.add.phone", "AddPhoneOnPhoneCreate");
         }
 
         public Class<? extends DomainEvent> getDomainEvent(String name){
