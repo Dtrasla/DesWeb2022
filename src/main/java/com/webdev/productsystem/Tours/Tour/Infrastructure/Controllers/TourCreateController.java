@@ -1,59 +1,66 @@
 package com.webdev.productsystem.Tours.Tour.Infrastructure.Controllers;
 
-import com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelAlreadyExists;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNameInvalidLength;
-import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
+import com.webdev.productsystem.Shared.Infrastruture.Schema.ErrorSchema;
 import com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour;
 
+import com.webdev.productsystem.Tours.Tour.Domain.Exceptions.TourAlreadyExists;
+import com.webdev.productsystem.Tours.Tour.Domain.Exceptions.TourNotFound;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tour")
+@Tag(name = "Tour", description = "Tour REST API")
 public class TourCreateController {
     @Autowired
     private CreateTour creator;
 
+    @Operation(summary = "Create new tour", description = "Add a new tour to the system", tags = {"Tour"})
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Tour created"),
+            @ApiResponse(responseCode = "404", description = "Tour not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
+            @ApiResponse(responseCode = "409", description = "Tour already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
+    })
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody TourCreatorRequest request) {
-        creator.execute(request.getId(), request.getName(), request.getCities(),request.getDate());
+        creator.execute(request.getId(), request.getName(), request.getDate());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
-    /*@ExceptionHandler(HotelNameInvalidLength.class)
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<HashMap> handleBadRequest(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>() {{
-            put("error", e.getMessage());
-        }});
-    }
-
-    @ExceptionHandler(HotelAlreadyExists.class)
+    @ExceptionHandler(TourAlreadyExists.class)
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity<HashMap> handleDuplicatedHotel(RuntimeException e) {
+    public ResponseEntity<HashMap> handleDuplicatedTour(RuntimeException e) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(new HashMap<>() {{
             put("error", e.getMessage());
         }});
     }
 
-    @ExceptionHandler(HotelNotExists.class)
+    @ExceptionHandler(TourNotFound.class)
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ResponseEntity<HashMap> handleNotExistingHotel(RuntimeException e) {
+    public ResponseEntity<HashMap> handleNotExistingTour(RuntimeException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new HashMap<>() {{
             put("error", e.getMessage());
         }});
-    }*/
+    }
 
     static class TourCreatorRequest {
+        @Schema(description = "Tour id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
         private String id;
+
+        @Schema(description = "Tour name", example = "Tour por Santa Marta")
         private String name;
-        private List<String> cities;
+
+        @Schema(description = "Tour date", example = "01/01/2022")
         private String date;
 
         public String getId() {
@@ -68,23 +75,16 @@ public class TourCreateController {
             return name;
         }
 
-        public void setCities(List<String> cities) {
-            this.cities = cities;
+        public void setName(String name) {
+            this.name = name;
         }
 
-        public List<String> getCities() {
-            return this.cities;
-        }
-
-        public void setDate(String date) {
-            this.date = date;
-        }
         public String getDate() {
             return date;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setDate(String date) {
+            this.date = date;
         }
     }
 }
