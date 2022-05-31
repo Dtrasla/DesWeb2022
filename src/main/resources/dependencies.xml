@@ -155,6 +155,10 @@
         <constructor-arg ref="CityRepository"/>
     </bean>
 
+    <bean id="CityFindAll" class="com.webdev.productsystem.Tours.City.Application.All.CityFindAll" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
     <!-- PHONE -->
 
     <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate.HibernatePhoneRepository"/>

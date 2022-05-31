@@ -6,22 +6,7 @@ import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.TouristicLocationId;
-import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketAlreadyExists;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
-import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketSeat;
-import com.webdev.productsystem.Tours.Tour.Domain.Tour;
-import com.webdev.productsystem.Tours.Tour.Domain.Exceptions.TourAlreadyExists;
-import com.webdev.productsystem.Tours.Tour.Domain.Ports.TourRepository;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
-import com.webdev.productsystem.Users.User.Domain.User;
-import com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId;
 
-import java.util.List;
 import java.util.Optional;
 
 public class CreateCity {
