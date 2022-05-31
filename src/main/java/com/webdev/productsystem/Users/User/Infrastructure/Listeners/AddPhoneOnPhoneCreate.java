@@ -13,7 +13,7 @@ public final class AddPhoneOnPhoneCreate {
 
     public void on(PhoneCreatedDomainEvent event){
         System.out.println("El evento llego " + event.getNumber());
-        this.adder.execute(event.aggregateId(),event.getId(), event.getCountryCode(), event.getNumber() );
+        this.adder.execute(event.getUserId(),event.getId(), event.getCountryCode(), event.getNumber() );
 
 
     }
