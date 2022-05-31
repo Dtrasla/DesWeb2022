@@ -7,6 +7,7 @@ import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNameInvalidLe
 import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
 import com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,9 +53,13 @@ public class CityCreateController {
     }*/
 
     static class CityCreatorRequest {
+        @Schema(description = "City id", example = "001")
         private String id;
+        @Schema(description = "City name", example = "Santa Marta")
         private String name;
+        @Schema(description = "City country", example = "Colombia")
         private String country;
+        @Schema(description = "City touristicLocationId", example = "bd8629e1-55b2-498c-99f5-234b280846ef")
         private String touristicLocationId;
 
         public String getId() {

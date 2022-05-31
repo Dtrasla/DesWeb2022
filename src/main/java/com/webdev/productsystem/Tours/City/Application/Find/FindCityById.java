@@ -19,7 +19,7 @@ public class FindCityById {
         Optional<City> cityOptional = repository.find(new CityId(cityId));
         if (cityOptional.isEmpty()) {
             //CAMBIAR
-            throw new CityNotFound("No pudimos encontrar un Tour con el numero" + cityId + "por favor asegurese de ingresarlo correctamente");
+            throw new CityNotFound("No pudimos encontrar una ciudad con el numero " + cityId + " por favor asegurese de ingresarlo correctamente");
 
         }else {
 
