@@ -2,6 +2,7 @@ package com.webdev.productsystem.Tours.City.Domain;
 
 import java.util.HashMap;
 
+import com.webdev.productsystem.Tours.Address.Domain.ValueObjects.AddressZipCode;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
@@ -33,6 +34,16 @@ public class City {
             put("cityCountry",cityCountry.value());
             put("touristicLocationId",touristicLocationId.value());
         }};
+    }
+
+    public void updateCityName(CityName cityName) {
+        this.cityName = cityName;
+    }
+    public void updateCityCountry(CityCountry cityCountry) {
+        this.cityCountry = cityCountry;
+    }
+    public void updateTouristicLocationId(TouristicLocationId touristicLocationId) {
+        this.touristicLocationId = touristicLocationId;
     }
 
 }

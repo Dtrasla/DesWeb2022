@@ -143,6 +143,18 @@
         <constructor-arg ref="CityRepository"/>
     </bean>
 
+    <bean id="CityCountryUpdater" class="com.webdev.productsystem.Tours.City.Application.Update.CityCountryUpdater" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="CityNameUpdater" class="com.webdev.productsystem.Tours.City.Application.Update.CityNameUpdater" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="CityTourLocationIdUpdater" class="com.webdev.productsystem.Tours.City.Application.Update.CityTourLocationIdUpdater" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
     <!-- PHONE -->
 
     <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate.HibernatePhoneRepository"/>
