@@ -196,7 +196,7 @@
 
     <bean id="RabbitMqEventBus" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.RabbitMqEventBus">
            <constructor-arg ref="RabbitMqPublisher"></constructor-arg>
-    </bean>>
+    </bean>
 
 
 </beans>
