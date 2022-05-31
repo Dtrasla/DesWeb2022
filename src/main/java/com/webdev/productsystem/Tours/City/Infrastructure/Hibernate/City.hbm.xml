@@ -5,16 +5,20 @@
 
 <hibernate-mapping>
     <class name="com.webdev.productsystem.Tours.Hotel.Domain.Hotel" table="hotels">
-        <composite-id name="id" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId" access="field">
+        <composite-id name="cityId" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
 
-        <component name="name" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName" access="field">
+        <component name="cityName" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName" access="field">
             <property name="value" column="name" access="field" type="string"/>
         </component>
 
-        <component name="date" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry" access="field">
-            <property name="value" column="date" access="field" type="string"/>
+        <component name="cityCountry" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry" access="field">
+            <property name="value" column="country" access="field" type="string"/>
+        </component>
+
+        <component name="touristicLocationId" class="com.webdev.productsystem.Tours.City.Domain.ValueObjects.TouristicLocationId" access="field">
+            <property name="value" column="touristic-location" access="field" type="string"/>
         </component>
 
     </class>
