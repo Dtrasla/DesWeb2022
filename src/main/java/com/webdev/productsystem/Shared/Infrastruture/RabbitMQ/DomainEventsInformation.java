@@ -25,9 +25,12 @@ public class DomainEventsInformation {
             return domainEventSubscriber.containsKey(name);
         }
 
-        public String geEventSubscriber(String name){
+        public String getEventSubscriber(String name){
             return domainEventSubscriber.get(name);
         }
+
+
+
 
 
 
