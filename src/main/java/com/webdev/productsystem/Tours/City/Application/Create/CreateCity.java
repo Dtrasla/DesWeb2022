@@ -5,6 +5,7 @@ import com.webdev.productsystem.Tours.City.Domain.Ports.CityRepository;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
+import com.webdev.productsystem.Tours.City.Domain.ValueObjects.TouristicLocationId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketAlreadyExists;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketDate;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketGate;
@@ -32,9 +33,9 @@ public class CreateCity {
         this.repository = repository;
     }
 
-    public void execute(String id,  String name, String country){
+    public void execute(String id,  String name, String country,String touristicLocationId){
         validate(id);
-        this.repository.save(City.create(new CityId(id), new CityName(name), new CityCountry(country)));
+        this.repository.save(City.create(new CityId(id), new CityName(name), new CityCountry(country), new TouristicLocationId(touristicLocationId)));
 
     }
 

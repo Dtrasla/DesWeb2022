@@ -23,7 +23,7 @@ public class CityCreateController {
 
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody CityCreatorRequest request) {
-        creator.execute(request.getId(), request.getName(), request.getCountry());
+        creator.execute(request.getId(), request.getName(), request.getCountry(),request.getTouristicLocationId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -55,6 +55,7 @@ public class CityCreateController {
         private String id;
         private String name;
         private String country;
+        private String touristicLocationId;
 
         public String getId() {
             return id;
@@ -78,5 +79,15 @@ public class CityCreateController {
         public void setCountry(String name) {
             this.name = name;
         }
+
+        public String getTouristicLocationId() {
+            return touristicLocationId;
+        }
+
+        public void setTouristicLocationId(String touristicLocationId) {
+            this.touristicLocationId = touristicLocationId;
+        }
+
+
     }
 }

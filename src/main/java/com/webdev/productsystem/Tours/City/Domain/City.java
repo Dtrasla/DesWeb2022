@@ -5,21 +5,24 @@ import java.util.HashMap;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityCountry;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityId;
 import com.webdev.productsystem.Tours.City.Domain.ValueObjects.CityName;
+import com.webdev.productsystem.Tours.City.Domain.ValueObjects.TouristicLocationId;
 
 public class City {
     
     public CityId cityId;
     public CityName cityName;
     public CityCountry cityCountry;
+    public TouristicLocationId touristicLocationId;
 
-    public City(CityId cityId, CityName cityName, CityCountry cityCountry) {
+    public City(CityId cityId, CityName cityName, CityCountry cityCountry, TouristicLocationId touristicLocationId) {
         this.cityId = cityId;
         this.cityName = cityName;
         this.cityCountry = cityCountry;
+        this.touristicLocationId = touristicLocationId;
     }
 
-    public static City create(CityId cityId, CityName cityName, CityCountry cityCountry){
-        City city = new City(cityId, cityName, cityCountry);
+    public static City create(CityId cityId, CityName cityName, CityCountry cityCountry, TouristicLocationId touristicLocationId){
+        City city = new City(cityId, cityName, cityCountry, touristicLocationId);
         return city;
     }
 
@@ -28,6 +31,7 @@ public class City {
             put("cityId",cityId.value());
             put("cityName",cityName.value());
             put("cityCountry",cityCountry.value());
+            put("touristicLocationId",touristicLocationId.value());
         }};
     }
 
