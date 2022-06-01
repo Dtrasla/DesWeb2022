@@ -25,9 +25,7 @@ public class HotelAddAddress {
                     blockId,
                     cityId
             ));
-            System.out.println("🟠 UPDATE: " + hotel.data());
-            // ! Fix database update
-            // this.repository.update(hotel);
+            this.repository.update(hotel);
         }
     }
 }

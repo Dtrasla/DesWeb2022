@@ -40,16 +40,21 @@ public class HotelAddressCustomTypes implements UserType {
 
     @Override
     public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws HibernateException, SQLException {
-        List<HotelAddress> response = null;
+        HotelAddress response = null;
         try {
             Optional<String> value = Optional.ofNullable(rs.getString(names[0]));
             if (value.isPresent()) {
-                List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(), List.class);
-                response = objects.stream()
-                        .map(element -> new HotelAddress((String) element.get("id"), (String) element.get("data"), (String) element.get("zipCode"), (String) element.get("blockId"), (String) element.get("cityId")))
-                        .collect(Collectors.toList());
+                HashMap<String, Object> object = new ObjectMapper().readValue(value.get(), HashMap.class);
+                response = new HotelAddress(
+                        (String) object.get("id"),
+                        (String) object.get("data"),
+                        (String) object.get("zipCode"),
+                        (String) object.get("blockId"),
+                        (String) object.get("cityId")
+                );
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw new HibernateException("Error at reading map of Hotel Address " + e.toString());
         }
         return Optional.ofNullable(response);
@@ -57,13 +62,12 @@ public class HotelAddressCustomTypes implements UserType {
 
     @Override
     public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
-        Optional<List<HotelAddress>> object = (value == null) ? Optional.empty() : (Optional<List<HotelAddress>>) value;
+        Optional<HotelAddress> object = (value == null) ? Optional.empty() : (Optional<HotelAddress>) value;
         try {
-            if(object.isEmpty())
+            if(object.isEmpty()) {
                 st.setNull(index, Types.VARCHAR);
-            else {
-                List<HashMap<String, Object>> objects = object.get().stream().map(element -> element.data()).collect(Collectors.toList());
-                st.setString(index, new ObjectMapper().writeValueAsString(objects).replace("\\", ""));
+            } else {
+                st.setString(index, new ObjectMapper().writeValueAsString(object.get().data()).replace("\\", ""));
             }
         } catch (Exception e) {
             throw new HibernateException("Error serializing value of HotelAddress " + e.toString());
