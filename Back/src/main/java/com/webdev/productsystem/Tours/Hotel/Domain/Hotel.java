@@ -15,7 +15,9 @@ public class Hotel  extends AggregateRoot {
     private HotelName name;
     private Optional<HotelAddress> address;
 
-    public Hotel() {}
+    public Hotel() {
+        address = Optional.empty();
+    }
 
     public Hotel(HotelId id, HotelName name, Optional<HotelAddress> address) {
         this.id = id;

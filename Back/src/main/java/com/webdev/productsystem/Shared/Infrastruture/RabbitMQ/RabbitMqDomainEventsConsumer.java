@@ -36,6 +36,7 @@ public class RabbitMqDomainEventsConsumer {
             Method subscriberOnMethod = subscriber.getClass().getMethod("on", domainEvent.getClass());
             subscriberOnMethod.invoke(subscriber, domainEvent);
         } catch (Exception error) {
+            error.printStackTrace();
             throw new Exception("Error Listener: " + error.toString());
         }
     }
