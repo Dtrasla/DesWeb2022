@@ -1,0 +1,37 @@
+package com.webdev.productsystem.Shared.Infrastruture.RabbitMQ;
+
+import com.webdev.productsystem.Shared.Domain.Bus.Event.DomainEvent;
+import com.webdev.productsystem.Users.Phone.Domain.DomainEvents.PhoneCreatedDomainEvent;
+
+import java.util.HashMap;
+
+public class DomainEventsInformation {
+
+
+        private final HashMap<String, Class<? extends DomainEvent>> indexedDomainEvent = new HashMap<>();
+        private final HashMap<String, String> domainEventSubscriber = new HashMap<>();
+
+        public DomainEventsInformation(){
+            indexedDomainEvent.put("add.phone", PhoneCreatedDomainEvent.class);
+            domainEventSubscriber.put("productSystem.users.phone.add.phone", "AddPhoneOnPhoneCreate");
+        }
+
+        public Class<? extends DomainEvent> getDomainEvent(String name){
+            return indexedDomainEvent.get(name);
+
+        }
+
+        public boolean validateEventSubscriber(String name){
+            return domainEventSubscriber.containsKey(name);
+        }
+
+        public String getEventSubscriber(String name){
+            return domainEventSubscriber.get(name);
+        }
+
+
+
+
+
+
+}

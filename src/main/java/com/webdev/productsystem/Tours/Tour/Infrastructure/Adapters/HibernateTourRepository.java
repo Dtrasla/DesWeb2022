@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Tour.Infrastructure.Hibernate;
+package com.webdev.productsystem.Tours.Tour.Infrastructure.Adapters;
 
 import com.webdev.productsystem.Shared.Infrastruture.Hibernate.HibernateRepository;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
@@ -22,27 +22,27 @@ public class HibernateTourRepository extends HibernateRepository<Tour> implement
     }
 
     @Override
-    public void save(Tour ticket) {
-
+    public void save(Tour tour) {
+        persist(tour);
     }
 
     @Override
-    public void update(Tour ticket) {
-
+    public void update(Tour tour) {
+        updateEntity(tour);
     }
 
     @Override
-    public void delete(Tour ticket) {
-
+    public void delete(Tour tour) {
+        deleteEntity(tour);
     }
 
     @Override
     public Optional<List<Tour>> all() {
-        return Optional.empty();
+        return getAll();
     }
 
     @Override
     public Optional<Tour> find(TourId id) {
-        return Optional.empty();
+        return byId(id);
     }
 }

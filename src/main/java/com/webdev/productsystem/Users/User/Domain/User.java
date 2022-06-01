@@ -46,4 +46,9 @@ public class User {
             put("phone", createPhone());
         }};
     }
+
+
+    public void addPhone(UserPhone userPhone) {
+        this.phone = userPhone;
+    }
 }

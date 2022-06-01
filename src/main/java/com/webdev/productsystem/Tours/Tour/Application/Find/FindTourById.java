@@ -1,5 +1,7 @@
 package com.webdev.productsystem.Tours.Tour.Application.Find;
 
+import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
+import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelId;
 import com.webdev.productsystem.Tours.Ticket.Domain.Exceptions.TicketNotFound;
 import com.webdev.productsystem.Tours.Ticket.Domain.ValueObjects.TicketId;
 import com.webdev.productsystem.Tours.Tour.Domain.Tour;
@@ -17,17 +19,17 @@ public class FindTourById {
         this.repository = repository;
     }
 
-    public Tour execute(String tourId) {
+    public Tour execute(String id) {
+        validate(id);
+        return repository.find(new TourId(id)).get();
+    }
 
-        Optional<Tour> tourOptional = repository.find(new TourId(tourId));
-        if (tourOptional.isEmpty()) {
-            //CAMBIAR
-            throw new TourNotFound("No pudimos encontrar un Tour con el numero" + tourId + "por favor asegurese de ingresarlo correctamente");
+    private void validate(String id) {
+        checkIfExists(id);
+    }
 
-        }else {
-
-            Tour tour = tourOptional.get();
-            return tour;
-        }
+    private void checkIfExists(String id) {
+        if(!repository.find(new TourId(id)).isPresent())
+            throw new TourNotFound("A tour with that id doesn't exist");
     }
 }

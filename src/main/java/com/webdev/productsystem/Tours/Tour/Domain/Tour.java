@@ -1,52 +1,57 @@
 package com.webdev.productsystem.Tours.Tour.Domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.webdev.productsystem.Tours.Tour.Domain.Entities.TourTouristicLocation;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate;
-import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourCity;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourName;
 
 public class Tour {
-    
-    public TourId tourId;
-    public TourName tourName;
-    public TourCity tourCity;
-    public TourDate tourDate;
+    private TourId id;
+    private TourName name;
+    private TourDate date;
+    private Optional<List<TourTouristicLocation>> touristicLocations;
 
-    public Tour(TourId tourId, TourName tourName, TourCity tourCity, TourDate tourDate) {
-        this.tourId = tourId;
-        this.tourName = tourName;
-        this.tourCity = tourCity;
-        this.tourDate = tourDate;
+    public Tour() {
     }
 
-    public static Tour create(TourId tourId, TourName tourName, TourCity tourCity, TourDate tourDate){
-        Tour tour = new Tour(tourId, tourName, tourCity, tourDate);
+    public Tour(TourId id, TourName name, TourDate date, Optional<List<TourTouristicLocation>> touristicLocations) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.touristicLocations = touristicLocations;
+    }
+
+    public static Tour create(TourId id, TourName name, TourDate date) {
+        Tour tour = new Tour(id, name, date, Optional.empty());
         return tour;
     }
 
-    //private HashMap<String, Object> createTourCity() { return tourCity.data(); }
-
-    public HashMap <String, Object> data(){
-        return new HashMap<>(){{
-            put("tourId", tourId);
-            put("tourName", tourName);
-            put("tourCity", tourCity);
-            put("tourBookingId", tourDate);
+    public HashMap<String, Object> data() {
+        return new HashMap<>() {{
+            put("id", id.value());
+            put("name", name.value());
+            put("date", date.value());
         }};
     }
 
-    public void updateTourName(TourName name){
-        this.tourName = name;
+    public void updateTourName(TourName name) {
+        this.name = name;
     }
 
-    public void updateTourCity(TourCity city){
-        this.tourCity = city;
+    public void updateTourDate(TourDate date) {
+        this.date = date;
     }
 
-    public void updateTourBooking(TourDate booking){
-        this.tourDate = booking;
+    private List<HashMap<String, Object>> createTouristicLocation() {
+        List<HashMap<String, Object>> list = new ArrayList<>();
+        if (!touristicLocations.isEmpty())
+            list = touristicLocations.get().stream().map(address -> address.data()).collect(Collectors.toList());
+        return list;
     }
-
 }
