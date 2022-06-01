@@ -14,7 +14,8 @@ public class Tickets {
     private OriginCityId originCityId;
     private DestinationCityId destinationCityId;
 
-    public Tickets() {}
+    public Tickets() {
+    }
 
     public Tickets(TicketId id, TicketGate gate, TicketSeat seat, TicketDate date, UserId userId, OriginCityId originCityId, DestinationCityId destinationCityId) {
         this.id = id;

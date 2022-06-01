@@ -1,4 +1,4 @@
-package com.webdev.productsystem.Tours.Booking.infrastructure.Controllers;
+package com.webdev.productsystem.Tours.Booking.Infrastructure.Controllers;
 import com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking;
 import com.webdev.productsystem.Tours.Booking.Domain.Exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/Booking")
+@RequestMapping(value = "/booking")
 public class BookingCreateController {
     @Autowired
     private CreateBooking creator;
