@@ -1,10 +1,28 @@
+<script>
+import SidebarComponent from './components/sidebar/sidebar-component.vue';
+import { sidebarWidth } from '@/components/sidebar/state'
+
+  export default {
+    components:{ SidebarComponent },
+  setup() {
+    return { sidebarWidth }
+  }
+  }
+
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
+  <SidebarComponent/>
+  <div :style="{ 'margin-left': sidebarWidth }">
+    <router-view />
+  </div>
+  <!--nav-->
+    <!--router-link to="/">Home<!/--router-link-> |
     <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
-</template>
+  </nav-->
+  <!--router-view-->
+</template> 
+
 
 <style>
 #app {
