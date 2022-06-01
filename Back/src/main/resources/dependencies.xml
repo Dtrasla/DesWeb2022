@@ -118,16 +118,18 @@
         <constructor-arg ref="BookingRepository"/>
     </bean>
 
+    <bean id="BookingUpdate" class="com.webdev.productsystem.Tours.Booking.Application.Update.UpdateBookingId" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+
     <!-- ADDRESS -->
 
     <bean id="AddressRepository" class="com.webdev.productsystem.Tours.Address.Infrastructure.Adapters.HibernateAddressRepository" />
 
     <bean id="AddressCreator" class="com.webdev.productsystem.Tours.Address.Application.Create.AddressCreator">
         <constructor-arg ref="AddressRepository" />
-    </bean>
-
-    <bean id="AddressRemover" class="com.webdev.productsystem.Tours.Address.Application.Delete.AddressRemover">
-        <constructor-arg ref="AddressRepository" />
+        <constructor-arg ref="RabbitMqEventBus" />
     </bean>
 
     <bean id="AddressDataUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressDataUpdater">
@@ -135,6 +137,10 @@
     </bean>
 
     <bean id="AddressZipCodeUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressZipCodeUpdater">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressRemover" class="com.webdev.productsystem.Tours.Address.Application.Delete.AddressRemover">
         <constructor-arg ref="AddressRepository" />
     </bean>
 
@@ -226,7 +232,7 @@
         <constructor-arg ref="TouristicLocationRepository"/>
     </bean>
 
-
+    <!-- RABBITMQ -->
 
     <bean id="RabbitMqPublisher" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.RabbitMqPublisher"/>
 
@@ -240,11 +246,21 @@
         <constructor-arg ref="DomainEventsInformation"></constructor-arg>
     </bean>
 
-
     <bean id="RabbitMqDomainEventsConsumer" class="com.webdev.productsystem.Shared.Infrastruture.RabbitMQ.RabbitMqDomainEventsConsumer">
            <constructor-arg ref="DomainEventsInformation" />
            <constructor-arg ref="DomainEventJsonDeserializer" />
     </bean>
+
+    <!-- ADD ADDRESS -->
+
+    <bean id="HotelAddAddress" class="com.webdev.productsystem.Tours.Hotel.Application.AddAddress.HotelAddAddress">
+        <constructor-arg ref="HotelRepository" />
+    </bean>
+
+    <bean id="AddAddressOnAddressCreated" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Listeners.AddAddressOnAddressCreated">
+        <constructor-arg ref="HotelAddAddress" />
+    </bean>
+
 
 
 </beans>

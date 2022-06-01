@@ -35,13 +35,7 @@ public class RabbitMqDomainEventsConsumer {
         try {
             Method subscriberOnMethod = subscriber.getClass().getMethod("on", domainEvent.getClass());
             subscriberOnMethod.invoke(subscriber, domainEvent);
-<<<<<<< HEAD:Back/src/main/java/com/webdev/productsystem/Shared/Infrastruture/RabbitMQ/RabbitMqDomainEventsConsumer.java
-        }
-
-        catch (Exception error) {
-=======
         } catch (Exception error) {
->>>>>>> address-domain-events:src/main/java/com/webdev/productsystem/Shared/Infrastruture/RabbitMQ/RabbitMqDomainEventsConsumer.java
             throw new Exception("Error Listener: " + error.toString());
         }
     }

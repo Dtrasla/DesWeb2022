@@ -1,6 +1,7 @@
 package com.webdev.productsystem.Shared.Infrastruture.RabbitMQ;
 
 import com.webdev.productsystem.Shared.Domain.Bus.Event.DomainEvent;
+import com.webdev.productsystem.Tours.Address.Domain.DomainEvents.AddressCreatedDomainEvent;
 import com.webdev.productsystem.Users.Phone.Domain.DomainEvents.PhoneCreatedDomainEvent;
 
 import java.util.HashMap;
@@ -12,8 +13,13 @@ public class DomainEventsInformation {
         private final HashMap<String, String> domainEventSubscriber = new HashMap<>();
 
         public DomainEventsInformation(){
-            indexedDomainEvent.put("add.phone", PhoneCreatedDomainEvent.class);
+            indexedDomainEvent.put(
+                    "add.phone",
+                    PhoneCreatedDomainEvent.class
+            );
+            indexedDomainEvent.put("add.address", AddressCreatedDomainEvent.class);
             domainEventSubscriber.put("productSystem.users.phone.add.phone", "AddPhoneOnPhoneCreate");
+            domainEventSubscriber.put("tourSystem.tours.address.add.address", "AddAddressOnAddressCreated");
         }
 
         public Class<? extends DomainEvent> getDomainEvent(String name){
