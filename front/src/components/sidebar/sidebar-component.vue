@@ -14,10 +14,17 @@ export default {
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
       <span v-if="collapsed">
+        <div>T</div>
+        <div>R</div>
+        <div>I</div>
         <div>V</div>
-        <div>S</div>
+        <div>A</div>
+        <div>G</div>
+        <div>O</div>
       </span>
-      <span v-else>TRIVAGO</span>
+      <span v-else>TRIVAGO
+        <img  src="@/assets/logo.png">
+      </span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
@@ -60,7 +67,7 @@ export default {
   flex-direction: column;
 }
 .sidebar h1 {
-  height: 2.5em;
+  height: 8.5em;
 }
 .collapse-icon {
   position: absolute;
