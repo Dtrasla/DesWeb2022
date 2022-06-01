@@ -25,7 +25,7 @@ public class Phone extends AggregateRoot {
   }
     public static Phone create(PhoneId phoneId, PhoneCountryCode phoneCountryCode, PhoneNumber phoneNumber, UserId userId){
         Phone phone = new Phone(phoneId, phoneCountryCode, phoneNumber, userId);
-        phone.record(new PhoneCreatedDomainEvent(phoneId.value(), phoneCountryCode.value(), phoneNumber.value()));
+        phone.record(new PhoneCreatedDomainEvent(phoneId.value(), phoneCountryCode.value(), phoneNumber.value(), userId.value()));
 
 
         return phone;

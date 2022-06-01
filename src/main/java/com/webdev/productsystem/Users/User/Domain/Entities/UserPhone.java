@@ -6,11 +6,13 @@ public class UserPhone {
     private String id;
     private String countryCode;
     private String number;
+    private String userId;
 
-    public UserPhone(String id, String countryCode, String number) {
+    public UserPhone(String id, String countryCode, String number, String userId) {
         this.id = id;
         this.countryCode = countryCode;
         this.number = number;
+        this.userId = userId;
     }
 
     public HashMap<String, Object> data() {
@@ -18,6 +20,7 @@ public class UserPhone {
             put("id", id);
             put("countryCode", countryCode);
             put("number", number);
+
         }};
     }
 }
