@@ -6,12 +6,14 @@ public class HotelAddress {
     private String id;
     private String data;
     private String zipCode;
+    private String blockId;
     private String cityId;
 
-    public HotelAddress(String id, String data, String zipCode, String cityId) {
+    public HotelAddress(String id, String data, String zipCode, String blockId, String cityId) {
         this.id = id;
         this.data = data;
         this.zipCode = zipCode;
+        this.blockId = blockId;
         this.cityId = cityId;
     }
 
@@ -20,7 +22,8 @@ public class HotelAddress {
             put("id", id);
             put("data", data);
             put("zipCode", zipCode);
-            put("city", cityId);
+            put("blockId", blockId);
+            put("cityId", cityId);
         }};
     }
 }

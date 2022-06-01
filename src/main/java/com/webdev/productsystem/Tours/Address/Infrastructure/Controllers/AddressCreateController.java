@@ -30,7 +30,7 @@ public class AddressCreateController {
     })
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody AddressCreatorRequest request) {
-        creator.execute(request.id, request.data, request.zipCode, request.cityId);
+        creator.execute(request.id, request.data, request.zipCode, request.blockId, request.cityId);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
@@ -51,6 +51,9 @@ public class AddressCreateController {
 
         @Schema(description = "Address zip code", example = "111156")
         String zipCode;
+
+        @Schema(description = "Address block id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
+        String blockId;
 
         @Schema(description = "Address city id", example = "e255f441-70a6-4e6a-896a-dac35607a4bd")
         String cityId;
@@ -77,6 +80,14 @@ public class AddressCreateController {
 
         public void setZipCode(String zipCode) {
             this.zipCode = zipCode;
+        }
+
+        public String getBlockId() {
+            return blockId;
+        }
+
+        public void setBlockId(String blockId) {
+            this.blockId = blockId;
         }
 
         public String getCityId() {

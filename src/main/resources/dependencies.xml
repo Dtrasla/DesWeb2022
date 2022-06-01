@@ -251,4 +251,16 @@
            <constructor-arg ref="DomainEventJsonDeserializer" />
     </bean>
 
+    <!-- ADD ADDRESS -->
+
+    <bean id="HotelAddAddress" class="com.webdev.productsystem.Tours.Hotel.Application.AddAddress.HotelAddAddress">
+        <constructor-arg ref="HotelRepository" />
+    </bean>
+
+    <bean id="AddAddressOnAddressCreated" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Listeners.AddAddressOnAddressCreated">
+        <constructor-arg ref="HotelAddAddress" />
+    </bean>
+
+
+
 </beans>

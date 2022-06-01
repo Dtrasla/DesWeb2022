@@ -5,6 +5,8 @@ import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
 import com.webdev.productsystem.Tours.Hotel.Domain.Ports.HotelRepository;
 import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelId;
 
+import java.util.Optional;
+
 public class HotelAddAddress {
     private HotelRepository repository;
 
@@ -12,11 +14,20 @@ public class HotelAddAddress {
         this.repository = repository;
     }
 
-    public void execute(String hotelId, String cityId, String id, String data, String zipCode) {
-        if(repository.findById(new HotelId(hotelId)).isPresent()) {
-            Hotel hotel = repository.findById(new HotelId(hotelId)).get();
-            hotel.addAddress(new HotelAddress(id, data, zipCode, cityId));
-            this.repository.update(hotel);
+    public void execute(String id, String cityId, String data, String zipCode, String blockId) {
+        Optional<Hotel> optionalHotel = repository.findById(new HotelId(blockId));
+        if (optionalHotel.isPresent()) {
+            Hotel hotel = optionalHotel.get();
+            hotel.addAddress(new HotelAddress(
+                    id,
+                    data,
+                    zipCode,
+                    blockId,
+                    cityId
+            ));
+            System.out.println("🟠 UPDATE: " + hotel.data());
+            // ! Fix database update
+            // this.repository.update(hotel);
         }
     }
 }

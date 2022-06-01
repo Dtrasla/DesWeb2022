@@ -46,7 +46,7 @@ public class HotelAddressCustomTypes implements UserType {
             if (value.isPresent()) {
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(), List.class);
                 response = objects.stream()
-                        .map(element -> new HotelAddress((String) element.get("id"), (String) element.get("data"), (String) element.get("zipCode"), (String) element.get("cityId")))
+                        .map(element -> new HotelAddress((String) element.get("id"), (String) element.get("data"), (String) element.get("zipCode"), (String) element.get("blockId"), (String) element.get("cityId")))
                         .collect(Collectors.toList());
             }
         } catch (Exception e) {

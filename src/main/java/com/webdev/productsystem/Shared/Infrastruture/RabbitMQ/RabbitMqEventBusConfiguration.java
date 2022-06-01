@@ -2,6 +2,7 @@ package com.webdev.productsystem.Shared.Infrastruture.RabbitMQ;
 
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
@@ -14,6 +15,7 @@ public class RabbitMqEventBusConfiguration {
         this.env = env;
     }
 
+    @Bean
     public CachingConnectionFactory connection() {
         CachingConnectionFactory factory = new CachingConnectionFactory();
         factory.setHost(env.getProperty("rabbit.host"));

@@ -33,17 +33,15 @@ public class RabbitMqDomainEventsConsumer {
         String queueName = message.getMessageProperties().getConsumerQueue();
         Object subscriber = this.subscriberFor(queueName);
         try {
-            System.out.println("Llego un evento de dominio: " + domainEvent.getClass().getSimpleName());
             Method subscriberOnMethod = subscriber.getClass().getMethod("on", domainEvent.getClass());
             subscriberOnMethod.invoke(subscriber, domainEvent);
-        }
-        catch (Exception error) {
+        } catch (Exception error) {
             throw new Exception("Error Listener: " + error.toString());
         }
     }
 
     private Object subscriberFor(String queueName) throws Exception {
-        if(!this.information.validateEventSubscriber(queueName)) {
+        if (!this.information.validateEventSubscriber(queueName)) {
             throw new Exception("No hay listener asociado a la cola " + queueName);
         }
         String eventSubscriberName = this.information.getEventSubscriber(queueName);

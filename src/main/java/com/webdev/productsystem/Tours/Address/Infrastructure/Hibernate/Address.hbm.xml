@@ -17,6 +17,10 @@
             <property name="value" column="zip_code" access="field" type="string"/>
         </component>
 
+        <component name="blockId" class="com.webdev.productsystem.Tours.Address.Domain.ValueObjects.BlockId" access="field">
+            <property name="value" column="block_id" access="field" type="string"/>
+        </component>
+
         <component name="cityId" class="com.webdev.productsystem.Tours.Address.Domain.ValueObjects.CityId" access="field">
             <property name="value" column="city_id" access="field" type="string"/>
         </component>
