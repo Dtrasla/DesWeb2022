@@ -30,6 +30,11 @@ const routes = [
     path: '/login',
     name: 'log-in',
     component: () => import('../components/LoginView.vue')
+  },
+  {
+    path: '/buscarTour',
+    name: 'log-in',
+    component: () => import('../components/BusquedaToures.vue')
   }
 ]
 
