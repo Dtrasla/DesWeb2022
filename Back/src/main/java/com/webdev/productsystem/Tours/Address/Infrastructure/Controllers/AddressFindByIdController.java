@@ -29,6 +29,7 @@ public class AddressFindByIdController {
             @ApiResponse(responseCode = "404", description = "Address not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{addressId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "addressId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

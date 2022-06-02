@@ -32,6 +32,7 @@ public class AddressUpdateController {
             @ApiResponse(responseCode = "404", description = "Address not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @PutMapping(value = "/update/{addressId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable (value = "addressId") String id, @RequestBody AddressUpdaterRequest request) {
         dataUpdater.execute(id, request.data);
         zipCodeUpdater.execute(id, request.zipCode);

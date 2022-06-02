@@ -25,6 +25,7 @@ public class AddressFindAllController {
     @Operation(summary = "Get all the addresses", description = "Find all the addresses stored in the system", tags = {"Address"})
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Addresses found") })
     @GetMapping(value = "/all")
+    @CrossOrigin("*")
     public ResponseEntity<List<HashMap<String, Object>>> execute() {
         return ResponseEntity.status(HttpStatus.OK).body(new AddressFindAllResponse(all.execute()).response());
     }

@@ -29,6 +29,7 @@ public class AddressCreateController {
             @ApiResponse(responseCode = "409", description = "Address already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody AddressCreatorRequest request) {
         creator.execute(request.id, request.data, request.zipCode, request.blockId, request.cityId);
         return ResponseEntity.status(HttpStatus.OK).body(null);
