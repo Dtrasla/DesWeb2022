@@ -10,9 +10,7 @@
         </select>
         <v-row align="center">
           <v-col cols="20">
-            <v-select><option>A</option>
-            <option>B</option>
-            <option>C</option></v-select>
+            <v-select></v-select>
             
           </v-col>
         </v-row>
