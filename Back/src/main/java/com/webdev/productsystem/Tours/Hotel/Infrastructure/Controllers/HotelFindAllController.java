@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/hotel")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET})
+@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "Hotel", description = "Hotel REST API")
 public class HotelFindAllController {
     @Autowired
