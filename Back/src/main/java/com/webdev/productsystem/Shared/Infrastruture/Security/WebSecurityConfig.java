@@ -28,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/user/create").permitAll()
                 .antMatchers(HttpMethod.POST, "/hotel/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/hotel/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/tour/all").permitAll()
+
                 //.antMatchers(HttpMethod.GET, "/user/all").permitAll()
                 .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated();
