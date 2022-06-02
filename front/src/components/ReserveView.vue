@@ -3,14 +3,12 @@
     <div class="grid-container">
       <div class="grid-child purple">
         <!-- Grid Column 1 -->
-        <h1>Origen</h1>
+        <h1>Toures</h1>
 
         <v-row align="center">
           <v-col cols="20">
             <v-select>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
+              
             </v-select>
 
           </v-col>
