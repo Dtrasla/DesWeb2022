@@ -19,6 +19,11 @@ const routes = [
     path: '/divis',
     name: 'vista-hoteles',
     component: () => import('../components/ReserveView.vue')
+  },
+  {
+    path: '/login',
+    name: 'log-in',
+    component: () => import('../components/LogInView.vue')
   }
 ]
 
