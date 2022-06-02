@@ -4,16 +4,15 @@
       <div class="grid-child purple">
         <!-- Grid Column 1 -->
         <h1>Origen</h1>
-        <select v-model="selected">
-          <option disabled value="">Please select one</option>
-          
-        </select>
+
         <v-row align="center">
           <v-col cols="20">
-            <v-select><option>A</option>
-            <option>B</option>
-            <option>C</option></v-select>
-            
+            <v-select>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </v-select>
+
           </v-col>
         </v-row>
       </div>
@@ -21,17 +20,25 @@
       <div class="grid-child green">
         <!-- Grid Column 2 -->
         <h1>Destino</h1>
-        <select v-model="selected">
-          <option disabled value="">Please select one</option>
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-        </select>
+        <v-row align="center">
+          <v-col cols="20">
+            <v-select>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </v-select>
+
+          </v-col>
+        </v-row>
       </div>
 
       <div class="texto">
         <h1>Campo Txt</h1>
-        <input v-model="message" placeholder="edit me" />
+        <v-text-field v-model="opcion" 
+          :rules="namerules" 
+          :counter="15" 
+          label="First name" required>
+        </v-text-field>
       </div>
 
       <div class="tercero">
