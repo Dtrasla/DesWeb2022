@@ -17,6 +17,7 @@ public abstract class HibernateRepository<T> {
         this.aggregateClass = aggregateClass;
     }
 
+
     protected void persist(T entity) {
         sessionFactory.getCurrentSession().saveOrUpdate(entity);
         sessionFactory.getCurrentSession().flush();

@@ -18,8 +18,12 @@
         <constructor-arg ref="UserRepository"/>
     </bean>
 
+    <bean id="TokenGeneration" class="com.webdev.productsystem.Shared.Application.TokenGeneration"/>
+
+
     <bean id="UserLogin" class="com.webdev.productsystem.Users.User.Application.Login.UserLogin" >
         <constructor-arg ref="UserRepository"/>
+        <constructor-arg ref="TokenGeneration"/>
     </bean>
 
     <!-- HOTEL -->

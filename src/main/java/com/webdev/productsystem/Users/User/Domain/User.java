@@ -1,9 +1,11 @@
 package com.webdev.productsystem.Users.User.Domain;
 
 import com.webdev.productsystem.Users.User.Domain.Entities.UserPhone;
+import com.webdev.productsystem.Users.User.Domain.Exceptions.AuthenticateFailed;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class User {
     private UserId id;
@@ -13,10 +15,10 @@ public class User {
     private UserLastName lastName;
     private UserBirthday birthday;
     private UserGender gender;
-    private UserPhone phone;
+    private Optional <UserPhone> phone;
 
     public User(UserId id, UserEmail email, UserPassword password, UserName name,
-                UserLastName lastName, UserBirthday birthday, UserGender gender, UserPhone phone) {
+                UserLastName lastName, UserBirthday birthday, UserGender gender, Optional<UserPhone> phone) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -27,11 +29,28 @@ public class User {
         this.phone = phone;
     }
 
-    private HashMap<String, Object> createPhone() { return phone.data(); }
+    public User(){
+        super();
+    }
+
+    private HashMap<String, Object> createPhone() {
+        return phone.get().data();
+    }
+
+    private HashMap<String, Object> addPhone(UserPhone phone) {
+        this.phone = Optional.ofNullable(phone);
+        return phone.data();
+    }
 
     public static User create(UserId id, UserEmail email, UserPassword password, UserName name,
                        UserLastName lastName, UserBirthday birthday, UserGender gender) {
         return new User(id, email, password, name, lastName, birthday, gender, null);
+    }
+
+    public void authenticateUser(UserEmail userEmail, UserPassword password) {
+        if (!(this.password.equals(password) && this.email.equals(userEmail))) {
+            throw new AuthenticateFailed("Invalid email or password");
+        }
     }
 
     public HashMap<String, Object> data() {
