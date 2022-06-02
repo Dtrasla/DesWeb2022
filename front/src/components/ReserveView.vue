@@ -7,7 +7,7 @@
 
         <v-row align="center">
           <v-col cols="20">
-            <v-select>
+            <v-select :items="hotelSelect" >
               
             </v-select>
 
@@ -18,14 +18,16 @@
       <div class="grid-child green">
         <!-- Grid Column 2 -->
         <h1>Destino</h1>
-        <v-row align="center">
+        <h1> {{selectedTouris}} </h1>
+        <v-row align="center" 
+              >
           <v-col cols="20">
-            <v-select>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
+            <v-select 
+              :items="hotelSelect" 
+              :disabled="disableHotel"
+              v-model = "selectedTouris"
+             >
             </v-select>
-
           </v-col>
         </v-row>
       </div>
@@ -45,12 +47,47 @@
 </template>
 
 <script>
-// var vm = new Vue({
-//   el: 'body',
-//   data: {
-//     'choices': [1, 2, 3, 4, 5]
-//   }
-// });
+import { getAllHotels } from "@/services/HotelService";
+
+class Hotel {
+  constructor(id = "", name = "", address = "") {
+    this.id = id;
+    this.name = name;
+    this.address = address;
+  }
+}
+
+export default {
+  data() {
+    return {
+      hotel: new Hotel(),
+      hotels: [],
+      hotelSelect:[],
+      selectedTouris: '',
+      disableHotel: false
+    };
+  },
+  created() {
+    this.getHotels();
+  },
+  methods: {
+    async getHotels() {
+      this.hotels = await getAllHotels();
+      this.hotels.forEach(hotelito => {
+        this.hotelSelect.push(hotelito.name);
+      })
+    },
+    selectedTour(event){
+      console.log("llege");
+      console.log(event.target.value)
+      console.log(this.selectedTouris);
+    }
+  },
+  watch:{
+
+  }
+};
+
 </script>
 
 <style scoped>
