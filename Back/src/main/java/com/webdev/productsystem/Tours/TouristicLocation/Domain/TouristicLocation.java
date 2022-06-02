@@ -1,9 +1,9 @@
 package com.webdev.productsystem.Tours.TouristicLocation.Domain;
 
-import com.webdev.productsystem.Tours.Hotel.Domain.Hotel;
-import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelId;
-import com.webdev.productsystem.Tours.Hotel.Domain.ValueObjects.HotelName;
+import com.webdev.productsystem.Shared.Domain.Aggregate.AggregateRoot;
+import com.webdev.productsystem.Tours.TouristicLocation.Domain.DomainEvents.TouristicLocationCreatedDomainEvent;
 import com.webdev.productsystem.Tours.TouristicLocation.Domain.Entities.TouristicLocationAddress;
+import com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TourId;
 import com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TouristicLocationId;
 import com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TouristicLocationName;
 
@@ -11,19 +11,20 @@ import com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.Tour
 import java.util.HashMap;
 import java.util.Optional;
 
-public class TouristicLocation {
+public class TouristicLocation extends AggregateRoot {
     private TouristicLocationId id;
     private TouristicLocationName name;
+    private TourId tourId;
     private Optional<TouristicLocationAddress> address;
 
     public TouristicLocation(){
-
     }
-    public TouristicLocation(TouristicLocationId id, TouristicLocationName name,  Optional<TouristicLocationAddress> address) {
+
+    public TouristicLocation(TouristicLocationId id, TouristicLocationName name,  TourId tourId, Optional<TouristicLocationAddress> address) {
         this.id = id;
         this.name = name;
+        this.tourId = tourId;
         this.address = address;
-
     }
     public void addAddress(TouristicLocationAddress address) {
         this.address = Optional.ofNullable(address);
@@ -37,14 +38,17 @@ public class TouristicLocation {
         return address.get().data();
     }
 
-    public static TouristicLocation create(TouristicLocationId id, TouristicLocationName name) {
-        return new TouristicLocation(id, name, Optional.empty());
+    public static TouristicLocation create(TouristicLocationId id, TouristicLocationName name, TourId tourId) {
+        TouristicLocation touristicLocation =  new TouristicLocation(id, name, tourId, Optional.empty());
+        touristicLocation.record(new TouristicLocationCreatedDomainEvent(id.value(), name.value(), tourId.value()));
+        return touristicLocation;
     }
 
     public HashMap<String, Object> data() {
         return new HashMap<>() {{
             put("touristicLocationId", id.value());
             put("touristicLocationName", name.value());
+            put("tourId", tourId.value());
         }};
     }
 }

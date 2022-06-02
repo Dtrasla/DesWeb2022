@@ -33,7 +33,7 @@ public class TouristicLocationCreateController {
     })
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody com.webdev.productsystem.Tours.TouristicLocation.Infrastructure.Controllers.TouristicLocationCreateController.TouristicLocationCreatorRequest request) {
-        creator.execute(request.getId(), request.getName());
+        creator.execute(request.getId(), request.getName(), request.getTourId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -60,6 +60,9 @@ public class TouristicLocationCreateController {
         @Schema(description = "Touristic location name, between 5 and 25 characters", example = "Monserrate")
         private String name;
 
+        @Schema(description = "Tour id", example = "d0d96c6b-71b0-442b-b905-232710593911")
+        private String tourId;
+
         public String getId() {
             return id;
         }
@@ -74,6 +77,14 @@ public class TouristicLocationCreateController {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getTourId() {
+            return tourId;
+        }
+
+        public void setTourId(String tourId) {
+            this.tourId = tourId;
         }
     }
 }

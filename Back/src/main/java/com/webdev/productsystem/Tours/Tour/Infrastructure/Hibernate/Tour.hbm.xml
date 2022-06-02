@@ -16,5 +16,9 @@
         <component name="date" class="com.webdev.productsystem.Tours.Tour.Domain.ValueObjects.TourDate" access="field">
             <property name="value" column="date" access="field" type="string"/>
         </component>
+
+        <property name="touristicLocations" column="touristic_locations" access="field">
+            <type name="com.webdev.productsystem.Tours.Tour.Infrastructure.Hibernate.TourCustomTypes" />
+        </property>
     </class>
 </hibernate-mapping>

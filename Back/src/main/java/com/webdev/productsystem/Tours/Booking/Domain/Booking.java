@@ -23,6 +23,9 @@ public class Booking {
     public BookingTicket ticket;
     public BookingTour tour;
 
+    public Booking() {
+    }
+
     public Booking(BookingId bookingId, BookingHotel hotel, BookingTicket ticket, BookingTour tour) {
         this.bookingId = bookingId;
         this.hotel = hotel;

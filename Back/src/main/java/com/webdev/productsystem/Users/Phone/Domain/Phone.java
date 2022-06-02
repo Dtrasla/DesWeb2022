@@ -17,6 +17,9 @@ public class Phone extends AggregateRoot {
   private PhoneNumber phoneNumber;
   private UserId userId;
 
+  public Phone() {
+  }
+
   public Phone(PhoneId phoneId,  PhoneCountryCode phoneCountryCode, PhoneNumber phoneNumber, UserId userId) {
       this.phoneId = phoneId;
       this.phoneCountryCode = phoneCountryCode;

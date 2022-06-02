@@ -2,6 +2,7 @@ package com.webdev.productsystem.Shared.Infrastruture.RabbitMQ;
 
 import com.webdev.productsystem.Shared.Domain.Bus.Event.DomainEvent;
 import com.webdev.productsystem.Tours.Address.Domain.DomainEvents.AddressCreatedDomainEvent;
+import com.webdev.productsystem.Tours.TouristicLocation.Domain.DomainEvents.TouristicLocationCreatedDomainEvent;
 import com.webdev.productsystem.Users.Phone.Domain.DomainEvents.PhoneCreatedDomainEvent;
 
 import java.util.HashMap;
@@ -17,9 +18,26 @@ public class DomainEventsInformation {
                     "add.phone",
                     PhoneCreatedDomainEvent.class
             );
-            indexedDomainEvent.put("add.address", AddressCreatedDomainEvent.class);
-            domainEventSubscriber.put("productSystem.users.phone.add.phone", "AddPhoneOnPhoneCreate");
-            domainEventSubscriber.put("tourSystem.tours.address.add.address", "AddAddressOnAddressCreated");
+            indexedDomainEvent.put(
+                    "add.address",
+                    AddressCreatedDomainEvent.class
+            );
+            indexedDomainEvent.put(
+                    "add.touristicLocation",
+                    TouristicLocationCreatedDomainEvent.class
+            );
+            domainEventSubscriber.put(
+                    "productSystem.users.phone.add.phone",
+                    "AddPhoneOnPhoneCreate"
+            );
+            domainEventSubscriber.put(
+                    "tourSystem.tours.address.add.address",
+                    "AddAddressOnAddressCreated"
+            );
+            domainEventSubscriber.put(
+                    "tourSystem.tours.touristicLocation.add.touristicLocation",
+                    "AddTouristicLocationOnTouristicLocationCreated"
+            );
         }
 
         public Class<? extends DomainEvent> getDomainEvent(String name){

@@ -37,7 +37,19 @@ public class Tour {
             put("id", id.value());
             put("name", name.value());
             put("date", date.value());
+            put("touristicLocations", createTouristicLocation());
         }};
+    }
+
+    public void addTouristicLocation(TourTouristicLocation tourTouristicLocation) {
+        List<TourTouristicLocation> touristicLocation = new ArrayList<TourTouristicLocation>();
+        if (touristicLocations != null) {
+            if (touristicLocations.isPresent()) {
+                touristicLocation = touristicLocations.get();
+            }
+        }
+        touristicLocation.add(tourTouristicLocation);
+        this.touristicLocations = Optional.ofNullable(touristicLocation);
     }
 
     public void updateTourName(TourName name) {
