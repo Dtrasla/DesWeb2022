@@ -34,16 +34,13 @@
 
       <div class="texto">
         <h1>Campo Txt</h1>
-        <v-text-field v-model="opcion" 
-          :rules="namerules" 
-          :counter="15" 
-          label="First name" required>
+        <v-text-field v-model="opcion" :rules="namerules" :counter="15" label="First name" required>
         </v-text-field>
       </div>
 
       <div class="tercero">
         <!-- Grid Column 2 -->
-        <button>Aceptar</button>
+        <v-btn elevation="2" large outlined > Aceptar </v-btn>
       </div>
     </div>
   </div>
