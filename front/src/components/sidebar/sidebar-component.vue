@@ -32,6 +32,8 @@ export default {
     <SidebarLink to="/analytics" icon="fas fa-chart-bar">Mis reservas</SidebarLink>
     <SidebarLink to="/friends" icon="fas fa-users">Historial</SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">Configuraciones</SidebarLink>
+    <SidebarLink to="/divis" icon="fas fa-image">Vista</SidebarLink>
+
 
     <span
       class="collapse-icon"
