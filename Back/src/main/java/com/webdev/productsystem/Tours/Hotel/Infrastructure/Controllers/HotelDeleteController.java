@@ -29,6 +29,7 @@ public class HotelDeleteController {
             @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @DeleteMapping(value = "/delete/{hotelId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "hotelId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

@@ -30,6 +30,7 @@ public class HotelFindByIdController {
             @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{hotelId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "hotelId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

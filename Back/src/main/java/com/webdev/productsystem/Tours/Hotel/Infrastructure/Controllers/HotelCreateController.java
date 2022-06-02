@@ -32,6 +32,7 @@ public class HotelCreateController {
             @ApiResponse(responseCode = "409", description = "Hotel already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody HotelCreatorRequest request) {
         creator.execute(request.getId(), request.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
