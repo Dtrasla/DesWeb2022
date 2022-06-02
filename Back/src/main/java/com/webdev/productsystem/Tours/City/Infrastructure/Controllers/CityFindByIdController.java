@@ -5,6 +5,7 @@ import com.webdev.productsystem.Tours.City.Application.Find.FindCityById;
 import com.webdev.productsystem.Tours.Hotel.Application.Find.HotelByIdFinder;
 import com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,13 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/city")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET})
+@Tag(name = "City", description = "City REST API")
 public class CityFindByIdController {
     @Autowired
     private FindCityById finder;
 
     @GetMapping("/{tourId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "cityId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

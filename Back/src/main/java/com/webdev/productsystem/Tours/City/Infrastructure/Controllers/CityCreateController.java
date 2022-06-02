@@ -8,6 +8,7 @@ import com.webdev.productsystem.Tours.Hotel.Domain.Exceptions.HotelNotExists;
 import com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,40 +18,18 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@Tag(name = "City", description = "City REST API")
 @RequestMapping(value = "/city")
 public class CityCreateController {
     @Autowired
     private CreateCity creator;
 
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody CityCreatorRequest request) {
         creator.execute(request.getId(), request.getName(), request.getCountry(),request.getTouristicLocationId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
-
-    /*@ExceptionHandler(HotelNameInvalidLength.class)
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<HashMap> handleBadRequest(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>() {{
-            put("error", e.getMessage());
-        }});
-    }
-
-    @ExceptionHandler(HotelAlreadyExists.class)
-    @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity<HashMap> handleDuplicatedHotel(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(new HashMap<>() {{
-            put("error", e.getMessage());
-        }});
-    }
-
-    @ExceptionHandler(HotelNotExists.class)
-    @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ResponseEntity<HashMap> handleNotExistingHotel(RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new HashMap<>() {{
-            put("error", e.getMessage());
-        }});
-    }*/
 
     static class CityCreatorRequest {
         @Schema(description = "City id", example = "001")
