@@ -26,6 +26,7 @@ public class TourFindAllController {
     @Operation(summary = "Get all the tours", description = "Find all the tours stored in the system", tags = {"Hotel"})
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tours found") })
     @GetMapping(value = "/all")
+    @CrossOrigin("*")
     public ResponseEntity<List<HashMap<String, Object>>> execute() {
         return ResponseEntity.status(HttpStatus.OK).body(new TourFindAllResponse(all.execute()).response());
     }

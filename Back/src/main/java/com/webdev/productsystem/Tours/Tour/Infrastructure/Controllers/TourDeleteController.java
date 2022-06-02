@@ -32,6 +32,7 @@ public class TourDeleteController {
             @ApiResponse(responseCode = "404", description = "Tour not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @DeleteMapping(value = "/delete/{tourId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "tourId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
