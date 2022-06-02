@@ -279,6 +279,15 @@
         <constructor-arg ref="UserAddPhone" />
     </bean>
 
+    <!-- TOUR ADD TOURISTIC LOCATION -->
+
+    <bean id="TourAddTouristicLocation" class="com.webdev.productsystem.Tours.Tour.Application.AddTouristicLocation.TourAddTouristicLocation">
+        <constructor-arg ref="TourRepository" />
+    </bean>
+
+    <bean id="AddTouristicLocationOnTouristicLocationCreated" class="com.webdev.productsystem.Tours.Tour.Infrastructure.Listeners.AddTouristicLocationOnTouristicLocationCreated">
+        <constructor-arg ref="TourAddTouristicLocation" />
+    </bean>
 
 
 </beans>

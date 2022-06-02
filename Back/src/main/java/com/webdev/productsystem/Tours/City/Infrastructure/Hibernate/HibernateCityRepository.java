@@ -26,22 +26,22 @@ public class HibernateCityRepository extends HibernateRepository<City> implement
 
     @Override
     public void save(City city) {
-        
+        persist(city);
     }
 
     @Override
     public void update(City city) {
-        
+        update(city);
     }
 
     @Override
     public void delete(City city) {
-        
+        deleteEntity(city);
     }
 
     @Override
     public Optional<City> find(CityId id) {
-        return Optional.empty();
+        return byId(id);
     }
 
     @Override

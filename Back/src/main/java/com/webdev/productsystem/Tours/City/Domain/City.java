@@ -15,6 +15,9 @@ public class City {
     public CityCountry cityCountry;
     public TouristicLocationId touristicLocationId;
 
+    public City() {
+    }
+
     public City(CityId cityId, CityName cityName, CityCountry cityCountry, TouristicLocationId touristicLocationId) {
         this.cityId = cityId;
         this.cityName = cityName;

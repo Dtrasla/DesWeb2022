@@ -13,6 +13,10 @@
             <property name="value" column="name" access="field" type="string"/>
         </component>
 
+        <component name="tourId" class="com.webdev.productsystem.Tours.TouristicLocation.Domain.ValueObjects.TourId" access="field">
+            <property name="value" column="tour_id" access="field" type="string"/>
+        </component>
+
         <property name="address" column="address" access="field">
             <type name="com.webdev.productsystem.Tours.TouristicLocation.Infrastructure.Hibernate.TouristicLocationCustomTypes" />
         </property>
