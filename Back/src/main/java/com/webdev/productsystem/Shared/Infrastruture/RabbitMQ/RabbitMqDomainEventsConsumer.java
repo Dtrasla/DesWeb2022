@@ -29,7 +29,6 @@ public class RabbitMqDomainEventsConsumer {
     @RabbitListener(queues = "#{'${rabbit.queues}'.split(',')}")
     public void consume(Message message) throws Exception {
         String serializedMessage = new String(message.getBody());
-        System.out.println("🟣 MESSAGE: " + serializedMessage);
         DomainEvent domainEvent = deserializer.deserialize(serializedMessage);
         String queueName = message.getMessageProperties().getConsumerQueue();
         Object subscriber = this.subscriberFor(queueName);

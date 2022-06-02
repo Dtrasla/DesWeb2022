@@ -28,7 +28,6 @@ public class PhoneCreate {
         validate(phoneNumber, id, countryCode);
         Phone ph = Phone.create(new PhoneId(id), new PhoneCountryCode(countryCode), new PhoneNumber(phoneNumber), new UserId(userId));
         this.repository.save(ph);
-        System.out.println("🟦 CREATE-PHONE: " + ph.data().toString());
         this.eventBus.publish(ph.pullDomainEvents());
 
     }
