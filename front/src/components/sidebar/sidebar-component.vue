@@ -34,7 +34,7 @@ export default {
     <SidebarLink to="/image" icon="fas fa-image">Configuraciones</SidebarLink>
     <SidebarLink to="/divis" icon="fas fa-image">Vista</SidebarLink>
     <SidebarLink to="/registro" icon="fas fa-image">Registro</SidebarLink>
-
+    <SidebarLink to="/login" icon="fas fa-image">Inicio sesion</SidebarLink>
 
 
     <span

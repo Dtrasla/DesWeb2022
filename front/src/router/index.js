@@ -25,6 +25,11 @@ const routes = [
     name: 'registro-usuario',
     component: () => import('../components/FormularioUser.vue')
 
+  },
+  {
+    path: '/login',
+    name: 'log-in',
+    component: () => import('../components/LoginView.vue')
   }
 ]
 
