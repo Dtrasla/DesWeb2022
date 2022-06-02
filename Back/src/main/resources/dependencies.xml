@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- USER -->
+
+    <bean id="InMemoryUserRepository" class="com.webdev.productsystem.Users.User.Infrastructure.Adapters.InMemoryUserRepository"
+          scope="singleton"/>
+
+    <bean id="UserRepository" class="com.webdev.productsystem.Users.User.Infrastructure.Adapters.HibernateUserRepository" />
+
+    <bean id="UserCreator" class="com.webdev.productsystem.Users.User.Application.Create.UserCreator" >
+        <constructor-arg ref="UserRepository"/>
+    </bean>
+
+    <bean id="UserFindAll" class="com.webdev.productsystem.Users.User.Application.All.UserFindAll" >
+        <constructor-arg ref="UserRepository"/>
+    </bean>
+
+    <bean id="TokenGeneration" class="com.webdev.productsystem.Shared.Application.TokenGeneration"/>
+
+
+    <bean id="UserLogin" class="com.webdev.productsystem.Users.User.Application.Login.UserLogin" >
+        <constructor-arg ref="UserRepository"/>
+        <constructor-arg ref="TokenGeneration"/>
+    </bean>
+
+    <!-- HOTEL -->
+
+    <bean id="HotelRepository" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Adapters.HibernateHotelRepository" />
+
+    <bean id="HotelCreator" class="com.webdev.productsystem.Tours.Hotel.Application.Create.HotelCreator" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelNameUpdater" class="com.webdev.productsystem.Tours.Hotel.Application.Update.HotelNameUpdater" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelRemover" class="com.webdev.productsystem.Tours.Hotel.Application.Delete.HotelRemover" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelFindAll" class="com.webdev.productsystem.Tours.Hotel.Application.All.HotelFindAll" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <bean id="HotelByIdFinder" class="com.webdev.productsystem.Tours.Hotel.Application.Find.HotelByIdFinder" >
+        <constructor-arg ref="HotelRepository"/>
+    </bean>
+
+    <!-- TICKET -->
+
+    <bean id="TicketRepository" class="com.webdev.productsystem.Tours.Ticket.Infrastructure.Hibernate.HibernateTicketRepository" />
+
+    <bean id="CreateTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Create.CreateTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="DeleteTicket" class="com.webdev.productsystem.Tours.Ticket.Application.Delete.DeleteTicket" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketDate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketDate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketSeat" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketSeat" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="UpdateTicketGate" class="com.webdev.productsystem.Tours.Ticket.Application.Update.UpdateTicketGate" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <bean id="TicketFindAll" class="com.webdev.productsystem.Tours.Ticket.Application.Find.TicketFindAll" >
+        <constructor-arg ref="TicketRepository"/>
+    </bean>
+
+    <!-- TOUR -->
+
+    <bean id="TourRepository" class="com.webdev.productsystem.Tours.Tour.Infrastructure.Hibernate.HibernateTourRepository" />
+
+    <bean id="DeleteTour" class="com.webdev.productsystem.Tours.Tour.Application.Delete.DeleteTour" >
+        <constructor-arg ref="TourRepository"/>
+    </bean>
+
+    <bean id="CreateTour" class="com.webdev.productsystem.Tours.Tour.Application.Create.CreateTour" >
+        <constructor-arg ref="TourRepository"/>
+    </bean>
+
+    <bean id="FindTourById" class="com.webdev.productsystem.Tours.Tour.Application.Find.FindTourById" >
+        <constructor-arg ref="TourRepository"/>
+    </bean>
+
+    <!-- BOOKING -->
+
+    <bean id="BookingRepository" class="com.webdev.productsystem.Tours.Booking.Infrastructure.Hibernate.HibernateBookingRepository"/>
+
+    <bean id="BookingFindAll" class="com.webdev.productsystem.Tours.Booking.Application.All.BookingFindAll" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="CreateBooking" class="com.webdev.productsystem.Tours.Booking.Application.Create.CreateBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="DeleteBooking" class="com.webdev.productsystem.Tours.Booking.Application.Delete.DeleteBooking" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <bean id="FindBookingById" class="com.webdev.productsystem.Tours.Booking.Application.Find.FindBookingById" >
+        <constructor-arg ref="BookingRepository"/>
+    </bean>
+
+    <!-- ADDRESS -->
+
+    <bean id="AddressRepository" class="com.webdev.productsystem.Tours.Address.Infrastructure.Adapters.HibernateAddressRepository" />
+
+    <bean id="AddressCreator" class="com.webdev.productsystem.Tours.Address.Application.Create.AddressCreator">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressRemover" class="com.webdev.productsystem.Tours.Address.Application.Delete.AddressRemover">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressDataUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressDataUpdater">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressZipCodeUpdater" class="com.webdev.productsystem.Tours.Address.Application.Update.AddressZipCodeUpdater">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressByIdFinder" class="com.webdev.productsystem.Tours.Address.Application.Find.AddressByIdFinder">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <bean id="AddressFindAll" class="com.webdev.productsystem.Tours.Address.Application.All.AddressFindAll">
+        <constructor-arg ref="AddressRepository" />
+    </bean>
+
+    <!-- CITY -->
+
+    <bean id="CityRepository" class="com.webdev.productsystem.Tours.City.Infrastructure.Hibernate.HibernateCityRepository" />
+
+    <bean id="DeleteCity" class="com.webdev.productsystem.Tours.City.Application.Delete.DeleteCity" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="CreateCity" class="com.webdev.productsystem.Tours.City.Application.Create.CreateCity" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <bean id="FindCityById" class="com.webdev.productsystem.Tours.City.Application.Find.FindCityById" >
+        <constructor-arg ref="CityRepository"/>
+    </bean>
+
+    <!-- PHONE -->
+
+    <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate.HibernatePhoneRepository"/>
+
+    <bean id="PhoneFindAll" class="com.webdev.productsystem.Users.Phone.Application.All.PhoneFindAll" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="CreatePhone" class="com.webdev.productsystem.Users.Phone.Application.Create.PhoneCreate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneDelete" class="com.webdev.productsystem.Users.Phone.Application.Delete.PhoneDelete" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneCountryCodeUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneCountryCodeUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+    <bean id="PhoneNumberUpdate" class="com.webdev.productsystem.Users.Phone.Application.Update.PhoneNumberUpdate" >
+        <constructor-arg ref="PhoneRepository"/>
+    </bean>
+
+</beans>
