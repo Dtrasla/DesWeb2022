@@ -2,6 +2,14 @@
   <div class="tour-formulario">
     <h1>Tours 🗺️</h1>
   </div>
+  <div>
+    <v-row align="center">
+      <v-col cols="20">
+        <v-select :items="hotelSelect"></v-select>
+        
+      </v-col>
+    </v-row>
+  </div>
   <ul>
     <div v-for="(hotel, index) in hotels" :key="index">
       <li>
@@ -29,6 +37,7 @@ export default {
     return {
       hotel: new Hotel(),
       hotels: [],
+      hotelSelect:[]
     };
   },
   created() {
@@ -37,6 +46,9 @@ export default {
   methods: {
     async getHotels() {
       this.hotels = await getAllHotels();
+      this.hotels.forEach(hotelito => {
+        this.hotelSelect.push(hotelito.name);
+      })
     },
   },
 };
