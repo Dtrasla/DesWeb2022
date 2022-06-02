@@ -5,7 +5,7 @@
         <v-row class="busq" align="center" justify="center">
             <v-text-field class="busqueda" label="Hotel a buscar" required>
             </v-text-field>
-            <v-btn class="buscarTourBoton" dark color="pink"> SEARCH </v-btn>
+            <v-btn class="buscarTourBoton" dark color="green" @click="getTours"> Buscar Todos </v-btn>
         </v-row>
 
 
@@ -57,7 +57,7 @@ export default {
     };
   },
   created() {
-    this.getTours();
+    //this.getTours();
   },
   methods: {
     async getTours() {

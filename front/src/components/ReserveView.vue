@@ -1,4 +1,5 @@
 <template>
+  <h1>Reservar</h1>
   <div class="contenedor">
     <div class="grid-container">
       <div class="grid-child purple">
