@@ -10,6 +10,8 @@
 
     <bean id="UserRepository" class="com.webdev.productsystem.Users.User.Infrastructure.Adapters.HibernateUserRepository" />
 
+    <bean id="TokenGeneration" class="com.webdev.productsystem.Shared.Application.TokenGeneration"/>
+
     <bean id="UserCreator" class="com.webdev.productsystem.Users.User.Application.Create.UserCreator" >
         <constructor-arg ref="UserRepository"/>
     </bean>
@@ -24,7 +26,9 @@
 
     <bean id="UserLogin" class="com.webdev.productsystem.Users.User.Application.Login.UserLogin" >
         <constructor-arg ref="UserRepository"/>
+        <constructor-arg ref="TokenGeneration"/>
     </bean>
+
 
     <!-- HOTEL -->
 

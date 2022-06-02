@@ -49,7 +49,7 @@ public class User extends AggregateRoot {
 
     public void authenticateUser(UserEmail userEmail, UserPassword password) {
         if (!(this.password.equals(password) && this.email.equals(userEmail))) {
-            System.out.println("Invalid credentials");
+            throw new AuthenticateFailed("Invalid email or password");
         }
     }
 
