@@ -15,10 +15,10 @@
                 <v-list >
                     <v-subheader>Resultados</v-subheader>
                     <v-list-item-group v-model="selectedItem" color="primary">
-                        <v-list-item v-for="(item, i) in items" :key="i">
+                        <v-list-item v-for="(tour, i) in tours" :key="i">
                             
                             <v-list-item-content>
-                                <v-list-item-title v-text="item.text"></v-list-item-title>
+                                <v-list-item-title v-text="tour.name"></v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list-item-group>
@@ -37,16 +37,46 @@
 
 
 <script>
-  export default {
-    data: () => ({
-      selectedItem: 1,
-      items: [
-        { text: 'Real-Time' },
-        { text: 'Audience'},
-        { text: 'Conversions' },
-      ],
-    }),
+import { getAllTours } from "@/services/TourService";
+
+class Tour {
+
+  constructor(id = "", name = "", date = "") {
+    this.id = id;
+    this.name = name;
+    this.date = date;
   }
+}
+
+export default {
+  data() {
+    return {
+      tour: new Tour(),
+      tours: [],
+      tourSelect:[]
+    };
+  },
+  created() {
+    this.getTours();
+  },
+  methods: {
+    async getTours() {
+      this.tours = await getAllTours();
+      this.tours.forEach(tou => {
+        this.tourSelect.push(tou.name);
+      })
+    },
+  },
+};
+
+
+//   export default {
+//     data: () => ({
+//       selectedItem: 1,
+//       items: [
+//       ],
+//     }),
+//   }
 </script>
 
 
