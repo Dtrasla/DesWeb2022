@@ -32,8 +32,8 @@ public class TicketCreateController {
             @ApiResponse(responseCode = "404", description= "Ticket not found"),
 
     })
-
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody TicketCreatorRequest request) {
         creator.execute(request.getId(), request.getDate(), request.getGate(), request.getSeat(), request.getOriginCityId(), request.getDestinationCityId(), request.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
