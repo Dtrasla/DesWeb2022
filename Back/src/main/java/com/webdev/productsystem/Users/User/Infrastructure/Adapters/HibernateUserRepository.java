@@ -44,7 +44,7 @@ public class HibernateUserRepository extends HibernateRepository<User> implement
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<User> cr = cb.createQuery(User.class);
         Root<User> root = cr.from(User.class);
-        cr.select(root).where(cb.equal(root.get("userEmail"), email));
+        cr.select(root).where(cb.equal(root.get("email"), email));
         List<User> users = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
         if(!users.isEmpty()) {
             user = users.get(0);

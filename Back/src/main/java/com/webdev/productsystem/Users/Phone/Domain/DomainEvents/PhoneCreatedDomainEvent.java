@@ -34,14 +34,6 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
         this.userId = userId;
     }
 
-    public PhoneCreatedDomainEvent(String id, String countryCode, String number, String userId) {
-        this.id = id;
-        this.countryCode = countryCode;
-        this.number = number;
-        this.userId = userId;
-    }
-
-
     public String getId() {
         return id;
     }
@@ -85,11 +77,11 @@ public class PhoneCreatedDomainEvent extends DomainEvent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PhoneCreatedDomainEvent that = (PhoneCreatedDomainEvent) o;
-        return Objects.equals(id, that.id) && Objects.equals(countryCode, that.countryCode) && Objects.equals(number, that.number);
+        return Objects.equals(id, that.id) && Objects.equals(countryCode, that.countryCode) && Objects.equals(number, that.number) && Objects.equals(userId, that.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, countryCode, number);
+        return Objects.hash(id, countryCode, number, userId);
     }
 }

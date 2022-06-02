@@ -7,7 +7,6 @@ public class UserId extends CustomUUID {
 
     public UserId(String value) {
         super(value);
-
     }
 
 }

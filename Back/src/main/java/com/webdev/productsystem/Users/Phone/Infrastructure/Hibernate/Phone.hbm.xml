@@ -14,11 +14,11 @@
         </component>
 
         <component name="phoneCountryCode" class="com.webdev.productsystem.Users.Phone.Domain.ValueObjects.PhoneCountryCode" access="field">
-            <property name="value" column="countryCode" access="field" type="string"/>
+            <property name="value" column="country_code" access="field" type="string"/>
         </component>
 
         <component name="userId" class="com.webdev.productsystem.Users.Phone.Domain.ValueObjects.UserId" access="field">
-            <property name="value" column="userId" access="field" type="string"/>
+            <property name="value" column="user_id" access="field" type="string"/>
         </component>
 
     </class>

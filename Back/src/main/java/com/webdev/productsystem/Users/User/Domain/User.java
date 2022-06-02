@@ -1,11 +1,13 @@
 package com.webdev.productsystem.Users.User.Domain;
 
+import com.webdev.productsystem.Shared.Domain.Aggregate.AggregateRoot;
 import com.webdev.productsystem.Users.User.Domain.Entities.UserPhone;
 import com.webdev.productsystem.Users.User.Domain.ValueObjects.*;
 
 import java.util.HashMap;
+import java.util.Optional;
 
-public class User {
+public class User extends AggregateRoot {
     private UserId id;
     private UserEmail email;
     private UserPassword password;
@@ -13,10 +15,10 @@ public class User {
     private UserLastName lastName;
     private UserBirthday birthday;
     private UserGender gender;
-    private UserPhone phone;
+    private Optional<UserPhone> phone;
 
     public User(UserId id, UserEmail email, UserPassword password, UserName name,
-                UserLastName lastName, UserBirthday birthday, UserGender gender, UserPhone phone) {
+                UserLastName lastName, UserBirthday birthday, UserGender gender, Optional<UserPhone> phone) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -27,11 +29,28 @@ public class User {
         this.phone = phone;
     }
 
-    private HashMap<String, Object> createPhone() { return phone.data(); }
+    public User() {
+        super();
+    }
+
+    private HashMap<String, Object> createPhone() {
+        return phone.get().data();
+    }
+
+    public HashMap<String, Object> addPhone(UserPhone phone) {
+        this.phone = Optional.ofNullable(phone);
+        return phone.data();
+    }
 
     public static User create(UserId id, UserEmail email, UserPassword password, UserName name,
-                       UserLastName lastName, UserBirthday birthday, UserGender gender) {
-        return new User(id, email, password, name, lastName, birthday, gender, null);
+                              UserLastName lastName, UserBirthday birthday, UserGender gender) {
+        return new User(id, email, password, name, lastName, birthday, gender, Optional.empty());
+    }
+
+    public void authenticateUser(UserEmail userEmail, UserPassword password) {
+        if (!(this.password.equals(password) && this.email.equals(userEmail))) {
+            System.out.println("Invalid credentials");
+        }
     }
 
     public HashMap<String, Object> data() {
@@ -45,10 +64,5 @@ public class User {
             put("gender", gender.value());
             put("phone", createPhone());
         }};
-    }
-
-
-    public void addPhone(UserPhone userPhone) {
-        this.phone = userPhone;
     }
 }

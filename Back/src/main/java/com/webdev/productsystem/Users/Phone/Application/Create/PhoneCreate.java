@@ -26,7 +26,7 @@ public class PhoneCreate {
 
     public void execute(String id, String countryCode, String phoneNumber, String userId){
         validate(phoneNumber, id, countryCode);
-        Phone ph = Phone.create(new PhoneId(id), new PhoneCountryCode(countryCode), new PhoneNumber(phoneNumber),new UserId(userId));
+        Phone ph = Phone.create(new PhoneId(id), new PhoneCountryCode(countryCode), new PhoneNumber(phoneNumber), new UserId(userId));
         this.repository.save(ph);
         this.eventBus.publish(ph.pullDomainEvents());
 
@@ -37,8 +37,6 @@ public class PhoneCreate {
             throw new PhoneExistingIdValue("A phone with Id" + id + "already exists");
         if(estate.isPresent())
             throw new PhoneExistingNumberValue("The phone with number " + phoneNumber + " already exists");
-        PhoneCountryCode cc = new PhoneCountryCode(countryCode);
-        PhoneNumber pn = new PhoneNumber(phoneNumber);
     }
 
 }

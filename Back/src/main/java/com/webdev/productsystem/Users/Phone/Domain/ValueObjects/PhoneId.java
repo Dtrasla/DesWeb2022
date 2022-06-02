@@ -7,7 +7,6 @@ public class PhoneId extends CustomUUID {
 
     public PhoneId(String value) {
         super(value);
-
     }
 
 }

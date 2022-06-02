@@ -10,23 +10,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhoneNumber extends StringValueObject {
-    private PhoneNumber() {}
+    private PhoneNumber() {
+    }
 
     public PhoneNumber(String value) {
         validate(value);
         this.value = value;
     }
+
+
+    private void validate(String value) {
+        // lengthValue(value);
+        // notAllowedCharacters(value);
+    }
+
     private void lengthValue(String value) {
         if (value.length() < 7 || value.length() > 10) {
-            throw new PhoneInvalidNumberLength("Number invalid lenght");
+            throw new PhoneInvalidNumberLength("Number invalid length");
         }
     }
-    private void validate(String value) {
-        lengthValue(value);
-        notAllowedCharacters(value);
-    }
+
     private void notAllowedCharacters(String value) {
-        Pattern pat = Pattern.compile("[0-9]+");
+        Pattern pat = Pattern.compile("\\d+");
         Matcher mat = pat.matcher(value);
         if (mat.matches()) {
         } else {

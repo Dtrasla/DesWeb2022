@@ -14,6 +14,10 @@
         <constructor-arg ref="UserRepository"/>
     </bean>
 
+    <bean id="UserByIdFinder" class="com.webdev.productsystem.Users.User.Application.Find.UserByIdFinder" >
+        <constructor-arg ref="UserRepository"/>
+    </bean>
+
     <bean id="UserFindAll" class="com.webdev.productsystem.Users.User.Application.All.UserFindAll" >
         <constructor-arg ref="UserRepository"/>
     </bean>
@@ -186,7 +190,7 @@
 
     <!-- PHONE -->
 
-    <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Hibernate.HibernatePhoneRepository"/>
+    <bean id="PhoneRepository" class="com.webdev.productsystem.Users.Phone.Infrastructure.Adapters.HibernatePhoneRepository"/>
 
     <bean id="PhoneFindAll" class="com.webdev.productsystem.Users.Phone.Application.All.PhoneFindAll" >
         <constructor-arg ref="PhoneRepository"/>
@@ -251,7 +255,7 @@
            <constructor-arg ref="DomainEventJsonDeserializer" />
     </bean>
 
-    <!-- ADD ADDRESS -->
+    <!--HOTEL ADD ADDRESS -->
 
     <bean id="HotelAddAddress" class="com.webdev.productsystem.Tours.Hotel.Application.AddAddress.HotelAddAddress">
         <constructor-arg ref="HotelRepository" />
@@ -259,6 +263,16 @@
 
     <bean id="AddAddressOnAddressCreated" class="com.webdev.productsystem.Tours.Hotel.Infrastructure.Listeners.AddAddressOnAddressCreated">
         <constructor-arg ref="HotelAddAddress" />
+    </bean>
+
+    <!-- USER ADD PHONE -->
+
+    <bean id="UserAddPhone" class="com.webdev.productsystem.Users.User.Application.AddPhone.AddPhone">
+        <constructor-arg ref="UserRepository" />
+    </bean>
+
+    <bean id="AddPhoneOnPhoneCreate" class="com.webdev.productsystem.Users.User.Infrastructure.Listeners.AddPhoneOnPhoneCreate">
+        <constructor-arg ref="UserAddPhone" />
     </bean>
 
 

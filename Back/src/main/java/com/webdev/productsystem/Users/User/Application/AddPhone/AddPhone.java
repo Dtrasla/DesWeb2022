@@ -23,15 +23,10 @@ public class AddPhone {
 
     public void execute(String userId, String phoneCountryCode, String phoneNumber, String phoneId) {
         Optional<User> optionalUser = repository.find(new UserId(userId));
-        if(optionalUser.isPresent()){
+        if(optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.addPhone(new UserPhone(phoneId, phoneCountryCode, phoneNumber, userId));
             this.repository.update(user);
-
         }
-
-
-
     }
-
 }

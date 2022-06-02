@@ -21,6 +21,7 @@ import java.util.HashMap;
 public class PhoneCreateController {
     @Autowired
     private PhoneCreate creator;
+
     @Operation(summary = "Create a new phone", description = " Create a New Phone in the System", tags ={"Phone"})
 
     @ApiResponses(value = {
@@ -32,7 +33,7 @@ public class PhoneCreateController {
     })
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody PhoneCreatorRequest request) {
-        creator.execute(request.getId(), request.getNumber(), request.getCountryCode(), request.getUserId());
+        creator.execute(request.getId(), request.getCountryCode(), request.getNumber(), request.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -86,6 +87,7 @@ public class PhoneCreateController {
 
         @Schema (description = "User Id", example= "8dbafb1e-e7be-4ec0-8370-d7a87a6bb67c")
         private String userId;
+
         public String getUserId() {
             return userId;
         }

@@ -20,7 +20,6 @@ public class UserPhone {
             put("id", id);
             put("countryCode", countryCode);
             put("number", number);
-
         }};
     }
 }

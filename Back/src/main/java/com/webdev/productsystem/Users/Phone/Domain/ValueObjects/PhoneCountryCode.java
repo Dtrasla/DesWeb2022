@@ -18,8 +18,8 @@ public class PhoneCountryCode extends StringValueObject {
     }
 
     private void validate(String value) {
-        lengthValue(value);
-        notAllowedCharacters(value);
+        // lengthValue(value);
+        // notAllowedCharacters(value);
     }
 
     private void lengthValue(String value) {
@@ -28,7 +28,7 @@ public class PhoneCountryCode extends StringValueObject {
         }
     }
     private void notAllowedCharacters(String value) {
-        Pattern pat = Pattern.compile("[+][0-9]+");
+        Pattern pat = Pattern.compile("[+]\\d+");
         Matcher mat = pat.matcher(value);
         if (mat.matches()) {
         } else {

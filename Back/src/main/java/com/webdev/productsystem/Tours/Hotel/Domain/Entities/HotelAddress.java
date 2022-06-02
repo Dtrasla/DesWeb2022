@@ -22,7 +22,6 @@ public class HotelAddress {
             put("id", id);
             put("data", data);
             put("zipCode", zipCode);
-            put("blockId", blockId);
             put("cityId", cityId);
         }};
     }

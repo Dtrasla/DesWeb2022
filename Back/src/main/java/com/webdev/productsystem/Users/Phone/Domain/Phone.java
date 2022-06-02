@@ -25,9 +25,7 @@ public class Phone extends AggregateRoot {
   }
     public static Phone create(PhoneId phoneId, PhoneCountryCode phoneCountryCode, PhoneNumber phoneNumber, UserId userId){
         Phone phone = new Phone(phoneId, phoneCountryCode, phoneNumber, userId);
-        phone.record(new PhoneCreatedDomainEvent(phoneId.value(), phoneCountryCode.value(), phoneNumber.value(), userId.value()));
-
-
+        phone.record(new PhoneCreatedDomainEvent(phoneId.value(), phoneId.value(), phoneCountryCode.value(), phoneNumber.value(), userId.value()));
         return phone;
     }
     public HashMap<String, Object> data() {
@@ -41,18 +39,23 @@ public class Phone extends AggregateRoot {
     public PhoneId getPhoneId() {
         return phoneId;
     }
+
     public UserId getUserId() {
         return userId;
     }
+
     public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
+
     public PhoneCountryCode getPhoneCountryCode() {
         return phoneCountryCode;
     }
+
     public void updatePhoneNumber(PhoneNumber phoneNumber){
       this.phoneNumber = phoneNumber;
     }
+
     public void updatePhoneCountryCode(PhoneCountryCode phoneCountryCode){
         this.phoneCountryCode = phoneCountryCode;
     }

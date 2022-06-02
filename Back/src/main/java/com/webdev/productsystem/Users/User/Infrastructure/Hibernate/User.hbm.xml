@@ -5,22 +5,39 @@
 
 <hibernate-mapping>
     <class name="com.webdev.productsystem.Users.User.Domain.User" table="users">
-
         <composite-id name="id" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
+
+        <component name="email" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserEmail"
+                   access="field">
+            <property name="value" column="email" access="field" type="string"/>
+        </component>
+
+        <component name="password" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserPassword"
+                   access="field">
+            <property name="value" column="password" access="field" type="string"/>
+        </component>
 
         <component name="name" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserName" access="field">
             <property name="value" column="name" access="field" type="string"/>
         </component>
 
-        <component name="email" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserEmail" access="field">
-            <property name="value" column="email" access="field" type="string"/>
+        <component name="lastName" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserLastName" access="field">
+            <property name="value" column="last_name" access="field" type="string"/>
         </component>
 
-        <component name="password" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserPassword" access="field">
-            <property name="value" column="password" access="field" type="string"/>
+        <component name="birthday" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserBirthday" access="field">
+            <property name="value" column="birthday" access="field" type="string"/>
         </component>
+
+        <component name="gender" class="com.webdev.productsystem.Users.User.Domain.ValueObjects.UserGender" access="field">
+            <property name="value" column="gender" access="field" type="string"/>
+        </component>
+
+        <property name="phone" column="phone" access="field">
+            <type name="com.webdev.productsystem.Users.User.Infrastructure.Hibernate.UserPhoneCustomTypes"/>
+        </property>
 
     </class>
 </hibernate-mapping>
