@@ -21,6 +21,7 @@ import java.util.HashMap;
 @RestController
 @Tag(name = "User", description = "User REST API")
 @RequestMapping(value = "/user")
+@CrossOrigin(origins = "*")
 public class UserLoginController {
     @Autowired
     private UserLogin login;

@@ -5,7 +5,11 @@
   <div>
     <v-row align="center">
       <v-col cols="20">
-        <v-select :items="hotelSelect"></v-select>
+        <v-select 
+        :items="hotelSelect"
+        v-model="selectTour">
+        
+        </v-select>
         
       </v-col>
     </v-row>
@@ -19,9 +23,19 @@
       </li>
     </div>
   </ul>
+  <v-btn
+      color="warning"
+      @click="getAddresses"
+    >
+      Buscar
+  </v-btn>
+  <img src="@/assets/Screenshot_2.png"/>
+
 </template>
 
 <script>
+import { getAllAddresses } from "@/services/AddressService";
+import { getCityID } from "@/services/CityService";
 import { getAllHotels } from "@/services/HotelService";
 
 class Hotel {
@@ -32,12 +46,27 @@ class Hotel {
   }
 }
 
+class Address {
+  constructor(id = "", data = "", zipCode = "", cityId = "") {
+    this.id = id;
+    this.data = data;
+    this.zipCode = zipCode;
+    this.cityId = cityId
+  }
+}
+
 export default {
   data() {
     return {
       hotel: new Hotel(),
       hotels: [],
-      hotelSelect:[]
+      hotelSelect:[],
+      selectTour: "",
+      selectTourValue: "",
+      addresses:[],
+      selectedAddresses:[],
+      cities:[],
+      s:new Address()
     };
   },
   created() {
@@ -49,6 +78,33 @@ export default {
       this.hotels.forEach(hotelito => {
         this.hotelSelect.push(hotelito.name);
       })
+    },
+    async getAddresses() {
+      this.addresses = [];
+      this.addresses = await getAllAddresses();
+      this.addresses.filter(address => {
+
+        this.hotels.forEach(h =>{
+          if(h.name == this.selectTour){
+            this.selectTourValue = h;
+          }
+        });
+
+        
+        if(address.id == this.selectTourValue.address.id){
+          this.selectedAddresses.push(address);
+        }
+
+      })
+      //console.log
+      this.selectedAddresses
+      this.selectedAddresses.forEach(address => {
+        const g = getCityID(address.cityId);
+        setTimeout(() => "", 4000);
+        console.log(g);
+        this.cities.push(g);
+      })
+
     },
   },
 };

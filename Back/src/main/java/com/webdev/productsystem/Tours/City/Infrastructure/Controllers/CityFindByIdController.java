@@ -14,6 +14,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/city")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET})
 public class CityFindByIdController {
     @Autowired
     private FindCityById finder;

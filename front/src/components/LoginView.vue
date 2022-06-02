@@ -75,14 +75,8 @@
     methods: {
       validate () {
         const body = {
-  "id": "e692bcf8-4e50-45e0-9d27-4c1ccafc1f86",
-  "email": "test@gmail.com",
-    "password": "Password123$*",
-  "name": "Usuarios",
-  "lastName": "Pruebas",
-  "birthday": "11/11/2000",
-  "gender": "Indefinido"
-};
+          "name": this.email,
+          "password": this.password};
         logIn(body);
       },
       registrar(){
