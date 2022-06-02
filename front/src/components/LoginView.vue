@@ -38,7 +38,7 @@
 
     <v-btn
       color="warning"
-      @click="registrar"
+      @click= "registrar()"
     >
       Registrar nuevo usuario
     </v-btn>
@@ -47,6 +47,7 @@
 </template>
 <script>
   import { logIn } from "@/services/LoginService";
+ 
 
   export default {
     data () {
@@ -84,7 +85,11 @@
 };
         logIn(body);
       },
-    }
+      registrar(){
+            this.$router.push('/registro'); 
+      }
+    },
+    
 
   }
   
