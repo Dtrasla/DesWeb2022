@@ -33,6 +33,8 @@ export default {
     <SidebarLink to="/friends" icon="fas fa-users">Historial</SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">Configuraciones</SidebarLink>
     <SidebarLink to="/divis" icon="fas fa-image">Vista</SidebarLink>
+    <SidebarLink to="/registro" icon="fas fa-image">Registro</SidebarLink>
+
 
 
     <span
