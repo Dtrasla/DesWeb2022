@@ -37,6 +37,7 @@ public class UserCreateController {
 
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody UserCreatorRequest request) {
         creator.execute(request.getId(), request.getEmail(), request.getPassword(), request.getName(), request.getLastName(), request.getBirthday(), request.getGender());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
