@@ -32,6 +32,7 @@ public class TouristicLocationCreateController {
             @ApiResponse(responseCode = "409", description = "Touristic location already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody com.webdev.productsystem.Tours.TouristicLocation.Infrastructure.Controllers.TouristicLocationCreateController.TouristicLocationCreatorRequest request) {
         creator.execute(request.getId(), request.getName(), request.getTourId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);

@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,7 @@ public class TouristicLocationFindAllController {
     @Operation(summary = "Get all the touristic locations", description = "Find all the touristic locations stored in the system", tags = {"TouristicLocation"})
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Touristic Location found") })
     @GetMapping(value = "/all")
+    @CrossOrigin("*")
     public ResponseEntity<List<HashMap<String, Object>>> execute() {
         return ResponseEntity.status(HttpStatus.OK).body(new TouristicLocationFindAllResponse(all.execute()).response());
     }
