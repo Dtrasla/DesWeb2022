@@ -43,7 +43,7 @@
         </div>
 
         <div class="aceptar">
-            <v-btn elevation="2" large outlined> Aceptar </v-btn>
+            <v-btn elevation="2" large outlined @click="validate"> Aceptar </v-btn>
 
         </div>
 
@@ -60,11 +60,34 @@
 
 
 <script>
+import { createUser } from '@/services/UserService';
+
 export default {
     data() {
         return {
             picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            nombre:"",
+            apellido:"",
+            correo:"",
+            cumple:"",
+            genero:"",
+            codigoPais:"",
+            numero:"",
         }
+    },methods: {
+      validate () {
+        const body = {
+            "id": "c563e71b-4609-4fa7-bb06-6225f5f0362a",
+            "email": this.correo,
+            "password": this.apellido,
+            "name": this.nombre,
+            "lastName": this.apellido,
+            "birthday": this.cumple,
+            "gender": this.genero
+          };
+        createUser(body);
+        this.$router.push('/registro'); 
+      }
     },
 }
 </script>

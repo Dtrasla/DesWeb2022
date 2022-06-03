@@ -75,7 +75,7 @@
     methods: {
       validate () {
         const body = {
-          "name": this.email,
+          "email": this.email,
           "password": this.password};
         logIn(body);
       },
