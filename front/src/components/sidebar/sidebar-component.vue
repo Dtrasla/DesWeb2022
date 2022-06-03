@@ -23,20 +23,15 @@ export default {
         <div>O</div>
       </span>
       <span v-else>TRIVAGO
-        <img  src="@/assets/logo.png">
       </span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
     <SidebarLink to="/tour" icon="fas fa-columns">Tours</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Mis reservas</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Historial</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Configuraciones</SidebarLink>
-    <SidebarLink to="/divis" icon="fas fa-image">Vista</SidebarLink>
+    <SidebarLink to="/divis" icon="fas fa-chart-bar">Vista</SidebarLink>
     <SidebarLink to="/registro" icon="fas fa-image">Registro</SidebarLink>
-    <SidebarLink to="/login" icon="fas fa-image">Inicio sesion</SidebarLink>
-    <SidebarLink to="/buscarTour" icon="fas fa-image">Buscar Tour</SidebarLink>
-
+    <SidebarLink to="/login" icon="fas fa-users">Inicio sesion</SidebarLink>
+    <SidebarLink to="/buscarTour" ><font-awesome-icon icon="fa-thin fa-magnifying-glass-location" />Buscar Tour</SidebarLink>
 
     <span
       class="collapse-icon"
@@ -72,7 +67,7 @@ export default {
   flex-direction: column;
 }
 .sidebar h1 {
-  height: 8.5em;
+  height: 10.5em;
 }
 .collapse-icon {
   position: absolute;

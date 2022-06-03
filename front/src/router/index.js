@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: '/buscarTour',
-    name: 'log-in',
+    name: 'buscaTour',
     component: () => import('../components/BusquedaToures.vue')
   }
 ]

@@ -1,6 +1,6 @@
 import axios from "./Axios";
 
-export const getCityID = async (id) => {
-    const response = await axios.get("/city/" + id);
+export const getCityID = async () => {
+    const response = await axios.get("/city/all");
     return response.data;
 }

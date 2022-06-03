@@ -1,6 +1,7 @@
 <template>
+  <h1>Touristic Locations 🗺️</h1>
   <div class="tour-formulario">
-    <h1>Tours 🗺️</h1>
+    <h1>Tours</h1>
   </div>
   <div>
     <v-row align="center">
@@ -29,7 +30,6 @@
     >
       Buscar
   </v-btn>
-  <img src="@/assets/Screenshot_2.png"/>
 
 </template>
 
@@ -96,13 +96,13 @@ export default {
         }
 
       })
-      //console.log
-      this.selectedAddresses
+      console.log(this.selectedAddresses);
+      
       this.selectedAddresses.forEach(address => {
-        const g = getCityID(address.cityId);
-        setTimeout(() => "", 4000);
+        
+        console.log(address);
+        var g = getCityID();
         console.log(g);
-        this.cities.push(g);
       })
 
     },

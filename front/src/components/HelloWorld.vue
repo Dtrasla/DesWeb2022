@@ -1,12 +1,8 @@
 <template>
-  <v-row align="center">
-    <v-col cols="12">
-      <v-select
-        :items="items"
-        disableds
-      ></v-select>
-    </v-col>
-  </v-row>
+  <div>
+    <h1>BIENVENIDOS A TRIVAGO TOUR (TT)</h1>
+    <h3>En trivago nos preocupamos porque tengas la mejor experiencia en uno de nuestros toures</h3>
+  </div>
 </template>
 
 <script>
