@@ -32,6 +32,7 @@ public class PhoneCreateController {
 
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody PhoneCreatorRequest request) {
         creator.execute(request.getId(), request.getCountryCode(), request.getNumber(), request.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
