@@ -29,6 +29,7 @@ public class HotelUpdateController {
             @ApiResponse(responseCode = "404", description = "Hotel not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @PutMapping(value = "/update/{hotelId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "hotelId") String id, @RequestBody HotelUpdaterRequest request) {
         nameUpdater.execute(id, request.name);
         return ResponseEntity.status(HttpStatus.OK).body(null);

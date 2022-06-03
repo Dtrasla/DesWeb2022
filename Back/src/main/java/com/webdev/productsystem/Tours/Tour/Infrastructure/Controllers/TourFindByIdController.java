@@ -32,6 +32,7 @@ public class TourFindByIdController {
             @ApiResponse(responseCode = "404", description = "Tour not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{tourId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "tourId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

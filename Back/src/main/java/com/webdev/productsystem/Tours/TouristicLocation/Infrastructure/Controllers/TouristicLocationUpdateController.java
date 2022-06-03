@@ -29,6 +29,7 @@ public class TouristicLocationUpdateController {
             @ApiResponse(responseCode = "404", description = "Touristic Location not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @PutMapping(value = "/update/{touristicLocationId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "touristicLocationId") String id, @RequestBody com.webdev.productsystem.Tours.TouristicLocation.Infrastructure.Controllers.TouristicLocationUpdateController.TouristicLocationRequest request) {
         nameUpdater.execute(id, request.name);
         return ResponseEntity.status(HttpStatus.OK).body(null);

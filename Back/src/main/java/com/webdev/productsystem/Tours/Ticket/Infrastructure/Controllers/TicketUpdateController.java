@@ -25,6 +25,7 @@ public class TicketUpdateController {
     private UpdateTicketGate gateUpdater;
 
     @PutMapping(value = "/")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody TicketUpdateRequest request){
         dateUpdater.execute(request.ticketId, request.date);
         seatUpdater.execute(request.ticketId, request.seat);

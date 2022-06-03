@@ -33,6 +33,7 @@ public class TourUpdateController {
             @ApiResponse(responseCode = "404", description = "Tour not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @PutMapping(value = "/update/{tourId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "tourId") String id, @RequestBody TourUpdateController.TourUpdaterRequest request) {
         nameUpdater.execute(id, request.name);
         dateUpdater.execute(id, request.date);

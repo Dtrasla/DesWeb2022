@@ -29,6 +29,7 @@ public class TouristicLocationFindByIdController {
             @ApiResponse(responseCode = "404", description = "touristic location not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{touristicLocationId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "touristicLocationId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

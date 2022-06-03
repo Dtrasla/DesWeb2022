@@ -29,6 +29,7 @@ public class AddressDeleteController {
             @ApiResponse(responseCode = "404", description = "Address not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @DeleteMapping(value = "/delete/{addressId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "addressId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

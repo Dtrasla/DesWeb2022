@@ -26,6 +26,7 @@ public class PhoneUpdateController {
 
     @Operation(summary = "Update an existing phone", description = "Update Phone", tags = {"Phone"})
     @PutMapping(value = "/")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody PhoneUpdateRequest request){
         countryCodeUpdate.execute(request.Id, request.countryCode);
         numberUpdate.execute(request.Id, request.number);

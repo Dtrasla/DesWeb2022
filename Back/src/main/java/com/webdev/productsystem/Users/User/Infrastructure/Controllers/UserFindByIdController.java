@@ -29,6 +29,7 @@ public class UserFindByIdController {
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @GetMapping("/{userId}")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@PathVariable(value = "userId") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(finder.execute(id).data());
     }

@@ -32,6 +32,7 @@ public class UserLoginController {
             @ApiResponse(responseCode = "401", description = "Unauthorized user", content = @Content(schema = @Schema(implementation = TicketErrorSchema.class))),
     })
     @PostMapping(value = "/login")
+    @CrossOrigin("*")
     public ResponseEntity<HashMap<String, Object>> execute(@RequestBody UserLoginRequest request) {
         UserLoginResponse response = login.execute(request.getEmail(), request.getPassword());
         return ResponseEntity.status(HttpStatus.OK).body(response.response());

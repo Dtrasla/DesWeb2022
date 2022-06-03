@@ -32,6 +32,7 @@ public class TourCreateController {
             @ApiResponse(responseCode = "409", description = "Tour already exists", content = @Content(schema = @Schema(implementation = ErrorSchema.class)))
     })
     @PostMapping(value = "/create")
+    @CrossOrigin("*")
     public ResponseEntity execute(@RequestBody TourCreatorRequest request) {
         creator.execute(request.getId(), request.getName(), request.getDate());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);

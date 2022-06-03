@@ -31,8 +31,8 @@ public class TicketDeleteController {
             @ApiResponse(responseCode = "404", description= "Ticket not found"),
 
     })
-
     @DeleteMapping(value = "/delete/{ticketId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "ticketId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

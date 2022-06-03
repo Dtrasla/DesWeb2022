@@ -28,6 +28,7 @@ public class PhoneDeleteController {
 
     })
     @DeleteMapping(value = "/delete/{phoneId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "phoneId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

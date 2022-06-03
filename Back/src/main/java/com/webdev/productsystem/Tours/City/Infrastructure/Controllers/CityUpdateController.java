@@ -37,6 +37,7 @@ public class CityUpdateController {
             @ApiResponse(responseCode = "404", description = "City not found", content = @Content(schema = @Schema(implementation = ErrorSchema.class))),
     })
     @PutMapping(value = "/update/{cityId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable (value = "cityId") String id, @RequestBody CityCreatorRequest request) {
         cityNameUpdater.execute(id, request.name);
         cityCountryUpdater.execute(id, request.country);

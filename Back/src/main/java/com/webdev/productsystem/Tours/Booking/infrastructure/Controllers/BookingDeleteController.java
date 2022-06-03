@@ -32,6 +32,7 @@ public class BookingDeleteController {
 
     })
     @DeleteMapping(value = "/delete/{BookingId}")
+    @CrossOrigin("*")
     public ResponseEntity execute(@PathVariable(value = "BookingId") String id) {
         remover.execute(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

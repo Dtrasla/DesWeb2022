@@ -19,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/hotel")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET})
 @Tag(name = "Hotel", description = "Hotel REST API")
 public class HotelFindAllController {
     @Autowired
@@ -28,6 +27,7 @@ public class HotelFindAllController {
     @Operation(summary = "Get all the hotels", description = "Find all the hotels stored in the system", tags = {"Hotel"})
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Hotels found") })
     @GetMapping(value = "/all")
+    @CrossOrigin("*")
     public ResponseEntity<List<HashMap<String, Object>>> execute() {
         return ResponseEntity.status(HttpStatus.OK).body(new HotelFindAllResponse(all.execute()).response());
     }
